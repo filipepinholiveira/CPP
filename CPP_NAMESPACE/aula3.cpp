@@ -15,7 +15,7 @@ namespace Filipe
 {
     // usar :: ou std:: ou string estando ja using namespace acima é o mesmo
     string teste = "Jaquim";
-    ::string vidas = "1000000000";
+    std::string vidas = "1000000000";
     string tiros = "2000000000";
     ::string life = "3000000000";
 }
