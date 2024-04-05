@@ -26,10 +26,10 @@ int main ()
                 std::cout << "Introduzao seu número de sócio: \n";
                 std::cin >> numero_socio;
                 std::cout << "Obrigado. Numero " << numero_socio << " validado.\n";
-                system ("ls -l");
+                system ("echo Porto é o maior");
                 break;
             case 2:
-                std::cout << "Área reservada a associados\n";
+                std::cout << "Lamentamos, " << Nome << ", esta área é reservada a associados\n";
                 break;
         }
         break;
@@ -45,10 +45,10 @@ int main ()
                 std::cout << "Introduzao seu número de sócio: \n";
                 std::cin >> numero_socio;
                 std::cout << "Obrigado. Numero " << numero_socio << " validado.\n";
-                system ("ls -l");
+                system ("echo Porto é o maior");
                 break;
             case 4:
-                std::cout << "Área reservada a associados\n";
+                std::cout << "Lamentamos, " << Nome << ", esta área é reservada a associados\n";
                 break;
         }
         break;
@@ -64,10 +64,10 @@ int main ()
             std::cout << "Introduzao seu número de sócio: \n";
             std::cin >> numero_socio;
             std::cout << "Obrigado. Numero " << numero_socio << " validado.\n";
-            system ("ls -l");
+            system ("echo Porto é o maior");
             break;
         case 6:
-            std::cout << "Área reservada a associados\n";
+            std::cout << "Lamentamos, " << Nome << ", esta área é reservada a associados\n";
             break;
         }
         break;
