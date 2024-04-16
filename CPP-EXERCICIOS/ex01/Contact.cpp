@@ -22,6 +22,10 @@ void    Contact::setContact(std::string name, std::string lastName, std::string 
     _nickName = nickName;
     _phoneNumber = phoneNumber;
     _darkestSecret = darkestSecret;
-    return;
+}
+
+void    Contact::GetContact()
+{
+    std:: cout << " | " << _name << " | " << _lastName << " | " << _nickName << " | " << _phoneNumber << " | " << std::endl;
 }
 

@@ -22,6 +22,8 @@ public:
     ~Contact ();
 
     void    setContact(std::string name, std::string lastName, std::string nickName, std::string phoneNumber, std::string darkestSecret);
+    
+    void    GetContact();
 
 };
 

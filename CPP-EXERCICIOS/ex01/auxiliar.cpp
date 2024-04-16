@@ -3,17 +3,18 @@
 #include "PhoneBook.hpp"
 #include "auxiliares.hpp"
 
+
+// resolver -> funcao tem q alterar 
 void    getData(std::string name, std::string lastName, std::string nickName, std::string phoneNumber, std::string darkestSecret)
 {
     std::cout << "Name: " << std::endl;
-    std::cin >> name;
+    getline(std::cin, name); //std::cin >> name; 
     std::cout << "Last Name: " << std::endl;
-    std::cin >> lastName;
+    getline(std::cin, lastName); //std::cin >> lastName;
     std::cout << "Nick Name: " << std::endl;
-    std::cin >> nickName;
+    getline(std::cin, nickName); //std::cin >> nickName;
     std::cout << "Phone number: " << std::endl;
-    std::cin >> phoneNumber;
+    getline(std::cin, phoneNumber); //std::cin >> phoneNumber;
     std::cout << "Darkest Secret: " << std::endl;
-    std::cin >> darkestSecret;
-    return;
+    getline(std::cin, darkestSecret); //std::cin >> darkestSecret;
 }
