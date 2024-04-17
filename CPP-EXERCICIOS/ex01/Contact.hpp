@@ -4,6 +4,10 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <string>
+#include <iomanip>
+#include "PhoneBook.hpp"
+#include "auxiliares.hpp"
 
 class Contact
 {
@@ -23,7 +27,9 @@ public:
 
     void    setContact(std::string name, std::string lastName, std::string nickName, std::string phoneNumber, std::string darkestSecret);
     
-    void    GetContact();
+    void    getContact();
+
+    void    showInfo();
 
 };
 

@@ -1,6 +1,6 @@
 
 CC = c++
-FLAGS = -std=c++98 -Wall -Wextra -Werror
+FLAGS = -std=c++98 -g -Wall -Wextra -Werror
 RM = rm -rf
 
 
