@@ -19,7 +19,6 @@ int main(int argc, char **argv)
                 std::cout << (char)toupper(argv[i][j]);            
                 j++;
             }
-            std::cout << " ";
             i++;
         }
 

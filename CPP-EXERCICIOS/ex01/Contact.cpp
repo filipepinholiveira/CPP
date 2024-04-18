@@ -3,7 +3,7 @@
 
 Contact::Contact ()
 {
-    std::cout << "Constructor called" << std::endl;
+    //std::cout << "Constructor called" << std::endl;
     return;
 }
 
@@ -45,6 +45,10 @@ void    Contact::getContact(int index)
 
 void    Contact::showInfo()
 {
+    std::string back;
+
+
+    system ("clear");
     std::cout << std::endl;
     std::cout << "INFO:  " << std::endl;
     std::cout << std::endl;
@@ -54,5 +58,19 @@ void    Contact::showInfo()
     std::cout << "Phone number: " << _phoneNumber << std::endl;
     std::cout << "Darkest Secret: " << _darkestSecret << std::endl;
     std::cout << std::endl;
+    
+    
+
+    do
+    {
+        std::cout << "Digit EXIT to return to the list >";
+        if (std::cin.eof())
+        {
+            std::cout << "THANKS FOR USING MY AGENDA" << std::endl;
+            return;
+        }
+        getline(std::cin, back);
+    } while (back != "EXIT");
+
 }
 

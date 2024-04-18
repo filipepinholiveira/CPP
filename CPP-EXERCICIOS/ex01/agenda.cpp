@@ -5,20 +5,21 @@ int main(int argc, char **argv)
 {
     (void) argc;
     (void) argv;
+    // CONJUNTO DE ARGUMENTOS PARA RECEBEREM INFO DO UTILIZADOR
     std::string NameMain;
     std::string LastNameMain;
     std::string NickNameMain;
     std::string PhoneNumberMain;
     std::string DarkestSecretMain;
     
-    std::string choose;
-    int choice;
+    std::string choose; // ARGUMENTO QUE VAI RECEBER A ESCOLHA (1, 2 OU 3)
+    int choice; // ARGUMENTO QUE VAI RECEBER 1, 2 OU 3 ATRAVES DE ATOI(CHOOSE)
 
-    Contact list[8];
-    int i = 0;
-    int j = 0;
-    int x = 0;
-    std::string chooseContact;
+    Contact list[8]; // ARRAY DE INSTANCIAS QUE TEM QUE SER PHONEBOOK E NAO CONTACT
+    int i = 0; // PARA INCREMENTAR DE 0 A 7 E CORRER O ARRAY DE INSTANCIAS 
+    int j = 0; // PARA INCREMENTAR A LISTA DE CONTACTOS CRIADOS E MOSTRAR 
+    int x = 0; // VALOR DE INDEX CORRESPONDENTE A SELECAO DE CONTACTO DE QUEM QUEREMOS VER INFO
+    std::string chooseContact; 
     int contactNumber = 0;
     system("clear");
     printHeader();
@@ -29,7 +30,6 @@ int main(int argc, char **argv)
         std::cout << "THANKS FOR USING MY AGENDA" << std::endl;
         return (0);
     }
-
     choice = atoi(choose.c_str());
     while (!choice)
     {
@@ -80,22 +80,6 @@ int main(int argc, char **argv)
                 std::cout << "+------------+------------+------------+------------+" << std::endl;
                 if (j != 0)
                 {
-                    // do 
-                    // {
-                    //     std:: cout << "Choose client between 1 and " << j << " to show or press 0 to leave: " << std::endl;
-                    //     do
-                    //     {
-                    //         std::cin >> x;
-                    //         if (x < 0 || x > j)
-                    //         {
-                    //             std::cout << "Invalid choice" << std::endl;
-                    //             std:: cout << "Choose client between 1 and " << j << " to show or press 0 to leave: " << std::endl;
-                    //         }
-                    //     } while (x < 0 || x > j);
-                    //     if (x != 0)
-                    //         list[x - 1].showInfo();
-                    // } while (x != 0);
-
                     do 
                     {
                         std:: cout << std::endl;
@@ -116,7 +100,21 @@ int main(int argc, char **argv)
                             }
                         } while ((x < 1 || x > j) && chooseContact != "EXIT");
                         if (x != 0)
+                        {
+                            system("clear");
                             list[x - 1].showInfo();
+                            system("clear");
+                            std::cout << "+------------+------------+------------+------------+" << std::endl;
+                            std::cout << "|   Index    | First Name | Last  Name |  Nickname  |" << std::endl;
+                            std::cout << "+------------+------------+------------+------------+" << std::endl;
+                            j = 0;
+                            while (j < contactNumber)
+                            {
+                                list[j].getContact(j);
+                                j++;
+                            }
+                            std::cout << "+------------+------------+------------+------------+" << std::endl;
+                        }
                     } while (chooseContact != "EXIT");
 
                 }
