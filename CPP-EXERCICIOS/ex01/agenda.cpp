@@ -102,9 +102,14 @@ int main(int argc, char **argv)
                         std:: cout << "Choose client between 1 and " << j << " to show INFO or EXIT to leave: " << std::endl;
                         do
                         {
+                            if (std::cin.eof())
+                            {
+                                std::cout << "THANKS FOR USING MY AGENDA" << std::endl;
+                                return (0);
+                            }
                             getline(std::cin, chooseContact);
                             x = atoi(chooseContact.c_str());
-                            if ((x < 1 || x > j) && chooseContact != "EXIT")
+                            if ((x < 1 || x > j) && chooseContact != "EXIT" && !(std::cin.eof()))
                             {
                                 std::cout << "Invalid choice" << std::endl;
                                 std:: cout << "Choose client between 1 and " << j << " to show INFO or EXIT to leave: " << std::endl;
