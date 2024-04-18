@@ -5,6 +5,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
+#include <string.h>
 #include <iomanip>
 #include "PhoneBook.hpp"
 #include "auxiliares.hpp"
@@ -27,7 +28,7 @@ public:
 
     void    setContact(std::string name, std::string lastName, std::string nickName, std::string phoneNumber, std::string darkestSecret);
     
-    void    getContact();
+    void    getContact(int index);
 
     void    showInfo();
 
