@@ -30,6 +30,7 @@ int main(int argc, char **argv)
     // std::cout << "* 2 - SEARCH () *" << std::endl;
     // std::cout << "* 3 - EXIT ()   *" << std::endl;
     // std::cout << "*****************" << std::endl;
+    std::cout << "* SELECT OPTION: ";
     getline(std::cin, choose);
     if (choose.empty())
     {
@@ -50,6 +51,7 @@ int main(int argc, char **argv)
         // std::cout << "* 2 - SEARCH () *" << std::endl;
         // std::cout << "* 3 - EXIT ()   *" << std::endl;
         // std::cout << "*****************" << std::endl;
+        std::cout << "* SELECT OPTION: ";
         getline(std::cin, choose);
         choice = atoi(choose.c_str());
         if (std::cin.eof())
@@ -128,6 +130,7 @@ int main(int argc, char **argv)
             // std::cout << "* 2 - SEARCH () *" << std::endl;
             // std::cout << "* 3 - EXIT ()   *" << std::endl;
             // std::cout << "*****************" << std::endl;
+            std::cout << "* SELECT OPTION: ";
             getline(std::cin, choose);
             if (std::cin.eof())
     {
