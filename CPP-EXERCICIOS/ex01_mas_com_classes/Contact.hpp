@@ -24,7 +24,6 @@ public:
 
     PhoneBook* getList();
 
-    // void Contact::setList(PhoneBook *newList, int index, int choice);
 };
 
 

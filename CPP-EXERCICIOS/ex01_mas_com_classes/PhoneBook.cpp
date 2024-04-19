@@ -15,7 +15,13 @@ PhoneBook::~PhoneBook()
 
 void    PhoneBook::setContact(int &choice)
 {
-    while(this->_name.empty())
+    this->_name.clear();
+    this->_lastName.clear();
+    this->_nickName.clear();
+    this->_phoneNumber.clear();
+    this->_darkestSecret.clear();
+    
+    while(this->_name.empty() || isalpha(this->_name[0]))
     {   
         if (std::cin.eof())
         {
@@ -85,4 +91,35 @@ void    PhoneBook::getContact(int index)
         showPhoneNumber.resize(9);
 
     std:: cout << "| " << std::setw(10) << std::right << index + 1 << " | " << std::setw(10) << std::right << showName << " | " << std::setw(10) << std::right << showLastName << " | " << std::setw(10) << std::right << showNickName << " | " << std::endl;
+}
+
+void    PhoneBook::showInfo()
+{
+    std::string back;
+
+
+    system ("clear");
+    std::cout << std::endl;
+    std::cout << "INFO:  " << std::endl;
+    std::cout << std::endl;
+    std::cout << "Name: " << _name << std::endl;
+    std::cout << "Last Name: " << _lastName << std::endl;
+    std::cout << "Nick Name: " << _nickName << std::endl;
+    std::cout << "Phone number: " << _phoneNumber << std::endl;
+    std::cout << "Darkest Secret: " << _darkestSecret << std::endl;
+    std::cout << std::endl;
+    
+    
+
+    do
+    {
+        std::cout << "Digit EXIT to return to the list >";
+        if (std::cin.eof())
+        {
+            std::cout << "THANKS FOR USING MY AGENDA" << std::endl;
+            return;
+        }
+        getline(std::cin, back);
+    } while (back != "EXIT");
+
 }

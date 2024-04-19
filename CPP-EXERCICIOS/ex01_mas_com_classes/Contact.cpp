@@ -18,8 +18,4 @@ PhoneBook* Contact::getList()
     return List; 
 }
 
-// void Contact::setList(PhoneBook newList, int index, int choice)
-// {
-//             List[in] = newList[index].setContact(choice);
-// }
 

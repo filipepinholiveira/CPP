@@ -7,6 +7,8 @@ int main(int argc, char **argv)
     (void) argv;
     int i = 0;
     int j = 0;
+    int x = 0;
+    std::string chooseContact; 
     std::string choose; // ARGUMENTO QUE VAI RECEBER A ESCOLHA (1, 2 OU 3)
     int choice; // ARGUMENTO QUE VAI RECEBER 1, 2 OU 3 ATRAVES DE ATOI(CHOOSE)
     system("clear");
@@ -35,24 +37,31 @@ int main(int argc, char **argv)
             return (0);
         }
     }
+
+    int contactNumber = 0;
     while(choice != 3)
     {
-        int contactNumber = 0;
+        std::cout << " Choice: " << choice << std::endl;
         switch (choice)
         {
             case 1:
+            {
                 system("clear");
+                std::cout << "ENTERED CASE 1" << std::endl;
                 printHeader();
                 List = Contacts.getList();
                 List[i].setContact(choice);
                 i++;
                 if (contactNumber < 8)
                     contactNumber++;
-                if (i == 7)
+                if (i == 8)
                     i = 0;
                 break;
+            }
             case 2:
+            {
                 system("clear");
+                std::cout << "ENTERED CASE 2" << std::endl;
                 std::cout << "+------------+------------+------------+------------+" << std::endl;
                 std::cout << "|   Index    | First Name | Last  Name |  Nickname  |" << std::endl;
                 std::cout << "+------------+------------+------------+------------+" << std::endl;
@@ -63,12 +72,63 @@ int main(int argc, char **argv)
                     j++;
                 }
 
+                std::cout << "+------------+------------+------------+------------+" << std::endl;
 
+                if (j != 0)
+                {
+                    do
+                    {
+                        std:: cout << std::endl;
+                        std:: cout << "Choose client between 1 and " << j << " to show INFO or EXIT to leave: " << std::endl;
+
+                        do
+                        {
+                            if (std::cin.eof())
+                            {
+                                std::cout << "THANKS FOR USING MY AGENDA" << std::endl;
+                                return (0);
+                            }
+                            getline(std::cin, chooseContact);
+                            x = atoi(chooseContact.c_str());
+                            if ((x < 1 || x > j) && chooseContact != "EXIT" && !(std::cin.eof()))
+                            {
+                                std::cout << "Invalid choice" << std::endl;
+                                std:: cout << "Choose client between 1 and " << j << " to show INFO or EXIT to leave: " << std::endl;
+                            }
+                        } while ((x < 1 || x > j) && chooseContact != "EXIT");
+
+                        if (x != 0)
+                        {
+                            system("clear");
+                            List[x - 1].showInfo();
+                            system("clear");
+                            std::cout << "+------------+------------+------------+------------+" << std::endl;
+                            std::cout << "|   Index    | First Name | Last  Name |  Nickname  |" << std::endl;
+                            std::cout << "+------------+------------+------------+------------+" << std::endl;
+                            j = 0;
+
+                            while (j < contactNumber)
+                            {
+                                List[j].getContact(j);
+                                j++;
+                            }
+
+                            std::cout << "+------------+------------+------------+------------+" << std::endl;
+                        }
+
+                        
+                    } while (chooseContact != "EXIT");
+                    
+                }
+
+                j = 0;
                 break;
+            }
             default:
+            {
                 system("clear");
+            }
         }
-
         system("clear");
         printHeader();
         std::cout << "* SELECT OPTION: ";

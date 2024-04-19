@@ -26,6 +26,7 @@ public:
     
     void    getContact(int index);
 
+    void    showInfo();
 };
 
 
