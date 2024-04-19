@@ -19,12 +19,12 @@ private:
 
 public:
 
-
-    void    setContact(PhoneBook List, int &choice);
-
     Contact ();
     ~Contact ();
 
+    PhoneBook* getList();
+
+    // void Contact::setList(PhoneBook *newList, int index, int choice);
 };
 
 

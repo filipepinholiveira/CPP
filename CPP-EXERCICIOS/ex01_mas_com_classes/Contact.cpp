@@ -13,10 +13,13 @@ Contact::~Contact()
     return;
 }
 
-// void Contact::setList(PhoneBook List, int index)
+PhoneBook* Contact::getList()
+{ 
+    return List; 
+}
+
+// void Contact::setList(PhoneBook newList, int index, int choice)
 // {
-    
+//             List[in] = newList[index].setContact(choice);
 // }
-
-
 

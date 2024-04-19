@@ -24,6 +24,7 @@ public:
 
     void    setContact(int &choice);
     
+    void    getContact(int index);
 
 };
 

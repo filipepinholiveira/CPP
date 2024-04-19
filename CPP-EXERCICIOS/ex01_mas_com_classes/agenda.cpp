@@ -6,12 +6,14 @@ int main(int argc, char **argv)
     (void) argc;
     (void) argv;
     int i = 0;
+    int j = 0;
     std::string choose; // ARGUMENTO QUE VAI RECEBER A ESCOLHA (1, 2 OU 3)
     int choice; // ARGUMENTO QUE VAI RECEBER 1, 2 OU 3 ATRAVES DE ATOI(CHOOSE)
     system("clear");
     printHeader();
     std::cout << "* SELECT OPTION: > ";
     Contact Contacts;
+    PhoneBook* List;
 
     getline(std::cin, choose);
     if (choose.empty())
@@ -41,7 +43,8 @@ int main(int argc, char **argv)
             case 1:
                 system("clear");
                 printHeader();
-                Contacts.List[i].setContact(choice);
+                List = Contacts.getList();
+                List[i].setContact(choice);
                 i++;
                 if (contactNumber < 8)
                     contactNumber++;
@@ -53,20 +56,30 @@ int main(int argc, char **argv)
                 std::cout << "+------------+------------+------------+------------+" << std::endl;
                 std::cout << "|   Index    | First Name | Last  Name |  Nickname  |" << std::endl;
                 std::cout << "+------------+------------+------------+------------+" << std::endl;
-            break;
-        default:
-            system("clear");
+
+                while (j < contactNumber)
+                {
+                    List[j].getContact(j);
+                    j++;
+                }
+
+
+                break;
+            default:
+                system("clear");
         }
+
         system("clear");
-            printHeader();
-            std::cout << "* SELECT OPTION: ";
-            getline(std::cin, choose);
-            if (std::cin.eof())
+        printHeader();
+        std::cout << "* SELECT OPTION: ";
+        getline(std::cin, choose);
+        if (std::cin.eof())
         {
-                std::cout << "THANKS FOR USING MY AGENDA" << std::endl;
-                return (0);
+            std::cout << "THANKS FOR USING MY AGENDA" << std::endl;
+            return (0);
         }
-            choice = atoi(choose.c_str());
+        choice = atoi(choose.c_str());
     }
-    
+    std::cout << "THANKS FOR USING MY AGENDA" << std::endl;
+    return (0);
 }
