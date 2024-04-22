@@ -9,6 +9,7 @@
 #include <iomanip>
 #include "PhoneBook.hpp"
 #include "auxiliares.hpp"
+# include <cctype>
 
 class Contact
 {

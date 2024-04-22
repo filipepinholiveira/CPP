@@ -5,6 +5,7 @@
 #include "Contact.hpp"
 
 void    printHeader();
-void    choose_convert(std::string choose, int *choice);
+// void    choose_convert(std::string choose, int *choice);
+int check_isprint(std::string arg);
 
 #endif

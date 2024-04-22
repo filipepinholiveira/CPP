@@ -15,14 +15,18 @@ PhoneBook::~PhoneBook()
 
 void    PhoneBook::setContact(int &choice)
 {
+    int flag_isprint;
+    int i;
+    
     this->_name.clear();
     this->_lastName.clear();
     this->_nickName.clear();
     this->_phoneNumber.clear();
     this->_darkestSecret.clear();
     
-    while(this->_name.empty())
+    while(this->_name.empty() || !flag_isprint)
     {   
+        i = 0;
         if (std::cin.eof())
         {
             choice = 3;
@@ -30,9 +34,19 @@ void    PhoneBook::setContact(int &choice)
         }
         std::cout << "Name: " << std::endl;
         getline(std::cin, _name);
+        flag_isprint = 1;
+        while (_name[i])
+        {
+            if (isprint(_name[i]) == 0)
+            {
+                flag_isprint = 0;
+            }
+            i++;
+        }   
     }
-    while(this->_lastName.empty())
+    while(this->_lastName.empty() || !flag_isprint)
     {
+        i = 0;
         if (std::cin.eof())
         {
             choice = 3;
@@ -40,9 +54,19 @@ void    PhoneBook::setContact(int &choice)
         }
         std::cout << "Last Name: " << std::endl;
         getline(std::cin, _lastName);
+        flag_isprint = 1;
+        while (_lastName[i])
+        {
+            if (isprint(_lastName[i]) == 0)
+            {
+                flag_isprint = 0;
+            }
+            i++;
+        }   
     }
-    while (this->_nickName.empty())
+    while (this->_nickName.empty() || !flag_isprint)
     {
+        i = 0;
         if (std::cin.eof())
         {
             choice = 3;
@@ -50,9 +74,19 @@ void    PhoneBook::setContact(int &choice)
         }
         std::cout << "Nick Name: " << std::endl;
         getline(std::cin, _nickName);
+        flag_isprint = 1;
+        while (_nickName[i])
+        {
+            if (isprint(_nickName[i]) == 0)
+            {
+                flag_isprint = 0;
+            }
+            i++;
+        }   
     }
-    while (this->_phoneNumber.empty())
+    while (this->_phoneNumber.empty() || !flag_isprint)
     {
+        i = 0;
         if (std::cin.eof())
         {
             choice = 3;
@@ -60,9 +94,19 @@ void    PhoneBook::setContact(int &choice)
         }
         std::cout << "Phone number: " << std::endl;
         getline(std::cin, _phoneNumber);
+        flag_isprint = 1;
+        while (_phoneNumber[i])
+        {
+            if (isprint(_phoneNumber[i]) == 0)
+            {
+                flag_isprint = 0;
+            }
+            i++;
+        }   
     }
-    while (this->_darkestSecret.empty())
+    while (this->_darkestSecret.empty() || !flag_isprint)
     {
+        i = 0;
         if (std::cin.eof())
         {
             choice = 3;
@@ -70,6 +114,15 @@ void    PhoneBook::setContact(int &choice)
         }
         std::cout << "Darkest Secret: " << std::endl;
         getline(std::cin, _darkestSecret);
+        flag_isprint = 1;
+        while (_darkestSecret[i])
+        {
+            if (isprint(_darkestSecret[i]) == 0)
+            {
+                flag_isprint = 0;
+            }
+            i++;
+        }   
     }
     return ;
 }
@@ -108,9 +161,6 @@ void    PhoneBook::showInfo()
     std::cout << "Phone number: " << _phoneNumber << std::endl;
     std::cout << "Darkest Secret: " << _darkestSecret << std::endl;
     std::cout << std::endl;
-    
-    
-
     do
     {
         std::cout << "Digit EXIT to return to the list >";
