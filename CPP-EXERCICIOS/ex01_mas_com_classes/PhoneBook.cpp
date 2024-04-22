@@ -21,7 +21,7 @@ void    PhoneBook::setContact(int &choice)
     this->_phoneNumber.clear();
     this->_darkestSecret.clear();
     
-    while(this->_name.empty() || isalpha(this->_name[0]))
+    while(this->_name.empty())
     {   
         if (std::cin.eof())
         {
