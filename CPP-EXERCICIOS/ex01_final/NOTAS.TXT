@@ -1,0 +1,13 @@
+
+
+
+TROCAR NOMES DAS CLASSES UMA PELA OUTRA
+
+
+metodo:
+
+    void    setContact(int &choice);
+    
+    void    getContact(int index);
+
+ficam na mesma em phonebook

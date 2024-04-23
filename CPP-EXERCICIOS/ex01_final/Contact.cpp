@@ -1,19 +1,19 @@
 
-#include "Contact.hpp"
+#include "Phonebook.hpp"
 
-PhoneBook::PhoneBook()
+Contact::Contact()
 {
     //std::cout << "Phonebook Constructor called" << std::endl;
     return;
 }
 
-PhoneBook::~PhoneBook()
+Contact::~Contact()
 {
     //std::cout << "Phonebook Destructor called" << std::endl;
     return;
 }
 
-void    PhoneBook::setContact(int &choice)
+void    Contact::setContact(int &choice)
 {
     int flag_isprint;
     int i;
@@ -32,7 +32,7 @@ void    PhoneBook::setContact(int &choice)
             choice = 3;
             break;
         }
-        std::cout << "Name: " << std::endl;
+        std::cout << "Name: ";
         getline(std::cin, _name);
         flag_isprint = 1;
         while (_name[i])
@@ -52,7 +52,7 @@ void    PhoneBook::setContact(int &choice)
             choice = 3;
             break;
         }
-        std::cout << "Last Name: " << std::endl;
+        std::cout << "Last Name: ";
         getline(std::cin, _lastName);
         flag_isprint = 1;
         while (_lastName[i])
@@ -72,7 +72,7 @@ void    PhoneBook::setContact(int &choice)
             choice = 3;
             break;
         }
-        std::cout << "Nick Name: " << std::endl;
+        std::cout << "Nick Name: ";
         getline(std::cin, _nickName);
         flag_isprint = 1;
         while (_nickName[i])
@@ -92,7 +92,7 @@ void    PhoneBook::setContact(int &choice)
             choice = 3;
             break;
         }
-        std::cout << "Phone number: " << std::endl;
+        std::cout << "Phone number: ";
         getline(std::cin, _phoneNumber);
         flag_isprint = 1;
         while (_phoneNumber[i])
@@ -112,7 +112,7 @@ void    PhoneBook::setContact(int &choice)
             choice = 3;
             break;
         }
-        std::cout << "Darkest Secret: " << std::endl;
+        std::cout << "Darkest Secret: ";
         getline(std::cin, _darkestSecret);
         flag_isprint = 1;
         while (_darkestSecret[i])
@@ -127,7 +127,7 @@ void    PhoneBook::setContact(int &choice)
     return ;
 }
 
-void    PhoneBook::getContact(int index)
+void    Contact::getContact(int index)
 {
     //std::cout << "| " << std::setw(10) << std::right << i + 1;
     std::string showName = _name;
@@ -158,7 +158,7 @@ void    PhoneBook::getContact(int index)
     std:: cout << "| " << std::setw(10) << std::right << index + 1 << " | " << std::setw(10) << std::right << showName << " | " << std::setw(10) << std::right << showLastName << " | " << std::setw(10) << std::right << showNickName << " | " << std::endl;
 }
 
-void    PhoneBook::showInfo()
+void    Contact::showInfo()
 {
     std::string back;
 
@@ -175,7 +175,7 @@ void    PhoneBook::showInfo()
     std::cout << std::endl;
     do
     {
-        std::cout << "Digit RETURN to return to the list >";
+        std::cout << "Digit RETURN to return to the list > ";
         if (std::cin.eof())
         {
             std::cout << "THANKS FOR USING MY AGENDA" << std::endl;
