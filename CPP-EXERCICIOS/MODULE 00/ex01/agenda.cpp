@@ -79,7 +79,7 @@ int main(int argc, char **argv)
                         do
                         {
                             std:: cout << std::endl;
-                            std:: cout << "Choose client INDEX to show INFO or digit RETURN to leave: ";
+                            std:: cout << "Choose client INDEX to show INFO or digit RETURN to get back to menu: ";
 
                             do
                             {
@@ -93,7 +93,7 @@ int main(int argc, char **argv)
                                 if ((x < 1 || x > j) && chooseContact != "RETURN" && !(std::cin.eof()))
                                 {
                                     std::cout << "Invalid choice" << std::endl;
-                                    std:: cout << "Choose client INDEX to show INFO or digit RETURN to leave: ";
+                                    std:: cout << "Choose client INDEX to show INFO or digit RETURN to get back to menu: ";
                                 }
                             } while ((x < 1 || x > j) && chooseContact != "RETURN");
 

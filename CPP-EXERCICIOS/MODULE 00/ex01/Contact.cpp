@@ -16,6 +16,7 @@ Contact::~Contact()
 void    Contact::setContact(int &choice)
 {
     int flag_isprint;
+    int flag_isspace;
     int i;
     
     this->_name.clear();
@@ -24,7 +25,7 @@ void    Contact::setContact(int &choice)
     this->_phoneNumber.clear();
     this->_darkestSecret.clear();
     
-    while(this->_name.empty() || !flag_isprint)
+    while(this->_name.empty() || !flag_isprint || !flag_isspace)
     {   
         i = 0;
         if (std::cin.eof())
@@ -35,16 +36,17 @@ void    Contact::setContact(int &choice)
         std::cout << "Name: ";
         getline(std::cin, _name);
         flag_isprint = 1;
+        flag_isspace = 0;
         while (_name[i])
         {
             if (isprint(_name[i]) == 0)
-            {
                 flag_isprint = 0;
-            }
+            if (isspace(_name[i]) == 0)
+                flag_isspace = 1;
             i++;
         }   
     }
-    while(this->_lastName.empty() || !flag_isprint)
+    while(this->_lastName.empty() || !flag_isprint || !flag_isspace)
     {
         i = 0;
         if (std::cin.eof())
@@ -55,16 +57,17 @@ void    Contact::setContact(int &choice)
         std::cout << "Last Name: ";
         getline(std::cin, _lastName);
         flag_isprint = 1;
+        flag_isspace = 0;
         while (_lastName[i])
         {
             if (isprint(_lastName[i]) == 0)
-            {
                 flag_isprint = 0;
-            }
+            if (isspace(_lastName[i]) == 0)
+                flag_isspace = 1;
             i++;
         }   
     }
-    while (this->_nickName.empty() || !flag_isprint)
+    while (this->_nickName.empty() || !flag_isprint || !flag_isspace)
     {
         i = 0;
         if (std::cin.eof())
@@ -75,16 +78,17 @@ void    Contact::setContact(int &choice)
         std::cout << "Nick Name: ";
         getline(std::cin, _nickName);
         flag_isprint = 1;
+        flag_isspace = 0;
         while (_nickName[i])
         {
             if (isprint(_nickName[i]) == 0)
-            {
                 flag_isprint = 0;
-            }
+            if (isspace(_nickName[i]) == 0)
+                flag_isspace = 1;
             i++;
         }   
     }
-    while (this->_phoneNumber.empty() || !flag_isprint)
+    while (this->_phoneNumber.empty() || !flag_isprint || !flag_isspace)
     {
         i = 0;
         if (std::cin.eof())
@@ -95,16 +99,17 @@ void    Contact::setContact(int &choice)
         std::cout << "Phone number: ";
         getline(std::cin, _phoneNumber);
         flag_isprint = 1;
+        flag_isspace = 0;
         while (_phoneNumber[i])
         {
             if (isprint(_phoneNumber[i]) == 0)
-            {
                 flag_isprint = 0;
-            }
+            if (isspace(_phoneNumber[i]) == 0)
+                flag_isspace = 1;
             i++;
         }   
     }
-    while (this->_darkestSecret.empty() || !flag_isprint)
+    while (this->_darkestSecret.empty() || !flag_isprint || !flag_isspace)
     {
         i = 0;
         if (std::cin.eof())
@@ -115,12 +120,13 @@ void    Contact::setContact(int &choice)
         std::cout << "Darkest Secret: ";
         getline(std::cin, _darkestSecret);
         flag_isprint = 1;
+        flag_isspace = 0;
         while (_darkestSecret[i])
         {
             if (isprint(_darkestSecret[i]) == 0)
-            {
                 flag_isprint = 0;
-            }
+            if (isspace(_darkestSecret[i]) == 0)
+                flag_isspace = 1;
             i++;
         }   
     }
