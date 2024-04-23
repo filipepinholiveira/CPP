@@ -3,13 +3,13 @@
 
 Contact::Contact()
 {
-    //std::cout << "Phonebook Constructor called" << std::endl;
+    //std::cout << "Contact Constructor called" << std::endl;
     return;
 }
 
 Contact::~Contact()
 {
-    //std::cout << "Phonebook Destructor called" << std::endl;
+    //std::cout << "Contact Destructor called" << std::endl;
     return;
 }
 
