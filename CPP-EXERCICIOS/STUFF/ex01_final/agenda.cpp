@@ -23,6 +23,7 @@ int main(int argc, char **argv)
         if (std::cin.eof())
         {
             std::cout << std::endl;
+            std:: cout << std::endl;
             std::cout << "THANKS FOR USING MY AGENDA" << std::endl;
             return (0);
         }
@@ -84,6 +85,8 @@ int main(int argc, char **argv)
                             {
                                 if (std::cin.eof())
                                 {
+                                    std:: cout << std::endl;
+                                    std:: cout << std::endl;
                                     std::cout << "THANKS FOR USING MY AGENDA" << std::endl;
                                     return (0);
                                 }
@@ -122,13 +125,15 @@ int main(int argc, char **argv)
                         {
                             do
                             {
-                                std:: cout << std::endl;
-                                std:: cout << "Digit RETURN to leave: ";
                                 if (std::cin.eof())
                                 {
+                                    std:: cout << std::endl;
+                                    std:: cout << std::endl;
                                     std::cout << "THANKS FOR USING MY AGENDA" << std::endl;
                                     return (0);
                                 }
+                                std:: cout << std::endl;
+                                std:: cout << "Digit RETURN to leave: ";
                                 getline(std::cin, chooseContact);
                                 x = atoi(chooseContact.c_str());
                             } while (chooseContact != "RETURN");
@@ -151,6 +156,7 @@ int main(int argc, char **argv)
         if (std::cin.eof())
         {
             std::cout << std::endl;
+            std:: cout << std::endl;
             std::cout << "THANKS FOR USING MY AGENDA" << std::endl;
             return (0);
         }
@@ -163,7 +169,7 @@ int main(int argc, char **argv)
         else
             choice = 0;
     }
-    std::cout << std::endl;
+    std:: cout << std::endl;
     std::cout << "THANKS FOR USING MY AGENDA" << std::endl;
     return (0);
 }
