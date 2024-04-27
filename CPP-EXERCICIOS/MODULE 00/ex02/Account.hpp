@@ -40,10 +40,10 @@ public:
 
 private:
 
-	static int	_nbAccounts;
-	static int	_totalAmount;
-	static int	_totalNbDeposits;
-	static int	_totalNbWithdrawals;
+	static int	_nbAccounts; // têm que ser inicializadas no cpp e como sao static sao independentes
+	static int	_totalAmount; // têm que ser inicializadas no cpp e como sao static sao independentes
+	static int	_totalNbDeposits; // têm que ser inicializadas no cpp e como sao static sao independentes
+	static int	_totalNbWithdrawals; // têm que ser inicializadas no cpp e como sao static sao independentes
 
 	static void	_displayTimestamp( void );
 
