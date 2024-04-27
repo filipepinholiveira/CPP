@@ -19,10 +19,10 @@ CUT			=	\033[K
 
 all: Account.o test.o
 	@printf "\n"
-	@printf "$(GREEN)   _____    _     _   \n$(RESET)"
-	@printf "$(GREEN)  |    _| _| |_ _| |_ \n$(RESET)"
-	@printf "$(GREEN)  |   |_ |_   _|_   _|\n$(RESET)"
-	@printf "$(GREEN)  |_____|  |_|   |_|  \n$(RESET)"
+	@printf "$(GREEN)    ____ $(RED)   _     _   \n$(RESET)"
+	@printf "$(GREEN)   |  __|$(RED) _| |_ _| |_ \n$(RESET)"
+	@printf "$(GREEN)   | |__ $(RED)|_   _|_   _|\n$(RESET)"
+	@printf "$(GREEN)   |____|  $(RED)|_|   |_|  \n$(RESET)"
 	@printf "$(GREEN)                      \n$(RESET)"
 	@printf "\n"
 	@echo "$(YELLOW)Compiling Test"
