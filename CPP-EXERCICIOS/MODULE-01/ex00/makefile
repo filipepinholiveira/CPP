@@ -1,7 +1,11 @@
 
+SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+OBJ = $(SRC:.cpp=.o)
 CC = c++
 FLAGS = -std=c++98 -g -Wall -Wextra -Werror
 RM = rm -rf
+
+NAME = Zombie
 
 # controll codes
 RESET		=	\033[0m
@@ -12,7 +16,7 @@ RED			=	\033[31m
 UP			=	\033[A
 CUT			=	\033[K
 
-all: Zombie.o main.o
+all: $(NAME)
 	@printf "\n"
 	@printf "$(GREEN)    ____ $(RED)   _     _   \n$(RESET)"
 	@printf "$(GREEN)   |  __|$(RED) _| |_ _| |_ \n$(RESET)"
@@ -20,24 +24,32 @@ all: Zombie.o main.o
 	@printf "$(GREEN)   |____|  $(RED)|_|   |_|  \n$(RESET)"
 	@printf "$(GREEN)                      \n$(RESET)"
 	@printf "\n"
-	@echo "$(YELLOW)Compiling Test"
-	@$(CC) $(FLAGS) Zombie.o main.o -o Zombie
+	@echo "$(YELLOW)Compiling Zombie"
+	
+$(NAME): $(OBJ)	
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 	@echo "$(GREEN)Finished"
 
-Zombie.o: Zombie.cpp
-	@$(CC) $(FLAGS) -c Zombie.cpp -o Zombie.o
-
-main.o:
-	@$(CC) $(FLAGS) -c main.cpp -o main.o
-
-re: all
+$(OBJ): %.o: %.cpp
+	@$(CC) $(FLAGS) -c $<
 
 clean:
+	@printf "\n"
+	@printf "$(GREEN)    ____ $(RED)   _     _   \n$(RESET)"
+	@printf "$(GREEN)   |  __|$(RED) _| |_ _| |_ \n$(RESET)"
+	@printf "$(GREEN)   | |__ $(RED)|_   _|_   _|\n$(RESET)"
+	@printf "$(GREEN)   |____|  $(RED)|_|   |_|  \n$(RESET)"
+	@printf "$(GREEN)                      \n$(RESET)"
+	@printf "\n"
 	@echo "$(YELLOW) Deleting all objects"
-	@$(RM) -r Zombie.o main.o
+	@$(RM) -r $(OBJ)
 	@echo "$(GREEN)Objects deleted"
 
 fclean: clean
 	@echo "$(YELLOW) Deleting file"
-	@$(RM) -r Zombie
+	@$(RM) -r $(NAME)
 	@echo "$(GREEN) #file deleted"
+
+re: fclean $(NAME)
+
+.PHONY: all clean fclean re

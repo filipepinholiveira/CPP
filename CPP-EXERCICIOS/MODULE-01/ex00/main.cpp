@@ -1,9 +1,10 @@
 
 #include "Zombie.hpp"
 
-int main()
+int	main(void)
 {
-    Zombie teste("joaquim");
-    teste.announce();
-    return (0);
+    Zombie* First_born = newZombie("Alan");
+    First_born->announce();
+    randomChump("Bia");
+    delete First_born;
 }

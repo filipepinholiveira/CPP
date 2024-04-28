@@ -2,27 +2,26 @@
 #include "Zombie.hpp"
 
 
-//Constructor
+// simple constructor
 Zombie::Zombie()
 {
-    std::cout << "Constructor called for zombie without args" << std::endl;
+    std::cout << "Simple constructor called" << std::endl;
 }
 
+// construtor with name atribute
 Zombie::Zombie(std::string NAME_GIVEN)
 {
-    std::cout << "Constructor called for zombie " << NAME_GIVEN << std::endl; 
-    this->_Name = NAME_GIVEN;
-    
+ this->_Name = NAME_GIVEN;
 }
 
-// Destructor
+// Destructor 
 Zombie::~Zombie()
 {
-    std::cout << "Destructor called for zombie " << std::endl; 
+    std:: cout << "<" << this->_Name << "> destroied" << std::endl;
 }
 
 void    Zombie::announce(void)
 {
-    std::cout << this->_Name << "says Braaaaaainz" << std::endl;
+ std:: cout << "<" << this->_Name << "> Braaaaaaaainz" << std::endl;
 }
 
