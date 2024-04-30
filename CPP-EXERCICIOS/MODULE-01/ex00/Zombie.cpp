@@ -17,11 +17,11 @@ Zombie::Zombie(std::string NAME_GIVEN)
 // Destructor 
 Zombie::~Zombie()
 {
-    std:: cout << "<" << this->_Name << "> destroied" << std::endl;
+    std:: cout << this->_Name << ": destroied" << std::endl;
 }
 
 void    Zombie::announce(void)
 {
- std:: cout << "<" << this->_Name << "> Braaaaaaaainz" << std::endl;
+ std:: cout << this->_Name << ": Braaaaaaaainz" << std::endl;
 }
 
