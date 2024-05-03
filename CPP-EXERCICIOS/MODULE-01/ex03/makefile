@@ -6,7 +6,7 @@ CC = c++
 FLAGS = -std=c++98 -g -Wall -Wextra -Werror
 RM = rm -rf
 
-NAME = #name
+NAME = teste
 
 # controll codes
 RESET		=	\033[0m
