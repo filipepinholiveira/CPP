@@ -2,13 +2,24 @@
 #include "Weapon.hpp"
 
 // simple constructor
-HumanB::HumanB()
+HumanB::HumanB(std::string name_set) : _Name(name_set)
 {
-    std::cout << "Simple constructor called" << std::endl;
+    this->_Weapon = NULL;
+    //std::cout << "Construtor with args called" << std::endl;
 }
 
 // destructor
 HumanB::~HumanB()
 {
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
+}
+
+void    HumanB::setWeapon(Weapon *add_weapon)
+{
+    this->_Weapon = add_weapon;
+}
+
+void    HumanB::attack()
+{
+    std::cout << this->_Name << " attacks with their " << this->_Weapon->getType() << std::endl;
 }
