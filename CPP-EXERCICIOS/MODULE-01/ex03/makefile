@@ -1,6 +1,6 @@
 
 
-SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRC = main.cpp Weapon.cpp HumanA.cpp #HumanB.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 FLAGS = -std=c++98 -g -Wall -Wextra -Werror
@@ -16,6 +16,7 @@ BLUE		=	\033[34m
 RED			=	\033[31m
 UP			=	\033[A
 CUT			=	\033[K
+
 
 all: $(NAME)
 	@printf "\n"

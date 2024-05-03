@@ -17,13 +17,14 @@ private:
 public:
 
     // constructor with args
-    Weapon(std::string &name);
+    Weapon(std::string name);
 
     // destructor
     ~Weapon();
 
     // Methods
-    
+    std::string getType() const;
+    void        setType(std::string new_type);
 
 };
 

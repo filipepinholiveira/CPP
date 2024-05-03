@@ -10,7 +10,7 @@
 #include <string.h>
 #include <iomanip>
 #include "Contact.hpp"
-#include "auxiliares.hpp"
+#include "Auxiliares.hpp"
 # include <cctype>
 
 class Phonebook

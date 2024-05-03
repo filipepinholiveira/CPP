@@ -2,7 +2,8 @@
 #ifndef HUMAN_A_H
 #define HUMAN_A_H
 
-#include "Weapon.hpp"
+
+class Weapon;
 
 class HumanA
 {
@@ -10,16 +11,20 @@ class HumanA
 
 private:
     std::string _Name;
-    Weapon &_Wepon;
+    Weapon &_Weapon;
 
 public:
 
-    // simple constructor
-    HumanA();
+    // // default constructor
+    // HumanA();
+
+    // constructor with args
+    HumanA(std::string name_set, Weapon &weapon_set);
 
     // destructor
     ~HumanA();
     
+    void    attack();
 
 };
 

@@ -17,7 +17,7 @@ CUT			=	\033[K
 
 
 
-all: Account.o test.o
+all: Account.o tests.o
 	@printf "\n"
 	@printf "$(GREEN)    ____ $(RED)   _     _   \n$(RESET)"
 	@printf "$(GREEN)   |  __|$(RED) _| |_ _| |_ \n$(RESET)"
@@ -26,20 +26,20 @@ all: Account.o test.o
 	@printf "$(GREEN)                      \n$(RESET)"
 	@printf "\n"
 	@echo "$(YELLOW)Compiling Test"
-	@$(CC) $(FLAGS) Account.o test.o -o test
+	@$(CC) $(FLAGS) Account.o tests.o -o test
 	@echo "$(GREEN)Finished"
 
 Account.o: Account.cpp
 	@$(CC) $(FLAGS) -c Account.cpp -o Account.o
 
 test.o: test.cpp
-	@$(CC) $(FLAGS) -c test.cpp -o test.o
+	@$(CC) $(FLAGS) -c tests.cpp -o tests.o
 
 re: all
 
 clean:
 	@echo "$(YELLOW) Deleting all objects"
-	@$(RM) -r Account.o test.o
+	@$(RM) -r Account.o tests.o
 	@echo "$(GREEN)Finished"
 
 fclean: clean
