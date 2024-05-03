@@ -9,7 +9,7 @@
       "stopAtEntry": false,
       "externalConsole": false,
       "cwd": "/workspaces/CPP/CPP-EXERCICIOS/MODULE-01/ex02",
-      "program": "/workspaces/CPP/CPP-EXERCICIOS/MODULE-01/ex01/zombieHorde",
+      "program": "/workspaces/CPP/CPP-EXERCICIOS/MODULE-01/ex03/teste",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
