@@ -46,7 +46,7 @@ clean:
 	@printf "\n"
 	@echo "$(YELLOW) Deleting all objects"
 	@$(RM) -r $(OBJ)
-	@echo "$(GREEN)Objects deleted"
+	@echo "$(GREEN) Objects deleted"
 
 fclean: clean
 	@echo "$(YELLOW) Deleting $(NAME)"
