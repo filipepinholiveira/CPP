@@ -10,7 +10,7 @@ int main()
 
     // std::string Ementa;
     // std::cout << "Adicione Pedido. Digite FIM para sair" << std::endl;
-    // std::ofstream file("Ementa.txt");
+    // std::ofstream file("Jesse.txt");
     // while (Ementa != "FIM")
     // {
     //     getline(std::cin, Ementa);
@@ -19,11 +19,17 @@ int main()
     // }
     // file.close();
 
+    // este exemplo serve para abrir um ficheiro e escrever
+    // o seu conteudo
+
     std::ifstream file("TESTE.txt");
     std::string Ementa;
-    while(file)
-        file >> Ementa;
+    std::cout << "Ementa: " << std::endl;
+    while (!file.eof())
+    {
+        (getline(file, Ementa));
+        std::cout << Ementa << std::endl;
+    }
     file.close();
-    std::cout << "Tu comeste " << Ementa << std::endl;
 
 }
