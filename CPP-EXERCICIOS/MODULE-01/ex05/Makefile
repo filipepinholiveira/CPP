@@ -1,12 +1,13 @@
 
 
-SRC = main.cpp
+
+SRC = main.cpp Harl.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 FLAGS = -std=c++98 -g -Wall -Wextra -Werror
 RM = rm -rf
 
-NAME = Sed
+NAME = #NAME
 
 # controll codes
 RESET		=	\033[0m
