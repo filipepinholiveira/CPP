@@ -9,7 +9,8 @@ void replaceAll(std::string &str, const std::string &search, const std::string &
     
     while ((pos = str.find(search, pos)) != std::string::npos) 
     {
-        if (pos == 0 || ((pos > 0 && str[pos - 1] == ' ') && /*(pos + new_wordLength == str.length() ||*/ str[pos + searchLength] == ' '))
+        
+        if ((pos == 0 && ((str[pos + searchLength] == '\0') || str[pos + searchLength] == ' ')) || ((pos > 0 && str[pos - 1] == ' ') && ((str[pos + searchLength] == ' ') || str[pos + searchLength] == '\0')))
         {
             str = str.substr(0, pos) + new_word + str.substr(pos + searchLength);
             pos += new_wordLength; // Avança na string de substituição
