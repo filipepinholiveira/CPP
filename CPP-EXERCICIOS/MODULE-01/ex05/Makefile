@@ -7,7 +7,7 @@ CC = c++
 FLAGS = -std=c++98 -g -Wall -Wextra -Werror
 RM = rm -rf
 
-NAME = #NAME
+NAME = Harl
 
 # controll codes
 RESET		=	\033[0m
