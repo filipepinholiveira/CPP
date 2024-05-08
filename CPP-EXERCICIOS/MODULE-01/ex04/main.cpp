@@ -9,7 +9,7 @@ void replaceAll(std::string &str, const std::string &search, const std::string &
     
     while ((pos = str.find(search, pos)) != std::string::npos) 
     {
-        if (pos == 0 || (str[pos - 1] == ' ' && (pos + new_wordLength == str.length() || str[pos + new_wordLength] == ' ')))
+        if (pos == 0 || ((pos > 0 && str[pos - 1] == ' ') && /*(pos + new_wordLength == str.length() ||*/ str[pos + searchLength] == ' '))
         {
             str = str.substr(0, pos) + new_word + str.substr(pos + searchLength);
             pos += new_wordLength; // Avança na string de substituição
@@ -18,6 +18,7 @@ void replaceAll(std::string &str, const std::string &search, const std::string &
         {
             pos += searchLength; // Avança a posição para evitar encontrar a mesma ocorrência novamente
         }
+
     }
 }
 
@@ -30,7 +31,7 @@ int main(int argc, char **argv)
         std::cout << "Invalid inputs" << std::endl;
         return 1;
     }
-
+    
     // verifica se argv[1] e ficheiro valido
     std::ifstream file1(argv[1]);
     if (!file1) 
