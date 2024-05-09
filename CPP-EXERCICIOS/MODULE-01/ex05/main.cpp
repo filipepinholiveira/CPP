@@ -4,10 +4,13 @@
 int main()
 {
     Harl filipe;
-    std::string Compplain_type;
 
-    std::cout << "Enter complain (DEBUG, INFO, WARNING, ERROR) ==> ";
-    std::getline(std::cin, Compplain_type);
-    filipe.complain(Compplain_type);
+    filipe.complain("DEBUG");
+    // filipe.complain("INFO");
+    // filipe.complain("WARNING");
+    // filipe.complain("ERROR");
+    // filipe.complain("");
+    // filipe.complain(" ");
+
     return 0;
 }

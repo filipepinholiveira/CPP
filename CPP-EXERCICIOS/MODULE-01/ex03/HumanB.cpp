@@ -16,10 +16,13 @@ HumanB::~HumanB()
 
 void    HumanB::setWeapon(Weapon *add_weapon)
 {
-    this->_Weapon = add_weapon;
+        if(add_weapon)
+            this->_Weapon = add_weapon;
+
 }
 
 void    HumanB::attack()
 {
-    std::cout << this->_Name << " attacks with their " << this->_Weapon->getType() << std::endl;
+    if(this->_Weapon)
+     std::cout << this->_Name << " attacks with their " << this->_Weapon->getType() << std::endl;
 }

@@ -3,7 +3,7 @@
 
 int main()
 {
-    std::string name;
+    std::string name = "NUNO";
     Zombie *array = zombieHorde(5, name);
     
     delete []array;

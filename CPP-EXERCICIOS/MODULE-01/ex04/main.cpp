@@ -9,17 +9,16 @@ void replaceAll(std::string &str, const std::string &search, const std::string &
     
     while ((pos = str.find(search, pos)) != std::string::npos) 
     {
-        
-        if ((pos == 0 && ((str[pos + searchLength] == '\0') || str[pos + searchLength] == ' ')) || ((pos > 0 && str[pos - 1] == ' ') && ((str[pos + searchLength] == ' ') || str[pos + searchLength] == '\0')))
-        {
+        // a parte comentada serve para se quiser apenas a palavra e nao qq ocorrencia onde exista a palavra
+        // if ((pos == 0 && ((str[pos + searchLength] == '\0') || str[pos + searchLength] == ' ')) || ((pos > 0 && str[pos - 1] == ' ') && ((str[pos + searchLength] == ' ') || str[pos + searchLength] == '\0')))
+        // {
             str = str.substr(0, pos) + new_word + str.substr(pos + searchLength);
             pos += new_wordLength; // Avança na string de substituição
-        }
-        else
-        {
-            pos += searchLength; // Avança a posição para evitar encontrar a mesma ocorrência novamente
-        }
-
+        // }
+        // else
+        // {
+        //     pos += searchLength; // Avança a posição para evitar encontrar a mesma ocorrência novamente
+        // }
     }
 }
 
