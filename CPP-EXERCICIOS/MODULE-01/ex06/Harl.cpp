@@ -46,15 +46,15 @@ void Harl::complain(std::string level)
     for (int i = 0; i < 4; i++)
     {
         if (cases[i] == level)
-            
-        {
-            ptrToMethod = array[i];
-            if (ptrToMethod != NULL)
+            for (int j = i; j < 4; j++)
+            {
+                ptrToMethod = array[j];
+                if (ptrToMethod != NULL)
                 {
-                    std::cout << "[ " << level << " ]" << std::endl;
+                    std::cout << "[ " << cases[j] << " ]" << std::endl;
                     (this->*ptrToMethod)();
                 }
-        }
+            }
     }
     if (!ptrToMethod || level.empty())
     {
