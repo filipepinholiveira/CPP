@@ -7,6 +7,7 @@
 #include "HumanB.hpp"
 
 
+
 class Weapon
 {
     

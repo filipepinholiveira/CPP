@@ -14,7 +14,7 @@ Zombie* zombieHorde( int N, std::string name )
         // }
         horde[index] = Zombie(name);
         horde[index].announce();
-        name.clear();
+        //name.clear();
     }
 
     return (horde);

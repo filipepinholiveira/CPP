@@ -16,7 +16,6 @@ HumanB::~HumanB()
 
 void    HumanB::setWeapon(Weapon &add_weapon)
 {
-        //if(&add_weapon)
             this->_Weapon = &add_weapon;
 
 }

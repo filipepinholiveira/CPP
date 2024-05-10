@@ -25,8 +25,11 @@ void replaceAll(std::string &str, const std::string &search, const std::string &
 int main(int argc, char **argv)
 {   
     std::string original;
+    std::string s1 = argv[2];
+    std::string s2 = argv[3];
+
     // verifica se tem o numero de args valido
-    if (argc != 4)
+    if (argc != 4 || s1.empty() || s2.empty())
     {
         std::cout << "Invalid inputs" << std::endl;
         return 1;
