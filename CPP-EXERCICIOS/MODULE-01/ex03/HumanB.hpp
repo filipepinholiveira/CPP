@@ -21,7 +21,7 @@ public:
     // destructor
     ~HumanB();
 
-    void    setWeapon(Weapon *add_weapon);
+    void    setWeapon(Weapon &add_weapon);
     void    attack();
 
 };

@@ -14,10 +14,10 @@ HumanB::~HumanB()
     //std::cout << "Destructor called" << std::endl;
 }
 
-void    HumanB::setWeapon(Weapon *add_weapon)
+void    HumanB::setWeapon(Weapon &add_weapon)
 {
-        if(add_weapon)
-            this->_Weapon = add_weapon;
+        //if(&add_weapon)
+            this->_Weapon = &add_weapon;
 
 }
 
