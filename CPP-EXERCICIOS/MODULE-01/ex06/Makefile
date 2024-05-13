@@ -18,7 +18,6 @@ RED			=	\033[31m
 UP			=	\033[A
 CUT			=	\033[K
 
-
 all: $(NAME)
 	@printf "\n"
 	@printf "$(GREEN)    ____ $(RED)   _     _   \n$(RESET)"

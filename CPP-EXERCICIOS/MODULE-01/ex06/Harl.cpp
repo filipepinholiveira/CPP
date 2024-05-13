@@ -35,74 +35,32 @@ void Harl::error( void )
 
 void Harl::complain(std::string level)
 {
-    // Ponteiro para membro da classe para acessar métodos privados
-    void (Harl::*ptrToMethod)() = NULL;
-    // Harl *ptrToMethod = NULL;
-    int case_level;
+    int case_level = -1;
     std::string cases[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    void (Harl::*array[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-
 
     for (int i = 0; i < 4; i++)
     {
         if (cases[i] == level)
-            case_level = i + 1;
+            case_level = i;
     }
     
     switch (case_level)
     {
+    case 0:
+        Harl::debug();
+        __attribute__((fallthrough));
     case 1:
-        for (int j = 0; j < 4; j++)
-            {
-                ptrToMethod = array[j];
-                if (ptrToMethod != NULL)
-                {
-                    std::cout << "[ " << cases[j] << " ]" << std::endl;
-                    (this->*ptrToMethod)();
-                }
-            }
-        break;
+        Harl::info();
+        __attribute__((fallthrough));
     case 2:
-        for (int j = 1; j < 4; j++)
-            {
-                ptrToMethod = array[j];
-                if (ptrToMethod != NULL)
-                {
-                    std::cout << "[ " << cases[j] << " ]" << std::endl;
-                    (this->*ptrToMethod)();
-                }
-            }
-        break;
+        Harl::warning();
+        __attribute__((fallthrough));
     case 3:
-        for (int j = 2; j < 4; j++)
-            {
-                ptrToMethod = array[j];
-                if (ptrToMethod != NULL)
-                {
-                    std::cout << "[ " << cases[j] << " ]" << std::endl;
-                    (this->*ptrToMethod)();
-                }
-            }
-        break;
-    case 4:
-        for (int j = 3; j < 4; j++)
-            {
-                ptrToMethod = array[j];
-                if (ptrToMethod != NULL)
-                {
-                    std::cout << "[ " << cases[j] << " ]" << std::endl;
-                    (this->*ptrToMethod)();
-                }
-            }    
+        Harl::error();    
         break;
     
     default:
         std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-        break;
     }
-    // if (!ptrToMethod || level.empty())
-    // {
-    //     std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-    // }
 }
 
