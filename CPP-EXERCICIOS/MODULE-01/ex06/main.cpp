@@ -11,15 +11,7 @@ int main(int argc, char **argv)
     }
     else if(argc == 1)
         std::cout << "Complain needed" << std::endl;
-
     else
         std::cout << "One complain at the time" << std::endl;
-    // filipe.complain("INFO");
-    // filipe.complain("WARNING");
-    // filipe.complain("ERROR");
-    // filipe.complain("");
-    // filipe.complain(" ");
-
     return 0;
-}    // Harl *ptrToMethod = NULL;
-    //int case_level;
+}

@@ -97,12 +97,12 @@ void Harl::complain(std::string level)
         break;
     
     default:
-
+        std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
         break;
     }
-    if (!ptrToMethod || level.empty())
-    {
-        std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-    }
+    // if (!ptrToMethod || level.empty())
+    // {
+    //     std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+    // }
 }
 
