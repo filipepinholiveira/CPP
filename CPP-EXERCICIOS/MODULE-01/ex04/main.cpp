@@ -25,9 +25,24 @@ void replaceAll(std::string &str, const std::string &search, const std::string &
 int main(int argc, char **argv)
 {   
     std::string original;
-    std::string s1 = argv[2];
-    std::string s2 = argv[3];
+    std::string s1;
+    std::string s2;
 
+    s1.empty();
+    s2.empty();
+    if (argc == 4)
+    {
+        s1 = argv[2];
+        s2 = argv[3];
+        if (s1.empty() || s2.empty())
+        {
+            if (s1.empty())
+                std::cout << "Word to search for in text is not valid" << std::endl;
+            if (s2.empty())
+                std::cout << "Word to be used as replace is not valid" << std::endl;
+            return 1;
+        }
+    }
     // verifica se tem o numero de args valido
     if (argc != 4 || s1.empty() || s2.empty())
     {
@@ -35,11 +50,11 @@ int main(int argc, char **argv)
         return 1;
     }
     
-    // verifica se argv[1] e ficheiro valido
+    // verifica se argv[1] e ficheiro valido e é possivel abrir
     std::ifstream file1(argv[1]);
     if (!file1) 
     {
-        std::cerr << "Erro ao abrir o arquivo de entrada." << std::endl;
+        std::cerr << "Erro ao abrir o ficheiro." << std::endl;
         return 1;
     }
 
@@ -50,7 +65,7 @@ int main(int argc, char **argv)
     // verifica se ficheiro copia foi criado com sucesso
     if (!file2) 
     {
-        std::cerr << "Erro ao criar o arquivo de saída." << std::endl;
+        std::cerr << "Erro ao criar o arquivo de substituição." << std::endl;
         return 1;
     }
 
@@ -61,7 +76,6 @@ int main(int argc, char **argv)
         {
             replaceAll(original, argv[2], argv[3]); // funcao onde substitui s1 por s2
             file2 << original << std::endl; // 
-
         }
 
     }
@@ -69,38 +83,3 @@ int main(int argc, char **argv)
     file2.close();
     return 0;
 }
-
-
-
-
-
-
-    // std::cout << firstLine << std::endl;
-    // std::cout << secondLine << std::endl;
-
-    // este exemplo serve para criar um ficheiro a partir
-    // de um imput do utilizador usando o ofstream
-
-    // std::string Ementa;
-    // std::cout << "Adicione Pedido. Digite FIM para sair" << std::endl;
-    // std::ofstream file("Jesse.txt");
-    // while (Ementa != "FIM")
-    // {
-    //     getline(std::cin, Ementa);
-    //     if (Ementa != "FIM")
-    //         file << Ementa << std::endl;
-    // }
-    // file.close();
-
-    // este exemplo serve para abrir um ficheiro e escrever
-    // o seu conteudo
-
-    // std::ifstream file("TESTE.txt");
-    // std::string Ementa;
-    // std::cout << "Ementa: " << std::endl;
-    // while (!file.eof())
-    // {
-    //     (getline(file, Ementa));
-    //     std::cout << Ementa << std::endl;
-    // }
-    // file.close();

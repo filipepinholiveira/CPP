@@ -2,6 +2,13 @@
 #include "Weapon.hpp"
 
 // simple constructor
+HumanB::HumanB()
+{
+    //std::cout << "Simple constructor called" << std::endl;
+}
+
+
+// constructor with args
 HumanB::HumanB(std::string name_set) : _Name(name_set)
 {
     this->_Weapon = NULL;

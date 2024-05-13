@@ -15,6 +15,9 @@ private:
 
 public:
 
+    // simple constructor
+    HumanB();
+
     // constructor with args
     HumanB(std::string name_set);
 
