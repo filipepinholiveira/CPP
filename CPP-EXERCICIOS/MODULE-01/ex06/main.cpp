@@ -9,8 +9,11 @@ int main(int argc, char **argv)
         std::string level = argv[1];
         filipe.complain(level);
     }
+    else if(argc == 1)
+        std::cout << "Complain needed" << std::endl;
+
     else
-        std::cout << "Invalid imput" << std::endl;
+        std::cout << "One complain at the time" << std::endl;
     // filipe.complain("INFO");
     // filipe.complain("WARNING");
     // filipe.complain("ERROR");

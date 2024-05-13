@@ -38,7 +38,7 @@ void Harl::complain(std::string level)
     // Ponteiro para membro da classe para acessar métodos privados
     void (Harl::*ptrToMethod)() = NULL;
     // Harl *ptrToMethod = NULL;
-    //int case_level;
+    int case_level;
     std::string cases[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     void (Harl::*array[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
@@ -46,7 +46,13 @@ void Harl::complain(std::string level)
     for (int i = 0; i < 4; i++)
     {
         if (cases[i] == level)
-            for (int j = i; j < 4; j++)
+            case_level = i + 1;
+    }
+    
+    switch (case_level)
+    {
+    case 1:
+        for (int j = 0; j < 4; j++)
             {
                 ptrToMethod = array[j];
                 if (ptrToMethod != NULL)
@@ -55,6 +61,44 @@ void Harl::complain(std::string level)
                     (this->*ptrToMethod)();
                 }
             }
+        break;
+    case 2:
+        for (int j = 1; j < 4; j++)
+            {
+                ptrToMethod = array[j];
+                if (ptrToMethod != NULL)
+                {
+                    std::cout << "[ " << cases[j] << " ]" << std::endl;
+                    (this->*ptrToMethod)();
+                }
+            }
+        break;
+    case 3:
+        for (int j = 2; j < 4; j++)
+            {
+                ptrToMethod = array[j];
+                if (ptrToMethod != NULL)
+                {
+                    std::cout << "[ " << cases[j] << " ]" << std::endl;
+                    (this->*ptrToMethod)();
+                }
+            }
+        break;
+    case 4:
+        for (int j = 3; j < 4; j++)
+            {
+                ptrToMethod = array[j];
+                if (ptrToMethod != NULL)
+                {
+                    std::cout << "[ " << cases[j] << " ]" << std::endl;
+                    (this->*ptrToMethod)();
+                }
+            }    
+        break;
+    
+    default:
+
+        break;
     }
     if (!ptrToMethod || level.empty())
     {

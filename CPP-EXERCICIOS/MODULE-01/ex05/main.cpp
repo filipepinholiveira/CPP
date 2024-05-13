@@ -10,13 +10,6 @@ int main(int argc, char **argv)
         filipe.complain(level);
     }
     else
-        std::cout << "Invalid imput" << std::endl;
-    // filipe.complain("INFO");
-    // filipe.complain("WARNING");
-    // filipe.complain("ERROR");
-    // filipe.complain("");
-    // filipe.complain(" ");
-
+        std::cout << "Complain needed" << std::endl;
     return 0;
-}    // Harl *ptrToMethod = NULL;
-    //int case_level;
+}

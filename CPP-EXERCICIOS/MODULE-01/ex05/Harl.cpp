@@ -56,7 +56,7 @@ void Harl::complain(std::string level)
                 }
         }
     }
-    if (!ptrToMethod || level.empty())
+    if (!ptrToMethod)
     {
         std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
     }
