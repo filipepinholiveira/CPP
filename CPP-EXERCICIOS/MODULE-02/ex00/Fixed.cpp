@@ -1,7 +1,7 @@
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(/* args */)
+Fixed::Fixed()
 {
     std::cout << "Simple constructor called" << std::endl;
 }
