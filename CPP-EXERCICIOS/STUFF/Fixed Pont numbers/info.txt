@@ -1,0 +1,80 @@
+
+Adicionar números de ponto fixo ao C++ pode ser uma tarefa interessante e útil, especialmente se você estiver trabalhando em áreas como gráficos 
+computacionais, processamento de áudio ou programação científica, onde uma precisão específica e um controle mais granular sobre os valores são necessários.
+
+Os números de ponto fixo são uma alternativa aos números de ponto flutuante, onde a posição do ponto decimal é fixa em vez de flutuar conforme em números 
+de ponto flutuante. Isso oferece uma precisão fixa e previsível, tornando-os ideais para muitas aplicações.
+
+Ao adicionar números de ponto fixo ao C++, você pode ter mais controle sobre o comportamento numérico do seu código e evitar algumas das armadilhas associadas 
+aos números de ponto flutuante, como erros de arredondamento e imprecisões.
+
+No entanto, vale ressaltar que implementar números de ponto fixo em C++ pode exigir algum esforço adicional, já que a linguagem não os inclui nativamente. 
+Você precisará definir suas próprias classes ou estruturas para representar e operar com números de ponto fixo, além de implementar as operações matemáticas 
+relevantes, como adição, subtração, multiplicação e divisão.
+
+Em resumo, adicionar números de ponto fixo ao C++ pode ser uma excelente maneira de melhorar o controle e a precisão numérica em suas aplicações, 
+mas requer um pouco mais de trabalho em comparação com o uso dos tipos numéricos padrão da linguagem.
+
+
+
+
+
+
+
+Para adicionar números de ponto fixo ao C++, você pode criar uma classe personalizada que represente esses números e implementar 
+as operações matemáticas relevantes. Aqui está um exemplo básico de como você pode começar a implementar uma classe de ponto fixo:
+
+
+#include <iostream>
+
+class FixedPoint {
+private:
+    int integerPart;    // Parte inteira do número de ponto fixo
+    int fractionalPart; // Parte fracionária do número de ponto fixo
+    int scaleFactor;    // Fator de escala para determinar a posição do ponto decimal
+
+public:
+    // Construtor
+    FixedPoint(int integer, int fractional, int scale) : integerPart(integer), fractionalPart(fractional), scaleFactor(scale) {}
+
+    // Sobrecarga do operador de saída para facilitar a exibição
+    friend std::ostream& operator<<(std::ostream& os, const FixedPoint& fp);
+
+    // Sobrecarga do operador de adição
+    FixedPoint operator+(const FixedPoint& other) const;
+
+    // Sobrecarga do operador de subtração
+    FixedPoint operator-(const FixedPoint& other) const;
+
+    // Sobrecarga do operador de multiplicação
+    FixedPoint operator*(const FixedPoint& other) const;
+
+    // Sobrecarga do operador de divisão
+    FixedPoint operator/(const FixedPoint& other) const;
+};
+
+std::ostream& operator<<(std::ostream& os, const FixedPoint& fp) {
+    os << fp.integerPart << '.' << fp.fractionalPart;
+    return os;
+}
+
+FixedPoint FixedPoint::operator+(const FixedPoint& other) const {
+    int resultInteger = integerPart + other.integerPart;
+    int resultFractional = fractionalPart + other.fractionalPart;
+    return FixedPoint(resultInteger, resultFractional, scaleFactor);
+}
+
+// Implemente as outras operações matemáticas da mesma maneira...
+
+int main() {
+    FixedPoint a(2, 50, 100); // Representa o número 2.50
+    FixedPoint b(1, 75, 100); // Representa o número 1.75
+
+    FixedPoint c = a + b; // Adição de números de ponto fixo
+    std::cout << "Resultado da adição: " << c << std::endl;
+
+    return 0;
+}
+Este é apenas um exemplo básico para começar. Você pode expandir esta classe adicionando mais funcionalidades, como suporte para 
+diferentes fatores de escala, tratamento de sobrefluxo e outras operações matemáticas. Além disso, considere utilizar tipos 
+de dados de maior precisão, como long long para armazenar partes inteiras e frações maiores.

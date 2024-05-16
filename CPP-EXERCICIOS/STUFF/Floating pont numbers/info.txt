@@ -1,0 +1,53 @@
+
+
+Funções e Bibliotecas
+A biblioteca padrão do C++ oferece funções para lidar com números de ponto flutuante, como std::round, std::ceil, std::floor para arredondamento 
+e std::numeric_limits para obter informações sobre as propriedades dos tipos numéricos.
+
+
+Exemplo: 
+
+#include <iostream>
+#include <cmath>
+
+int main() {
+    double raio = 5.5;
+    double area = M_PI * std::pow(raio, 2); // Usando a constante M_PI e a função std::pow para calcular a área
+    std::cout << "A área do círculo é: " << area << std::endl;
+    return 0;
+}
+
+
+
+
+
+
+FLOATING POINT
+
+Para representar o número 505.5543 em um formato de ponto flutuante binário, precisamos seguir os princípios do padrão IEEE-754. Aqui está um exemplo simplificado:
+
+Converter a parte inteira e a parte fracionária do número em binário:
+Parte inteira: 505 em binário é 111111001.
+Parte fracionária: 0.5543 em binário é 0.10001101101111000010101.
+Juntar as partes inteira e fracionária:
+Número em binário: 111111001.10001101101111000010101.
+Normalizar o número:
+Normalizamos o número deslocando a vírgula para a posição do bit mais à esquerda, o que nos dá: 1.1111100110001101101111000010101.
+Identificar o expoente:
+O expoente é determinado pelo número de posições que deslocamos a vírgula durante a normalização. Neste caso, deslocamos a vírgula 8 posições para a esquerda, então o expoente será 8.
+Codificar o número no formato de ponto flutuante:
+O bit de sinal será 0, indicando que o número é positivo.
+O expoente será 8, mas ajustado para o formato IEEE-754 (bias).
+A mantissa será os bits após o ponto binário, excluindo o bit implícito "1" (porque ele sempre é 1 e não precisa ser armazenado).
+Assumindo que estamos usando um formato de 32 bits (float) no padrão IEEE-754, a representação seria semelhante a:
+
+Bit de sinal: 0
+Expoente: 8 (ajustado pelo bias, por exemplo, se o bias for 127, então o expoente será 8 + 127 = 135 em binário: 10000111)
+Mantissa: 11111001100011011011110 (23 bits, excluindo o bit implícito "1")
+Portanto, a representação do número 505.5543 em um formato de ponto flutuante IEEE-754 seria:
+
+0 10000111 11111001100011011011110
+
+
+
+
