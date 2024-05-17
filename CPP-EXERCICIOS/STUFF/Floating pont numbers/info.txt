@@ -1,8 +1,8 @@
 
 
 Funções e Bibliotecas
-A biblioteca padrão do C++ oferece funções para lidar com números de ponto flutuante, como std::round, std::ceil, std::floor para arredondamento 
-e std::numeric_limits para obter informações sobre as propriedades dos tipos numéricos.
+A biblioteca padrão do C++ oferece funções para lidar com números de ponto flutuante, como std::round, std::ceil, 
+std::floor para arredondamento e std::numeric_limits para obter informações sobre as propriedades dos tipos numéricos.
 
 
 Exemplo: 

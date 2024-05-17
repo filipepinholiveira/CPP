@@ -2,7 +2,7 @@
 #include "Fixed.hpp"
 
 // Default constructor
-Fixed::Fixed() : FtxPtNbr(0) 
+Fixed::Fixed() : _FtxPtNbr(0) 
 {
     std::cout << "Default constructor called" << std::endl;
 }
@@ -22,7 +22,7 @@ Fixed::Fixed(Fixed const & src)
         std::cout << "Copy Assignment operator called" << std::endl;
         if (this != &rhs)
         {
-            this->FtxPtNbr = rhs.getRawBits();
+            this->_FtxPtNbr = rhs.getRawBits();
         }
         return (*this);
     }
@@ -38,12 +38,12 @@ Fixed::~Fixed()
 int Fixed::getRawBits() const
 {
     std::cout << "getrawbits member fuction called" << std::endl;
-    return(this->FtxPtNbr);
+    return(this->_FtxPtNbr);
 }
 
 //setters
 
 void Fixed::setRawBits( int const raw )
 {
-    this->FtxPtNbr = raw;
+    this->_FtxPtNbr = raw;
 }

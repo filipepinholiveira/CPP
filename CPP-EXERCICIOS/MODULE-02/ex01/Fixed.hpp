@@ -3,10 +3,12 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 /*
 
 • Default constructor
+• Constructor with atributes
 • Copy constructor
 • Copy assignment operator
 • Destructor
@@ -20,12 +22,17 @@ private:
     int _FtxPtNbr;
     static const int _fract_bits = 8;
 
-
 public:
     
     //• Default constructor
     Fixed();
     
+    //• Constructor with const int atributes
+    Fixed(const int FxPoint);
+
+    //• Constructor with const float atributes
+    Fixed(const float FxPoint);
+
     //• Copy constructor
     Fixed(Fixed const & src);
 
@@ -41,8 +48,15 @@ public:
     // setter
     void setRawBits( int const raw );
 
+    int toInt(void) const;
+
+    float toFloat(void) const;
+
 };
 
+
+// cout << overload
+std::ostream &operator<<(std::ostream &outputStream, const Fixed &object);
 
 
 
