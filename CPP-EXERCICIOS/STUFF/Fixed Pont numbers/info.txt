@@ -1,28 +1,35 @@
 
-Adicionar números de ponto fixo ao C++ pode ser uma tarefa interessante e útil, especialmente se você estiver trabalhando em áreas como gráficos 
-computacionais, processamento de áudio ou programação científica, onde uma precisão específica e um controle mais granular sobre os valores são necessários.
-
-Os números de ponto fixo são uma alternativa aos números de ponto flutuante, onde a posição do ponto decimal é fixa em vez de flutuar conforme em números 
-de ponto flutuante. Isso oferece uma precisão fixa e previsível, tornando-os ideais para muitas aplicações.
-
-Ao adicionar números de ponto fixo ao C++, você pode ter mais controle sobre o comportamento numérico do seu código e evitar algumas das armadilhas associadas 
-aos números de ponto flutuante, como erros de arredondamento e imprecisões.
-
-No entanto, vale ressaltar que implementar números de ponto fixo em C++ pode exigir algum esforço adicional, já que a linguagem não os inclui nativamente. 
-Você precisará definir suas próprias classes ou estruturas para representar e operar com números de ponto fixo, além de implementar as operações matemáticas 
-relevantes, como adição, subtração, multiplicação e divisão.
-
-Em resumo, adicionar números de ponto fixo ao C++ pode ser uma excelente maneira de melhorar o controle e a precisão numérica em suas aplicações, 
-mas requer um pouco mais de trabalho em comparação com o uso dos tipos numéricos padrão da linguagem.
 
 
+Adicionar números de ponto fixo ao C++ pode ser uma tarefa interessante e útil, especialmente 
+se você estiver trabalhando em áreas como gráficos computacionais, processamento de áudio ou programação científica, 
+onde uma precisão específica e um controle mais granular sobre os valores são necessários.
+
+Os números de ponto fixo são uma alternativa aos números de ponto flutuante, onde a posição do ponto decimal 
+é fixa em vez de flutuar conforme em números de ponto flutuante. Isso oferece uma precisão fixa e previsível, 
+tornando-os ideais para muitas aplicações.
+
+Ao adicionar números de ponto fixo ao C++, você pode ter mais controle sobre o comportamento numérico do seu código 
+e evitar algumas das armadilhas associadas aos números de ponto flutuante, como erros de arredondamento e imprecisões.
+
+No entanto, vale ressaltar que implementar números de ponto fixo em C++ pode exigir algum esforço adicional, 
+já que a linguagem não os inclui nativamente. 
+Você precisará definir suas próprias classes ou estruturas para representar e operar com números de ponto fixo, 
+além de implementar as operações matemáticas relevantes, como adição, subtração, multiplicação e divisão.
+
+Em resumo, adicionar números de ponto fixo ao C++ pode ser uma excelente maneira de melhorar o controle 
+e a precisão numérica em suas aplicações, mas requer um pouco mais de trabalho em comparação com o uso 
+dos tipos numéricos padrão da linguagem.
 
 
 
 
 
-Para adicionar números de ponto fixo ao C++, você pode criar uma classe personalizada que represente esses números e implementar 
-as operações matemáticas relevantes. Aqui está um exemplo básico de como você pode começar a implementar uma classe de ponto fixo:
+
+
+Para adicionar números de ponto fixo ao C++, você pode criar uma classe personalizada que represente esses 
+números e implementar as operações matemáticas relevantes. Aqui está um exemplo básico de como você pode 
+começar a implementar uma classe de ponto fixo:
 
 
 #include <iostream>
@@ -78,3 +85,4 @@ int main() {
 Este é apenas um exemplo básico para começar. Você pode expandir esta classe adicionando mais funcionalidades, como suporte para 
 diferentes fatores de escala, tratamento de sobrefluxo e outras operações matemáticas. Além disso, considere utilizar tipos 
 de dados de maior precisão, como long long para armazenar partes inteiras e frações maiores.
+
