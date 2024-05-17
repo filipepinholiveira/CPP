@@ -71,7 +71,7 @@ Fixed::~Fixed()
 // getters
 int Fixed::getRawBits() const
 {
-    std::cout << "getrawbits member fuction called" << std::endl;
+    //std::cout << "getrawbits member fuction called" << std::endl;
     return(this->_FtxPtNbr);
 }
 
