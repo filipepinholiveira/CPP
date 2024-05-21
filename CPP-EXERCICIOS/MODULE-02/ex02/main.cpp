@@ -55,7 +55,10 @@ int main()
     {
         std::cout << a << " <= " << b << std::endl;
         std::cout << "Bool <= a funcionar" << std::endl;
-    }
+    }Fixed d( Fixed( 5.05f ) + Fixed( 2 ) );
+    Fixed e( Fixed( 5.05f ) - Fixed( 2 ) );
+    Fixed f( Fixed( 5.05f ) * Fixed( 2 ) );
+    Fixed g( Fixed( 5.05f ) / Fixed( 2 ) );
 
 
 
