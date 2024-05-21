@@ -59,6 +59,10 @@ public:
 
     Fixed operator/(Fixed const & rhs);
 
+    Fixed & operator++();
+
+    Fixed operator++(int);
+
     //• Destructor
     ~Fixed();
 

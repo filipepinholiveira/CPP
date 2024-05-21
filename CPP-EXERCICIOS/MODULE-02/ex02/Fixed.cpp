@@ -185,6 +185,8 @@ Fixed Fixed::operator*(Fixed const & rhs)
 Fixed Fixed::operator/(Fixed const & rhs)
 {
     std::cout << "Copy Assignment operator '/' called" << std::endl;
+    if (rhs.getRawBits() == 0)
+        return 0;
     return (Fixed(this->toFloat() / rhs.toFloat()));
     
     // if (this != &rhs)
@@ -194,14 +196,23 @@ Fixed Fixed::operator/(Fixed const & rhs)
     // return (*this);
 }
 
-// int Fixed::operator+(Fixed const & rhs)
-// {
-//     std::cout << "Copy Assignment operator + called" << std::endl;
-//     std::cout << "Valor 1: " << this->_FtxPtNbr << std::endl;
-//     std::cout << "Valor 2: " << this->_FtxPtNbr + rhs._FtxPtNbr << std::endl;
-//     std::cout << "Soma: " << rhs._FtxPtNbr << std::endl;
-//     return (this->_FtxPtNbr + rhs._FtxPtNbr);
-// }
+Fixed & Fixed::operator++()
+{
+    std::cout << "Copy Assignment operator ++instacia called" << std::endl;
+    ++this->_FtxPtNbr;
+    return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+    std::cout << "Copy Assignment operator instacia++ int called" << std::endl;
+    Fixed temp(*this);
+    
+    ++this->_FtxPtNbr;
+    
+    return (temp);
+
+}
 
 // destructor
 Fixed::~Fixed()
