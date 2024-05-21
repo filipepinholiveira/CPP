@@ -63,6 +63,18 @@ public:
 
     Fixed operator++(int);
 
+    Fixed & operator--();
+
+    Fixed operator--(int);
+
+    static const Fixed & min(Fixed const & value1, Fixed const & value2);
+
+    static Fixed & min(Fixed & value1, Fixed & value2);
+
+    static const Fixed & max(Fixed const & value1, Fixed const & value2);
+
+    static Fixed & max(Fixed & value1, Fixed & value2);
+
     //• Destructor
     ~Fixed();
 

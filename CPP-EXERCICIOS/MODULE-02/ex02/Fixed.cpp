@@ -61,6 +61,9 @@ Fixed & Fixed::operator=(Fixed const & rhs)
     return (*this);
 }
 
+
+// overload opeeartor
+
 // • Copy assignment operator !=
 bool Fixed::operator!=(Fixed const & rhs)
 {
@@ -212,6 +215,55 @@ Fixed Fixed::operator++(int)
     
     return (temp);
 
+}
+
+Fixed & Fixed::operator--()
+{
+    std::cout << "Copy Assignment operator --instacia called" << std::endl;
+    --this->_FtxPtNbr;
+    return (*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+    std::cout << "Copy Assignment operator instacia-- int called" << std::endl;
+    Fixed temp(*this);
+    
+    --this->_FtxPtNbr;
+    
+    return (temp);
+
+}
+
+
+// methods
+
+const Fixed & Fixed::min(Fixed const & value1, Fixed const & value2)
+{
+    if (value1.getRawBits() == value2.getRawBits())
+        std::cout << "They're equal, so i'll give you the value of the second parameter" << std::endl;
+    return (value1.getRawBits() < value2.getRawBits()) ? value1 : value2;
+}
+
+Fixed & Fixed::min(Fixed & value1, Fixed & value2)
+{
+    if (value1.getRawBits() == value2.getRawBits())
+        std::cout << "They're equal, so i'll give you the value of the second parameter" << std::endl;
+    return (value1.getRawBits() < value2.getRawBits()) ? value1 : value2;
+}
+
+const Fixed & Fixed::max(Fixed const & value1, Fixed const & value2)
+{
+    if (value1.getRawBits() == value2.getRawBits())
+        std::cout << "They're equal, so i'll give you the value of the second parameter" << std::endl;
+    return (value1.getRawBits() > value2.getRawBits()) ? value1 : value2;
+}
+
+Fixed & Fixed::max(Fixed & value1, Fixed & value2)
+{
+    if (value1.getRawBits() == value2.getRawBits())
+        std::cout << "They're equal, so i'll give you the value of the second parameter" << std::endl;
+    return (value1.getRawBits() < value2.getRawBits()) ? value1 : value2;
 }
 
 // destructor
