@@ -51,13 +51,13 @@ public:
 
     bool operator<=(Fixed const & rhs);
 
-    Fixed & operator+(Fixed const & rhs);
+    Fixed operator+(Fixed const & rhs);
 
-    Fixed & operator-(Fixed const & rhs);
+    Fixed operator-(Fixed const & rhs);
 
-    Fixed & operator*(Fixed const & rhs);
+    Fixed operator*(Fixed const & rhs);
 
-    Fixed & operator/(Fixed const & rhs);
+    Fixed operator/(Fixed const & rhs);
 
     //• Destructor
     ~Fixed();

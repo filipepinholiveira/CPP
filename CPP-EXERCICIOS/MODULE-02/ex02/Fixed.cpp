@@ -144,44 +144,54 @@ bool Fixed::operator<=(Fixed const & rhs)
 }
 
 
-Fixed & Fixed::operator+(Fixed const & rhs)
+Fixed Fixed::operator+(Fixed const & rhs)
 {
     std::cout << "Copy Assignment operator '+' called" << std::endl;
-    if (this != &rhs)
-    {
-        this->_FtxPtNbr += rhs.getRawBits();
-    }
-    return (*this);
+    return (Fixed(this->toFloat() + rhs.toFloat()));
+
+    // if (this != &rhs)
+    // {
+        
+    //     this->_FtxPtNbr += rhs.getRawBits();
+            
+    // }
+    // return (*this);
 }
 
-Fixed & Fixed::operator-(Fixed const & rhs)
+Fixed Fixed::operator-(Fixed const & rhs)
 {
     std::cout << "Copy Assignment operator '-' called" << std::endl;
-    if (this != &rhs)
-    {
-        this->_FtxPtNbr -= rhs.getRawBits();
-    }
-    return (*this);
+    return (Fixed(this->toFloat() - rhs.toFloat()));
+    
+    // if (this != &rhs)
+    // {
+    //     this->_FtxPtNbr -= rhs.getRawBits();
+    // }
+    // return (*this);
 }
 
-Fixed & Fixed::operator*(Fixed const & rhs)
+Fixed Fixed::operator*(Fixed const & rhs)
 {
     std::cout << "Copy Assignment operator '*' called" << std::endl;
-    if (this != &rhs)
-    {
-        this->_FtxPtNbr *= rhs.getRawBits();
-    }
-    return (*this);
+    return (Fixed(this->toFloat() * rhs.toFloat()));
+    
+    // if (this != &rhs)
+    // {
+    //     this->_FtxPtNbr *= rhs.getRawBits();
+    // }
+    // return (*this);
 }
 
-Fixed & Fixed::operator/(Fixed const & rhs)
+Fixed Fixed::operator/(Fixed const & rhs)
 {
     std::cout << "Copy Assignment operator '/' called" << std::endl;
-    if (this != &rhs)
-    {
-        this->_FtxPtNbr /= rhs.getRawBits();
-    }
-    return (*this);
+    return (Fixed(this->toFloat() / rhs.toFloat()));
+    
+    // if (this != &rhs)
+    // {
+    //     this->_FtxPtNbr /= rhs.getRawBits();
+    // }
+    // return (*this);
 }
 
 // int Fixed::operator+(Fixed const & rhs)

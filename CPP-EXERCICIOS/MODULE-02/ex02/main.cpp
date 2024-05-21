@@ -7,10 +7,10 @@ int main()
     Fixed a(4);
     Fixed b(5);
     Fixed c(a);
-    Fixed const d( Fixed( 5.05f ) + Fixed( 2 ) );
-    Fixed const e( Fixed( 5.05f ) - Fixed( 2 ) );
-    Fixed const f( Fixed( 5.05f ) * Fixed( 2 ) );
-    Fixed const g( Fixed( 5.05f ) / Fixed( 2 ) );
+    Fixed d( Fixed( 5.05f ) + Fixed( 2 ) );
+    Fixed e( Fixed( 5.05f ) - Fixed( 2 ) );
+    Fixed f( Fixed( 5.05f ) * Fixed( 2 ) );
+    Fixed g( Fixed( 5.05f ) / Fixed( 2 ) );
     
 
     std::cout << "A: " << a << std::endl;
