@@ -1,13 +1,13 @@
 
 
 
-SRC = 
+SRC = Fixed.cpp Point.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 FLAGS = -std=c++98 -g -Wall -Wextra -Werror
 RM = rm -rf
 
-NAME = 
+NAME = Triangle
 
 # controll codes
 RESET		=	\033[0m
