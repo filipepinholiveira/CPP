@@ -23,17 +23,23 @@ public:
     //• Copy constructor
     Point(Point const &copy);
 
-    // • Copy assignment operator
-    Point &operator=(Point const &src);
-
-    // destructor
+     // destructor
     ~Point();
 
 
     // GETTERS
 
-    int get_x();
-    int get_y();
+    Fixed get_x() const;
+    Fixed get_y() const;
+
+
+    // • Copy assignment operator
+    Point &operator=(Point const &src);
+
+   
+
+
+
 };
 
 

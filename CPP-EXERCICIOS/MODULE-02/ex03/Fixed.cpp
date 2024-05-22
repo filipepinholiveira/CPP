@@ -4,7 +4,7 @@
 // Default constructor
 Fixed::Fixed() : _FtxPtNbr(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    // std::cout << "Default constructor called" << std::endl;
 }
 
 /*
@@ -20,7 +20,7 @@ Fixed::Fixed() : _FtxPtNbr(0)
 //• Constructor with const int atributes
 Fixed::Fixed(const int FxPoint)
 {
-    std::cout << "Int constructor called" << std::endl;
+    // std::cout << "Int constructor called" << std::endl;
     this->_FtxPtNbr = FxPoint * ( 1 << this->_fract_bits);
 }
 
@@ -37,14 +37,14 @@ Fixed::Fixed(const int FxPoint)
 //• Constructor with const float atributes
 Fixed::Fixed(const float FxPoint)
 {
-    std::cout << "Float constructor called" << std::endl;
+    // std::cout << "Float constructor called" << std::endl;
     this->_FtxPtNbr = roundf(FxPoint * (1 << this->_fract_bits));
 }
 
 // copy constructor
 Fixed::Fixed(Fixed const & src)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
     *this = src;
 
     return;
@@ -53,7 +53,7 @@ Fixed::Fixed(Fixed const & src)
 // • Copy assignment operator =
 Fixed & Fixed::operator=(Fixed const & rhs)
 {
-    std::cout << "Copy Assignment operator '=' called" << std::endl;
+    // std::cout << "Copy Assignment operator '=' called" << std::endl;
     if (this != &rhs)
     {
         this->_FtxPtNbr = rhs.getRawBits();
@@ -67,7 +67,7 @@ Fixed & Fixed::operator=(Fixed const & rhs)
 // • Copy assignment operator !=
 bool Fixed::operator!=(Fixed const & rhs)
 {
-    std::cout << "Copy Assignment operator '!=' called" << std::endl;
+    // std::cout << "Copy Assignment operator '!=' called" << std::endl;
     return (this->_FtxPtNbr != rhs._FtxPtNbr);
     // if (this != &rhs)
     // {
@@ -80,7 +80,7 @@ bool Fixed::operator!=(Fixed const & rhs)
 // • Copy assignment operator ==
 bool Fixed::operator==(Fixed const & rhs)
 {
-    std::cout << "Copy Assignment operator '==' called" << std::endl;
+    // std::cout << "Copy Assignment operator '==' called" << std::endl;
     return (this->_FtxPtNbr == rhs._FtxPtNbr);
     // if (this != &rhs)
     // {
@@ -93,7 +93,7 @@ bool Fixed::operator==(Fixed const & rhs)
 // • Copy assignment operator >
 bool Fixed::operator>(Fixed const & rhs)
 {
-    std::cout << "Copy Assignment operator '>' called" << std::endl;
+    // std::cout << "Copy Assignment operator '>' called" << std::endl;
     return (this->_FtxPtNbr > rhs._FtxPtNbr);
     
     // if (this != &rhs)
@@ -149,7 +149,7 @@ bool Fixed::operator<=(Fixed const & rhs)
 
 Fixed Fixed::operator+(Fixed const & rhs)
 {
-    std::cout << "Copy Assignment operator '+' called" << std::endl;
+    // std::cout << "Copy Assignment operator '+' called" << std::endl;
     return (Fixed(this->toFloat() + rhs.toFloat()));
 
     // if (this != &rhs)
@@ -163,7 +163,7 @@ Fixed Fixed::operator+(Fixed const & rhs)
 
 Fixed Fixed::operator-(Fixed const & rhs)
 {
-    std::cout << "Copy Assignment operator '-' called" << std::endl;
+    // std::cout << "Copy Assignment operator '-' called" << std::endl;
     return (Fixed(this->toFloat() - rhs.toFloat()));
     
     // if (this != &rhs)
@@ -175,7 +175,7 @@ Fixed Fixed::operator-(Fixed const & rhs)
 
 Fixed Fixed::operator*(Fixed const & rhs)
 {
-    std::cout << "Copy Assignment operator '*' called" << std::endl;
+    // std::cout << "Copy Assignment operator '*' called" << std::endl;
     return (Fixed(this->toFloat() * rhs.toFloat()));
     
     // if (this != &rhs)
@@ -208,7 +208,7 @@ Fixed & Fixed::operator++()
 
 Fixed Fixed::operator++(int)
 {
-    std::cout << "Copy Assignment operator instacia++ int called" << std::endl;
+    // std::cout << "Copy Assignment operator instacia++ int called" << std::endl;
     Fixed temp(*this);
     
     ++this->_FtxPtNbr;
@@ -219,14 +219,14 @@ Fixed Fixed::operator++(int)
 
 Fixed & Fixed::operator--()
 {
-    std::cout << "Copy Assignment operator --instacia called" << std::endl;
+    // std::cout << "Copy Assignment operator --instacia called" << std::endl;
     --this->_FtxPtNbr;
     return (*this);
 }
 
 Fixed Fixed::operator--(int)
 {
-    std::cout << "Copy Assignment operator instacia-- int called" << std::endl;
+    // std::cout << "Copy Assignment operator instacia-- int called" << std::endl;
     Fixed temp(*this);
     
     --this->_FtxPtNbr;
@@ -269,7 +269,7 @@ Fixed & Fixed::max(Fixed & value1, Fixed & value2)
 // destructor
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
 }
 
 // getters
