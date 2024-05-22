@@ -40,16 +40,16 @@ if (total_area == (area_1 + area_2 + area_3))
     {
         if (area_1 > 0 && area_2 > 0 && area_3 > 0)
         {
-            std::cout << "The point given it's inside" << std::endl;
+            std::cout << "True: The point given it's inside" << std::endl;
             return true;
         }
         else
         {
-            std::cout << "The point is in one of the egdes" << std::endl;
+            std::cout << "False: The point is in one of the egdes" << std::endl;
             return false;
         }
     }
-std::cout << "The point given is outside" << std::endl;
+std::cout << "False: The point given is outside" << std::endl;
 return false;
 
 }
