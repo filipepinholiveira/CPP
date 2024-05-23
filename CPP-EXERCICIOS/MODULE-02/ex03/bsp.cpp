@@ -1,5 +1,5 @@
 
-#include "bsp.hpp"
+#include "Point.hpp"
 
 float   myabs(float result)
 {
@@ -37,9 +37,9 @@ float area_2 = area_calc(a, point, c);
 float area_3 = area_calc(a, b, point);
 
 std::cout << "Area total: " << total_area << std::endl;
-std::cout << "A1: " << area_1 << std::endl;
-std::cout << "A2: " << area_2 << std::endl;
-std::cout << "A3: " << area_3 << std::endl;
+std::cout << "Apbc: " << area_1 << std::endl;
+std::cout << "Aapc: " << area_2 << std::endl;
+std::cout << "Aabp: " << area_3 << std::endl;
 std::cout << "Areas_sum: " << area_1 + area_2 + area_3 << std::endl;
 
 if (total_area == (area_1 + area_2 + area_3))
