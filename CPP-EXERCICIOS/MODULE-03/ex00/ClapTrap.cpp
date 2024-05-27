@@ -2,7 +2,7 @@
 #include "ClapTrap.hpp"
 
 // default constructor
-ClapTrap::ClapTrap(/* args */)
+ClapTrap::ClapTrap() : _Hit(10), _Energy(10), _Atack(0)
 {
     std::cout << "Default constructor called" << std::endl;
 }
@@ -18,6 +18,7 @@ ClapTrap::ClapTrap (ClapTrap const &copy)
 {
     *this = copy;
 }
+
 
 // destructor
 ClapTrap::~ClapTrap()
@@ -48,20 +49,20 @@ int     ClapTrap::getAtack() const
 }
 
 //assigned operator
-ClapTrap &ClapTrap::operator=(ClapTrap const &source) : _Hit(source.getHit()), _Energy(source.get)
+ClapTrap &ClapTrap::operator=(ClapTrap const &source)
 {
-    // if (this != &source)
-    // {
-    //     this->_Name = source.getName();
-    //     this->_Hit = source.getHit();
-    //     this->_Energy = source.getEnergy();
-    //     this->_Atack = source.getAtack();
-    // }
-    return *this;
+    if (this != &source)
+    {
+        this->_Name = source.getName();
+        this->_Hit = source.getHit();
+        this->_Energy = source.getEnergy();
+        this->_Atack = source.getAtack();
+    }
+        return (*this);
 }
 
 std::ostream &operator<<(std::ostream &output, const ClapTrap &object)
 {
-    output << object;
+    output << object.getName();
     return output;
 }

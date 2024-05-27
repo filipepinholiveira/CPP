@@ -9,9 +9,9 @@ class ClapTrap
 private:
     /* data */
     std::string _Name;
-    static const int         _Hit = 0;
-    static const int         _Energy = 0;
-    static const int         _Atack = 0;
+    int         _Hit;
+    int         _Energy;
+    int         _Atack;
 
 public:
 

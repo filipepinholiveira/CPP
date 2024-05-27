@@ -3,6 +3,7 @@
 
 int main()
 {
-    ClapTrap teste;
+    ClapTrap teste("Gervásio");
+    std::cout << "Nome: " << teste << std::endl;
     return 0;
 }
