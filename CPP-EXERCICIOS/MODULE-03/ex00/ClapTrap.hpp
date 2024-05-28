@@ -2,7 +2,7 @@
 #pragma once
 
 #include <iostream>
-
+#include <string>
 
 class ClapTrap
 {
@@ -54,6 +54,6 @@ void attack(const std::string& target);
 // OVERLOADS
 
 //<< overload
-std::ostream &operator<<(std::ostream &output, const ClapTrap &object);
+// std::ostream &operator<<(std::ostream &output, const ClapTrap &object);
 
 
