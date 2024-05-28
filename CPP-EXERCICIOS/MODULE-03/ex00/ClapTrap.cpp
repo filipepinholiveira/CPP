@@ -53,8 +53,16 @@ int     ClapTrap::getAtack() const
 void ClapTrap::attack(const std::string& target)
 {
     if (this->_Energy > 0 && this->_Hit > 0)
+    {
+        this->_Energy--;
         std::cout << "ClapTrap " << this->_Name << " attacks " << target << " causing " << this->getHit() << " of damage!" << std::endl;
+    }
 }
+
+// void ClapTrap::takeDamage(unsigned int amount)
+// {
+
+// }
 
 //assigned operator
 ClapTrap &ClapTrap::operator=(ClapTrap const &source)
