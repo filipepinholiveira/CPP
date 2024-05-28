@@ -48,6 +48,14 @@ int     ClapTrap::getAtack() const
     return (this->_Atack);
 }
 
+// METHODS
+
+void ClapTrap::attack(const std::string& target)
+{
+    if (this->_Energy > 0 && this->_Hit > 0)
+        std::cout << "ClapTrap " << this->_Name << " attacks " << target << " causing " << this->getAtack() << " of damage!" << std::endl;
+}
+
 //assigned operator
 ClapTrap &ClapTrap::operator=(ClapTrap const &source)
 {
@@ -63,6 +71,6 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &source)
 
 std::ostream &operator<<(std::ostream &output, const ClapTrap &object)
 {
-    output << object.getName();
+    output << object;
     return output;
 }

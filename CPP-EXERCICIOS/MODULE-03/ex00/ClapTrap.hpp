@@ -37,10 +37,17 @@ public:
     int     getEnergy() const;
     int     getAtack() const;
 
-// ASSINED OPERATOR
-   ClapTrap &operator=(ClapTrap const &source);
+// METHODS
 
 void attack(const std::string& target);
+
+// void takeDamage(unsigned int amount);
+
+// void beRepaired(unsigned int amount);
+
+
+// ASSINED OPERATOR
+   ClapTrap &operator=(ClapTrap const &source);
 
 };
 
