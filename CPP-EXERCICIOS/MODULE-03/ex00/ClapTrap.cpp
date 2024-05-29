@@ -2,7 +2,7 @@
 #include "ClapTrap.hpp"
 
 // default constructor
-ClapTrap::ClapTrap() : _Hit(10), _Energy(10), _Atack(0)
+ClapTrap::ClapTrap() : _Name("No name boy"), _Hit(10), _Energy(10), _Atack(0)
 {
     std::cout << "Default constructor called" << std::endl;
 }
@@ -59,10 +59,17 @@ void ClapTrap::attack(const std::string& target)
     }
 }
 
-// void ClapTrap::takeDamage(unsigned int amount)
-// {
+void ClapTrap::takeDamage(unsigned int amount)
+{
+    if (this->_Hit > 0)
+        this->_Hit -= amount;
+}
 
-// }
+void ClapTrap::beRepaired(unsigned int amount)
+{
+    if (this->_Energy > 0 && this->_Hit > 0)
+        this->_Hit += amount;
+}
 
 //assigned operator
 ClapTrap &ClapTrap::operator=(ClapTrap const &source)
@@ -77,8 +84,13 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &source)
         return (*this);
 }
 
-// std::ostream &operator<<(std::ostream &output, const ClapTrap &object)
-// {
-//     output << object;
-//     return output;
-// }
+std::ostream &operator<<(std::ostream &output, const ClapTrap &object)
+{
+    std::cout << "My Boy" << std::endl;
+    output << "Name: " << object.getName() << std::endl;
+    output << "Hit: " << object.getHit() << std::endl;
+    output << "Energy: " << object.getEnergy() << std::endl;
+    output << "Atack: " << object.getAtack() << std::endl;
+
+    return output;
+}
