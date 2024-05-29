@@ -6,6 +6,7 @@ int main()
 
     ClapTrap teste("Gervásio");
     ClapTrap teste2("Vitima");
+    ClapTrap teste3;
     std::cout << teste << std::endl;
     std::cout << teste2 << std::endl;
     std::cout << "Energia do " << teste.getName() << " é " << teste.getEnergy() << std::endl;

@@ -35,6 +35,9 @@ public:
 
     // METHODS
 
+    void guardGate();
+
+    void attack(const std::string& target);
 
     //OVERLOAD OPERATORS
 
@@ -43,5 +46,5 @@ public:
 
 };
 
-
+std::ostream &operator<<(std::ostream &output, const ScavTrap &object);
 

@@ -56,5 +56,33 @@ ScavTrap::~ScavTrap()
 
 // *****************      OTHER     *******************
 
+// METHODS
+
+    void ScavTrap::guardGate()
+    {
+        std::cout << "I'm in Gate keeper mode" << std::endl;
+    }
+
+    void ScavTrap::attack(const std::string& target)
+{
+    if (this->_Energy > 0 && this->_Hit > 0)
+    {
+        this->_Energy--;
+        std::cout << "Scavtrap " << this->_Name << " attacks " << target << " causing " << this->getAtack() << " of damage!" << std::endl;
+    }
+}
+
+//OVERLOAD OPERATORS
+
+std::ostream &operator<<(std::ostream &output, const ScavTrap &object)
+{
+    std::cout << "My Scav Boy" << std::endl;
+    output << "Name: " << object.getName() << std::endl;
+    output << "Hit: " << object.getHit() << std::endl;
+    output << "Energy: " << object.getEnergy() << std::endl;
+    output << "Atack: " << object.getAtack() << std::endl;
+
+    return output;
+}
 
 // *****************      OTHER     *******************

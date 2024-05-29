@@ -4,13 +4,13 @@
 // default constructor
 ClapTrap::ClapTrap() : _Name("No name boy"), _Hit(10), _Energy(10), _Atack(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "Claptrap Default constructor called" << std::endl;
 }
 
 // Costructor with _Name arg init
     ClapTrap::ClapTrap (std::string Name) : _Name(Name),  _Hit(10), _Energy(10), _Atack(0)
     {
-        std::cout << "Constructor with _Name arg called" << std::endl;
+        std::cout << "Claptrap Constructor with _Name arg called" << std::endl;
     }
 
 // // copy constructor
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap (ClapTrap const &copy)
 // destructor
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "Claptrap Destructor called" << std::endl;
 }
 
 // GETTERS
@@ -86,7 +86,7 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &source)
 
 std::ostream &operator<<(std::ostream &output, const ClapTrap &object)
 {
-    std::cout << "My Boy" << std::endl;
+    std::cout << "My Clap Boy" << std::endl;
     output << "Name: " << object.getName() << std::endl;
     output << "Hit: " << object.getHit() << std::endl;
     output << "Energy: " << object.getEnergy() << std::endl;
