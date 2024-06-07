@@ -6,7 +6,7 @@
 
 class ClapTrap
 {
-private:
+protected:
     /* data */
     std::string _Name;
     int         _Hit;
@@ -51,7 +51,8 @@ void beRepaired(unsigned int amount);
 
 };
 
-//OVERLOADSasdasdasd
+//OVERLOADS
+
 //<< overload
 std::ostream &operator<<(std::ostream &output, const ClapTrap &object);
 

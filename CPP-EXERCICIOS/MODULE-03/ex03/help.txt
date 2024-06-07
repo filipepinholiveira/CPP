@@ -1,0 +1,106 @@
+
+As flags -Wshadow e -Wno-shadow no compilador GCC controlam a emissão de avisos relacionados ao sombreamento de variáveis.
+Aqui está um detalhamento de suas utilidades e como elas podem afetar seu código.
+
+
+// ---------------------------------------------- Flag -Wshadow --------------------------------------------------------//
+
+Utilidade
+A flag -Wshadow é usada para emitir avisos quando uma variável local ou um parâmetro de função oculta (sombra) uma variável ou um parâmetro com o mesmo nome em um escopo externo, como uma variável global, um membro de uma classe base, ou outra variável no escopo de uma função externa. Esse tipo de sombreamento pode levar a erros difíceis de detectar e compreender, pois a variável que você pensa estar acessando pode não ser a variável que realmente está sendo utilizada.
+
+Exemplo
+
+#include <iostream>
+
+class Base 
+{
+    public:
+        int value;
+        virtual void display() 
+        {
+            std::cout << "Base value: " << value << std::endl;
+        }
+};
+
+class Derived : public Base 
+{
+    public:
+        int value; // Isto sombra a variável 'value' na classe base
+        void display() 
+        {
+            std::cout << "Derived value: " << value << std::endl;
+        }
+};
+
+int main() 
+{
+    Derived d;
+    d.value = 20; // Está se referindo a 'Derived::value'
+    d.Base::value = 10; // Explicitamente se referindo a 'Base::value'
+    d.display();
+
+    return 0;
+}
+
+Se você compilar este código com -Wshadow, você receberá um aviso sobre a variável value em Derived sombreadora 
+a variável value em Base:
+
+g++ -Wshadow -o my_program main.cpp
+
+Aviso:
+
+main.cpp:10:9: warning: declaration of 'int Derived::value' shadows a member of 'Base' [-Wshadow]
+   int value; // Isto sombra a variável 'value' na classe base
+        ^~~~~
+
+// ---------------------------------------------- Flag -Wshadow --------------------------------------------------------//
+
+
+
+
+
+// ----------------------------------------------Flag -Wno-shadow -------------------------------------------------------//
+Utilidade
+A flag -Wno-shadow é usada para desativar os avisos sobre o sombreamento de variáveis. 
+Isso pode ser útil em situações onde o sombreamento é intencional e você deseja evitar os avisos do compilador. 
+Em alguns casos, pode ser uma prática comum em certos padrões de design ou estilos de codificação.
+
+Exemplo
+Você pode suprimir os avisos de sombreamento usando -Wno-shadow:
+
+
+g++ -Wno-shadow -o my_program main.cpp
+Nesse caso, nenhum aviso será gerado, mesmo que o sombreamento de variáveis ocorra.
+
+// ----------------------------------------------Flag -Wno-shadow -------------------------------------------------------//
+
+
+
+
+Por Que Usar -Wshadow?
+
+- Prevenção de Erros: Ajuda a identificar potenciais bugs que podem surgir devido ao uso inadvertido de variáveis sombreadas.
+- Melhor Legibilidade: Facilita a leitura e a compreensão do código, garantindo que 
+o acesso a variáveis seja claro e não ambíguo.
+- Manutenção de Código: Torna mais fácil manter e refatorar código ao destacar possíveis áreas problemáticas 
+que poderiam passar despercebidas.
+
+
+Quando Usar -Wno-shadow?
+
+- Sombreamento Intencional: Quando o sombreamento é intencional e você está ciente das implicações, 
+mas não quer que o compilador gere avisos.
+- Estilo de Codificação: Em situações onde o sombreamento é uma prática aceita no estilo de codificação da equipe ou do projeto.
+
+
+
+Resumo
+
+- Wshadow: Emite avisos para sombreamento de variáveis, ajudando a prevenir erros e melhorar a clareza do código.
+
+- Wno-shadow: Suprime esses avisos, útil quando o sombreamento é intencional e desejado.
+
+
+A escolha de usar -Wshadow ou -Wno-shadow depende do contexto do seu projeto e das práticas de codificação adotadas. 
+Em geral, -Wshadow é recomendado para detectar e evitar problemas, enquanto -Wno-shadow pode ser usado para suprimir 
+avisos em situações controladas.

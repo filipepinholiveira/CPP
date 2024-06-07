@@ -1,13 +1,13 @@
 
 
 
-SRC = 
+SRC =main.cpp #ClapTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
-FLAGS = -std=c++98 -g -Wall -Wextra -Werror
+FLAGS = -std=c++98 -g -Wall -Wextra -Werror -Wshadow        #-Wno-shadow        
 RM = rm -rf
 
-NAME = 
+NAME = DiamondTrap
 
 # controll codes
 RESET		=	\033[0m
