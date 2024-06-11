@@ -1,8 +1,10 @@
 
 #pragma once
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class DiamondTrap : public ClapTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 private:
     

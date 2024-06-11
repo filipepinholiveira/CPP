@@ -4,7 +4,7 @@
 // ********************************* CANONICAL FORM INIT *********************************
 
 // Default constructor
-DiamondTrap::DiamondTrap() : ClapTrap()
+DiamondTrap::DiamondTrap()
 {
     std::cout << "DiamondTrap constructor called" << std::endl;
 
@@ -12,7 +12,7 @@ DiamondTrap::DiamondTrap() : ClapTrap()
     
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(), ScavTrap()
 {
     std::cout << "DiamondTrap constructor with args called" << std::endl;
     this->_Name = name;
@@ -20,7 +20,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name)
 }
 
 // Copy constructor
-DiamondTrap::DiamondTrap (DiamondTrap const &copy) : ClapTrap()
+DiamondTrap::DiamondTrap (DiamondTrap const &copy) : ClapTrap(), FragTrap(), ScavTrap()
 {
     *this = copy;
 }
