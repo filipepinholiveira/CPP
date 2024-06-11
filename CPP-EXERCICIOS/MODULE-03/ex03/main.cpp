@@ -5,7 +5,7 @@
 int main()
 {
     // ClapTrap teste;
-    // ClapTrap teste2("Vitima");
+    //ClapTrap teste2("Vitima");
     // std::cout << teste << std::endl;
     // std::cout << teste2 << std::endl;
     // teste.attack(teste2.getName());
@@ -15,15 +15,21 @@ int main()
     // std::cout << teste2 << std::endl;
 
 
-    FragTrap teste3;
+    //FragTrap teste3;
     // FragTrap teste4("Filipe");
     // teste4.highFivesGuys();
     // std::cout << teste3 << std::endl;
     // std::cout << teste4 << std::endl;
 
-    DiamondTrap teste;
-    ScavTrap outro;
+    ClapTrap teste("Clap");
+    FragTrap teste2("Frag");;
+    ScavTrap teste3("Scav");;
+    DiamondTrap teste4("Diamond");;
 
+    std::cout << teste << std::endl;
+    std::cout << teste2 << std::endl;
+    std::cout << teste3 << std::endl;
+    std::cout << teste4 << std::endl;
 
     return (0);
 }

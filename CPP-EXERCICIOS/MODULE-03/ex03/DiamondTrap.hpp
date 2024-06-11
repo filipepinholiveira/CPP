@@ -15,6 +15,9 @@ public:
     // Default constructor
     DiamondTrap();
 
+    // Constructor with args
+    DiamondTrap(std::string name);
+
     // Copy constructor
     DiamondTrap (DiamondTrap const &copy);
 
@@ -40,5 +43,10 @@ public:
     // setters
     void    setDiamondName(std::string Name);
 
+    // object print overload
+
+
     // ********************************* OTHER FORM INIT *********************************
 };
+
+    std::ostream &operator<<(std::ostream &input, const DiamondTrap &object);

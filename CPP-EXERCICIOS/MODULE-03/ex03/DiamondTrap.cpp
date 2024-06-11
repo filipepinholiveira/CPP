@@ -9,9 +9,14 @@ DiamondTrap::DiamondTrap() : ClapTrap()
     std::cout << "DiamondTrap constructor called" << std::endl;
 
     this->_Name = "No name boy";
-    this->_Hit = 100;
-    this->_Energy = 100;
-    this->_Atack = 30;
+    
+}
+
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name)
+{
+    std::cout << "DiamondTrap constructor with args called" << std::endl;
+    this->_Name = name;
+    
 }
 
 // Copy constructor
@@ -60,6 +65,17 @@ std::string DiamondTrap::getDiamondName()
 void    DiamondTrap::setDiamondName(std::string Name)
 {
     this->_Name = Name;
+}
+
+std::ostream &operator<<(std::ostream &output, const DiamondTrap &object)
+{
+    std::cout << "My Diamond Boy" << std::endl;
+    output << "Name: " << object.getName() << std::endl;
+    output << "Hit: " << object.getHit() << std::endl;
+    output << "Energy: " << object.getEnergy() << std::endl;
+    output << "Atack: " << object.getAtack() << std::endl;
+
+    return output;
 }
 
 // ********************************* OTHER FORM INIT *********************************
