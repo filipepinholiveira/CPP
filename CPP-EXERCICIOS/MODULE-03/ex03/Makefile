@@ -1,10 +1,10 @@
 
 
 
-SRC =main.cpp #ClapTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRC = main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp 
 OBJ = $(SRC:.cpp=.o)
 CC = c++
-FLAGS = -std=c++98 -g -Wall -Wextra -Werror -Wshadow        #-Wno-shadow        
+FLAGS = -std=c++98 -g  -Wshadow=local -Wall -Wextra -Werror         #-Wno-shadow        
 RM = rm -rf
 
 NAME = DiamondTrap

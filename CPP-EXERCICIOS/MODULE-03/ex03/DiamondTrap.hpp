@@ -2,11 +2,11 @@
 #pragma once
 #include "ClapTrap.hpp"
 
-class DiamondTrap
+class DiamondTrap : public ClapTrap
 {
 private:
     
-    /* data */
+    std::string _Name;
 
 public:
     
@@ -16,10 +16,10 @@ public:
     DiamondTrap();
 
     // Copy constructor
-
+    DiamondTrap (DiamondTrap const &copy);
 
     // assignment operator
-
+    DiamondTrap &operator=(DiamondTrap const &source);
 
     // Destructor
     ~DiamondTrap();
@@ -27,8 +27,18 @@ public:
     // ********************************* CANONICAL FORM INIT *********************************
 
 
+
+
+
+
+
     // ********************************* OTHER FORM INIT *********************************
 
+    // getters
+    std::string getDiamondName();
+
+    // setters
+    void    setDiamondName(std::string Name);
 
     // ********************************* OTHER FORM INIT *********************************
 };
