@@ -17,7 +17,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(), ScavTra
     std::cout << "DiamondTrap constructor with args called" << std::endl;
     this->_Name = name;
     
-}
+} 
 
 // Copy constructor
 DiamondTrap::DiamondTrap (DiamondTrap const &copy) : ClapTrap(), FragTrap(), ScavTrap()
