@@ -18,7 +18,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 // Costructor with _Name arg init
 ScavTrap::ScavTrap (std::string Name) : ClapTrap(Name)
 {
-    std::cout << "Constructor with _Name arg called" << std::endl;
+    std::cout << "ScavTrap Constructor with _Name arg called" << std::endl;
     
     this->_Name = Name;
     this->_Hit = 100;
