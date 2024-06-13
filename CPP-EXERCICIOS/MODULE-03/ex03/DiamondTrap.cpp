@@ -4,18 +4,30 @@
 // ********************************* CANONICAL FORM INIT *********************************
 
 // Default constructor
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap()
 {
     std::cout << "DiamondTrap constructor called" << std::endl;
 
     this->_Name = "No name boy";
+      // std::cout << "Analise: " << ClapTrap::getName() + "_clap_name" << std::endl;
+    std::cout << "Analise _Name: " << _Name << std::endl;
+    this->_Hit = FragTrap::getHit();
+    this->_Energy = ScavTrap::getEnergy();
+    this->_Atack = FragTrap::getAtack();
+    
     
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap(std::string name) : FragTrap(), ScavTrap()
 {
     std::cout << "DiamondTrap constructor with args called" << std::endl;
+    ClapTrap::_Name = name  + "_clap_name";
     this->_Name = name;
+    // std::cout << "Analise: " << ClapTrap::getName() + "_clap_name" << std::endl;
+    std::cout << "Analise _Name: " << _Name << std::endl;
+    this->_Hit = FragTrap::getHit();
+    this->_Atack = FragTrap::getAtack();
+    this->_Energy = ScavTrap::getEnergy();
     
 } 
 

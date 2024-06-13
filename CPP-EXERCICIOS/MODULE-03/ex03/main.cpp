@@ -31,5 +31,10 @@ int main()
     std::cout << teste3 << std::endl;
     std::cout << teste4 << std::endl;
 
+    teste.attack("Bora");
+    teste2.attack("Cenas");
+    teste3.attack("Vamos");
+    teste4.attack("Joquim");
+
     return (0);
 }

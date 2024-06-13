@@ -8,7 +8,7 @@ class DiamondTrap : public FragTrap, public ScavTrap
 {
 private:
     
-    std::string _Name; 
+    std::string _Name;
 
 public:
     
@@ -45,10 +45,10 @@ public:
     // setters
     void    setDiamondName(std::string Name);
 
-    // object print overload
-
+    using ScavTrap::attack;
 
     // ********************************* OTHER FORM INIT *********************************
 };
 
+    // object print overload
     std::ostream &operator<<(std::ostream &input, const DiamondTrap &object);
