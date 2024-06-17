@@ -13,17 +13,20 @@ DiamondTrap::DiamondTrap()
     std::cout << "Analise _Name: " << _Name << std::endl;
     this->_Hit = FragTrap::getHit();
     this->_Energy = ScavTrap::getEnergy();
-    this->_Atack = FragTrap::_Atack;
+    _Atack = FragTrap::_Atack;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(name), ScavTrap(name)
 {
     std::cout << "DiamondTrap constructor with args called" << std::endl;
     ClapTrap::_Name = name  + "_clap_name";
-    this->_Name = name;
-    this->_Hit = FragTrap::getHit();
-    this->_Energy = ScavTrap::getEnergy();
-    this->_Atack = FragTrap::_Atack;
+    _Name = name;
+    _Hit = FragTrap::getHit();
+    _Energy = ScavTrap::getEnergy();
+    _Atack = FragTrap::getAtack();
+    std::cout << "Atack: " << ClapTrap::_Atack << std::endl;
+    std::cout << "Atack: " << FragTrap::_Atack << std::endl;
+    std::cout << "Atack: " << DiamondTrap::_Atack << std::endl;
 } 
 
 // Copy constructor
