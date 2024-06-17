@@ -9,8 +9,6 @@ DiamondTrap::DiamondTrap()
     std::cout << "DiamondTrap constructor called" << std::endl;
 
     this->_Name = "No name boy";
-      // std::cout << "Analise: " << ClapTrap::getName() + "_clap_name" << std::endl;
-    std::cout << "Analise _Name: " << _Name << std::endl;
     this->_Hit = FragTrap::getHit();
     this->_Energy = ScavTrap::getEnergy();
     _Atack = FragTrap::_Atack;
@@ -23,7 +21,7 @@ DiamondTrap::DiamondTrap(std::string name) : FragTrap(name), ScavTrap(name)
     _Name = name;
     _Hit = FragTrap::getHit();
     _Energy = ScavTrap::getEnergy();
-    _Atack = FragTrap::getAtack();
+    _Atack = 30;
     std::cout << "Atack: " << ClapTrap::getAtack() << std::endl;
     std::cout << "Atack: " << FragTrap::getAtack() << std::endl;
     std::cout << "Atack: " << DiamondTrap::getAtack() << std::endl;
