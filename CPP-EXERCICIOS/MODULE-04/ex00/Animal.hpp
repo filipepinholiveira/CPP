@@ -3,32 +3,33 @@
 #include <iostream>
 #include <string>
 
-class animal
+class Animal
 {
-private:
+protected:
     /* data */
-    // teste
+    std::string type;
     
 public:
 
     // ********************************* CANONICAL FORM INIT *********************************
 
     // Default constructor
-    animal(/* args */);
+    Animal();
 
-    // Constructor with args
+     // Copy constructor
 
-
-
-    // Copy constructor
-
+    Animal(Animal const &copy);
 
     // assignment operator
 
+    Animal &operator=(Animal const &source);
+
     // Destructor
-    ~animal();
+    ~Animal();
 
     // ********************************* CANONICAL FORM INIT *********************************
+
+
 
 
 
@@ -39,10 +40,16 @@ public:
 
     // setters
 
+    std::string getType() const;
+
+    // methods
+
+    virtual void makeSound() const;
+
     // ********************************* OTHER FORM INIT *********************************
 
 };
 
 // object print overload
 
-
+std::ostream &operator<<(std::ostream &output, const Animal &object);

@@ -32,6 +32,7 @@ public:
 
 // GETTERS
 
+
     std::string    getName() const;
     int     getHit() const;
     int     getEnergy() const;
