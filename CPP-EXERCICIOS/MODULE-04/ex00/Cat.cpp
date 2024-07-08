@@ -14,6 +14,7 @@ Cat::Cat()
 // copy constructor
     Cat::Cat (Cat const &copy) : Animal()
     {
+        std::cout << "Copy constructor called" << std::endl;
         *this = copy;
     }
 
@@ -32,7 +33,7 @@ Cat::Cat()
 // default cat destructor
 Cat::~Cat()
 {
-
+    std::cout << "Default cat destructor called" << std::endl;
 }
 
 // ********************************* CANONICAL FORM INIT *********************************

@@ -16,6 +16,8 @@ Dog::Dog(/* args */)
 
 Dog::Dog(Dog const &copy) : Animal()
 {
+    std::cout << "Copy constructor called" << std::endl;
+
     *this = copy;
 }
 
