@@ -8,14 +8,14 @@ class Dog : public Animal
 
 private:
     /* data */
-
+    Brain *_Brain;
 
 public:
 
     // ********************************* CANONICAL FORM INIT *********************************
 
     // default dog constructor
-    Dog(/* args */);
+    Dog();
 
     // copy constructor
 
@@ -26,7 +26,7 @@ public:
     Dog &operator=(Dog const &source);
 
     // default dog destructor
-    ~Dog();
+    virtual ~Dog();
 
     // ********************************* CANONICAL FORM INIT *********************************
 

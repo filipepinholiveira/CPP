@@ -1,6 +1,9 @@
 
 #pragma once
 #include <iostream>
+#include <string>
+#include <string>
+
 
 class Brain
 {
@@ -30,8 +33,11 @@ Brain (Brain const &copy);
 
 // getters
 
+std::string get_ideas(int i) const;
 
 // setters
+
+void    set_ideas(int max, const char **array);
 
 
 // methods

@@ -9,8 +9,12 @@ Cat::Cat()
 {
     std::cout << "Default cat constructor called" << std::endl;
     type = "Cat";
-    new Brain;
-
+    _Brain = new Brain;
+    std::cout << "Setting ideias for cat: " << std::endl;
+    const char* array[] = {"Gato", "Gatinho", "Gatao"};
+    _Brain->set_ideas(3, array);
+    for (int i = 0; i < 3; i++)
+        std::cout << _Brain->get_ideas(i) << std::endl;
 }
 
 // copy constructor
@@ -27,6 +31,8 @@ Cat::Cat()
         if (this != &source)
         {
             type = ("Cat");
+            this->_Brain = new Brain(*source._Brain);
+            //this->_Brain = source._Brain;
         }
         return (*this);
     }
@@ -36,6 +42,7 @@ Cat::Cat()
 Cat::~Cat()
 {
     std::cout << "Default cat destructor called" << std::endl;
+    delete(_Brain);
 }
 
 // ********************************* CANONICAL FORM INIT *********************************

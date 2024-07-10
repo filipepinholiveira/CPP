@@ -25,7 +25,7 @@ public:
     Animal &operator=(Animal const &source);
 
     // Destructor
-    ~Animal();
+    virtual ~Animal();
 
     // ********************************* CANONICAL FORM INIT *********************************
 

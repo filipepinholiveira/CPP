@@ -9,7 +9,12 @@ Dog::Dog(/* args */)
 {
     std::cout << "Default dog constructor called" << std::endl;
     type = "Dog";
-    new Brain;
+    _Brain = new Brain;
+    std::cout << "Setting ideias for Dog: " << std::endl;
+    const char* caoarray[] = {"Cao", "Caozinho", "Caozao"};
+    _Brain->set_ideas(3, caoarray);
+    for (int i = 0; i < 3; i++)
+        std::cout << _Brain->get_ideas(i) << std::endl;
 }
 
 
@@ -30,6 +35,7 @@ Dog &Dog::operator=(Dog const &source)
     if (this != &source)
     {
         this->type = "Dog";
+        this->_Brain = new Brain(*source._Brain);
     }
     return *this;
 }
@@ -38,6 +44,7 @@ Dog &Dog::operator=(Dog const &source)
 Dog::~Dog()
 {
     std::cout << "Default dog destructor called" << std::endl;
+    delete(_Brain);
 }
 
 // ********************************* CANONICAL FORM INIT *********************************

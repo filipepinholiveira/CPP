@@ -6,7 +6,7 @@ class Cat : public Animal
 {
 private:
     /* data */
-
+    Brain *_Brain;
 public:
 
     // ********************************* CANONICAL FORM INIT *********************************
@@ -21,7 +21,7 @@ public:
     Cat &operator=(Cat const &source);
 
     // default cat destructor
-    ~Cat();
+    virtual ~Cat();
 
     // ********************************* CANONICAL FORM INIT *********************************
 
@@ -32,6 +32,7 @@ public:
     // ********************************* OTHER FORM INIT *********************************
 
     // getters
+
 
 
     // setters

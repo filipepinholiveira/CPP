@@ -5,6 +5,7 @@
 // ********************************* CANONICAL FORM INIT *********************************
 
 
+
 // Default constructor
 Animal::Animal()
 {
