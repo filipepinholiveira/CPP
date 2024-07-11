@@ -1,8 +1,9 @@
 #pragma once
+#include "AMateria.hpp"
 #include <iostream>
 #include <string>
 
-class Ice
+class Ice : public AMateria
 {
 protected:
     /* data */
@@ -48,8 +49,9 @@ Ice &operator=(Ice const &source);
 
 // methods
 
+AMateria* clone() const; // definidos apenas nas classes derivadas
 
-
+void use(ICharacter& target); // definidos apenas nas classes derivadas
 
 
 

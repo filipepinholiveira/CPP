@@ -1,31 +1,35 @@
 #pragma once
-#include <iostream>
-#include "AMateria.hpp"
+#include "IMateria.hpp"
 
-class Cure : public AMateria
+// ********************************* CANONICAL FORM INIT *********************************
+
+class MateriaSource : public IMateriaSource
 {
 private:
     /* data */
-    std::string _type;
+
 
 public:
 
-
 // default constructor
-Cure(/* args */);
+    MateriaSource();
+
 
 // copy constructor
 
-Cure (Cure const &copy);
+
 
 
 // operator =
 
-Cure &operator=(Cure const &source);
 
 
-//destructor
-~Cure();
+
+// destructor
+    ~MateriaSource();
+
+};
+
 
 // ********************************* CANONICAL FORM INIT *********************************
 
@@ -48,21 +52,7 @@ Cure &operator=(Cure const &source);
 // methods
 
 
-AMateria* clone() const; // definidos apenas nas classes derivadas
-
-void use(ICharacter& target); // definidos apenas nas classes derivadas
-
-
-
-
 // ********************************* OTHER FORM INIT *********************************
 
 
-};
-
 // operator <<
-
-
-
-
-
