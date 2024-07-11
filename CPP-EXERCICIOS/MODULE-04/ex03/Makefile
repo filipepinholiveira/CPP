@@ -1,13 +1,13 @@
 
 
 
-SRC = main.cpp
+SRC = AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 FLAGS = -std=c++98 -g -Wall -Wextra -Werror
 RM = rm -rf
 
-NAME = Interfaces
+NAME = Boooooooonus
 
 # controll codes
 RESET		=	\033[0m

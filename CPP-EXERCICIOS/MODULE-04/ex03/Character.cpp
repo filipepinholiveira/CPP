@@ -35,7 +35,14 @@ Character::Character(std::string name)
 
 
 // operator =
-
+    Character &Character::operator=(Character const &source)
+    {
+        if (this != &source)
+        {
+            this->_name = source._name;
+        }
+        return *this;
+    }
 
 
 // destructor

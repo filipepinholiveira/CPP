@@ -29,13 +29,7 @@ public:
 
 // operator =
 
-    Character &operator=(Character const &source)
-    {
-        if (this != &source)
-        {
-            this->_name = source._name;
-        }
-    }
+    Character &operator=(Character const &source);
 
 
 // destructor

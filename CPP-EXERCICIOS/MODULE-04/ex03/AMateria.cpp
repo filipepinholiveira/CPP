@@ -15,7 +15,6 @@ AMateria::AMateria(std::string const & type)
 {
     std::cout << "AMateria constructor with args called" << std::endl;
     this->_type = type;
-    
 }
 
 
@@ -33,15 +32,14 @@ AMateria::AMateria (AMateria const &copy)
         {
             this->_type = source._type;
         }
+        return (*this);
     }
-
 
 
 // destructor
 AMateria::~AMateria()
 {
     std::cout << "AMateria default destructor called" << std::endl;
-
 }
 
 
