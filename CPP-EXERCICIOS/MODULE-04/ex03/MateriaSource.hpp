@@ -1,13 +1,17 @@
 #pragma once
 #include "IMateria.hpp"
+#include "AMateria.hpp"
+
 
 // ********************************* CANONICAL FORM INIT *********************************
+
+class AMateria;
 
 class MateriaSource : public IMateriaSource
 {
 private:
     /* data */
-
+    AMateria *LearnBook[3];
 
 public:
 
@@ -28,7 +32,6 @@ public:
 // destructor
     ~MateriaSource();
 
-};
 
 
 // ********************************* CANONICAL FORM INIT *********************************
@@ -51,8 +54,12 @@ public:
 
 // methods
 
+    void learnMateria(AMateria*);
+    AMateria* createMateria(std::string const & type);
+
 
 // ********************************* OTHER FORM INIT *********************************
 
+};
 
 // operator <<

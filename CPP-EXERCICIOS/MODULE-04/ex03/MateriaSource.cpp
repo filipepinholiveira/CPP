@@ -10,6 +10,10 @@
 MateriaSource::MateriaSource(/* args */)
 {
     std::cout << "MateriaSource default constructor called" << std::endl;
+    for (int i = 0; i < 4; i++)
+    {
+        LearnBook[i] = NULL;
+    }
 }
 
 
@@ -49,6 +53,20 @@ MateriaSource::~MateriaSource()
 
 // methods
 
+void MateriaSource::learnMateria(AMateria* Materia)
+{
+    for (int i = 0; i < 4; i++)
+    {
+        if (LearnBook[i] = NULL)
+            LearnBook[i] = Materia;
+    }
+}
+
+
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+    
+}
 
 
 // operator <<
