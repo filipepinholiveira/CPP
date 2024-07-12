@@ -1,12 +1,12 @@
 #pragma once
-#include "ICharacter.hpp"
 #include <iostream>
 #include <string>
 
+class ICharacter;
 
 class AMateria
 {
-private:
+protected:
 
     std::string _type;
 
@@ -18,7 +18,7 @@ public:
     AMateria();
 
 // constructor with args
-AMateria(std::string const & type);
+    AMateria(std::string const & type);
 
 // copy constructor
     AMateria (AMateria const &copy);
@@ -29,7 +29,7 @@ AMateria(std::string const & type);
 
 
 // destructor
-    ~AMateria();
+    virtual ~AMateria();
 
 // ********************************* CANONICAL FORM INIT *********************************
 

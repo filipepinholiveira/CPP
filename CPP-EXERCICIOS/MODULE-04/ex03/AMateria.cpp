@@ -1,12 +1,14 @@
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
-
+class ICharacter;
 // ********************************* CANONICAL FORM INIT *********************************
 
 // default constructor
 AMateria::AMateria()
 {
     std::cout << "AMateria default constructor called" << std::endl;
+    _type = "No type defined";
 }
 
 
@@ -30,7 +32,7 @@ AMateria::AMateria (AMateria const &copy)
     {
         if (this != &source)
         {
-            this->_type = source._type;
+            this->_type = source.getType();
         }
         return (*this);
     }

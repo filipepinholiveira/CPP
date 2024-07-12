@@ -6,13 +6,13 @@ class Cure : public AMateria
 {
 private:
     /* data */
-    std::string _type;
+    
 
 public:
 
 
 // default constructor
-Cure(/* args */);
+Cure();
 
 // copy constructor
 

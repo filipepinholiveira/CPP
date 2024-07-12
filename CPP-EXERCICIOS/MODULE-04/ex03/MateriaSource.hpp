@@ -11,7 +11,7 @@ class MateriaSource : public IMateriaSource
 {
 private:
     /* data */
-    AMateria *LearnBook[3];
+    AMateria *LearnBook[4];
 
 public:
 

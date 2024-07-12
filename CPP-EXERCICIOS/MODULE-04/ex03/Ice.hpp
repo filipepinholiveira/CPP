@@ -1,5 +1,6 @@
 #pragma once
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 #include <iostream>
 #include <string>
 
@@ -7,7 +8,7 @@ class Ice : public AMateria
 {
 protected:
     /* data */
-    std::string _type;
+    
 
 public:
 

@@ -1,19 +1,19 @@
 #include "Cure.hpp"
-
+#include "ICharacter.hpp"
 
 // ********************************* CANONICAL FORM INIT *********************************
 
 // default constructor
-Cure::Cure()
+Cure::Cure() : AMateria("Cure")
 {
     std::cout << "Cure default constructor called" << std::endl;
-        this->_type = "cure";
+    
 }
 
 
 
 // copy constructor
-Cure::Cure (Cure const &copy)
+Cure::Cure (Cure const &copy) : AMateria()
 {
     *this = copy;
 }
@@ -25,6 +25,7 @@ Cure &Cure::operator=(Cure const &source)
 {
     if (this != &source)
         this->_type = "cure";
+    return *this;
 }
 
 
@@ -59,12 +60,13 @@ Cure::~Cure()
 AMateria* Cure::clone() const
 {
     return new Cure;
+	// return ( new Cure( *this ));
+    
 } 
 
 void Cure::use(ICharacter& target)
 {
     std::cout << "heals " << target.getName() << "’s wounds" << std::endl;
-
 } 
 
 

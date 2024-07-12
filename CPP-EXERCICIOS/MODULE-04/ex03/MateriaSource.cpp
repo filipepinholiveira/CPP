@@ -1,4 +1,5 @@
 #include "MateriaSource.hpp"
+#include "AMateria.hpp"
 
 
 
@@ -37,6 +38,7 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &source)
             this->LearnBook[i] = source.LearnBook[i];
         }
     }
+    return *this;
 }
 
 
@@ -45,6 +47,10 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &source)
 MateriaSource::~MateriaSource()
 {
     std::cout << "MateriaSource default destructor called" << std::endl;
+    for (int i = 0; i < 4; i++)
+    {
+        delete LearnBook[i];
+    }
 }
 
 // ********************************* CANONICAL FORM INIT *********************************
@@ -71,8 +77,12 @@ void MateriaSource::learnMateria(AMateria* Materia)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (LearnBook[i] = NULL)
-            LearnBook[i] = Materia->getType();
+        if (LearnBook[i] == NULL)
+            {
+                LearnBook[i] = Materia;
+                std::cout << "MateriaSource learned " << Materia->getType() << std::endl;
+			    return ;
+            }
     }
 }
 
@@ -81,11 +91,13 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (LearnBook[i]->getType() == type)
-        {
-            
-        }
+        if (LearnBook[i] && LearnBook[i]->getType() == type)
+		{
+			std::cout << type << " created" << std::endl;
+			return LearnBook[i]->clone();
+		}
     }
+    return NULL;
 }
 
 

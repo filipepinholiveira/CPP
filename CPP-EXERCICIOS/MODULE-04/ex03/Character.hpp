@@ -16,23 +16,11 @@ public:
 // ********************************* CANONICAL FORM INIT *********************************
 
 
-// default constructor
+
     Character();
-
-// constructor with args
     Character(std::string name);
-
-// copy constructor
-
     Character(Character const &copy);
-
-
-// operator =
-
     Character &operator=(Character const &source);
-
-
-// destructor
     ~Character();
 
 
@@ -54,6 +42,7 @@ public:
 // methods
 
 std::string const & getName() const;
+
 void equip(AMateria* m);
 void unequip(int idx);
 void use(int idx, ICharacter& target);

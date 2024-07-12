@@ -3,7 +3,7 @@
 // ********************************* CANONICAL FORM INIT *********************************
 
 // default constructor
-Ice::Ice()
+Ice::Ice() : AMateria()
 {
     std::cout << "Ice default constructor called" << std::endl;
     this->_type = "ice";
@@ -11,7 +11,7 @@ Ice::Ice()
 
 // copy constructor
 
-Ice::Ice (Ice const &copy)
+Ice::Ice (Ice const &copy) : AMateria()
 {
     *this = copy;
 }
@@ -24,6 +24,7 @@ Ice &Ice::operator=(Ice const &source)
 {
     if (this != &source)
         this->_type = "ice";
+    return *this;
 }
 
 
@@ -58,6 +59,8 @@ Ice::~Ice()
 AMateria* Ice::clone() const
 {
     return new Ice;
+	// return (new Ice( *this ));
+    
 } 
 
 void Ice::use(ICharacter& target)
