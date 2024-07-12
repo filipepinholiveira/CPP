@@ -1,4 +1,6 @@
 #include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 // ********************************* CANONICAL FORM INIT *********************************
 
@@ -90,14 +92,22 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-
-    Purse[idx].use(target);
-    // Ice: "* shoots an ice bolt at <target.getname()> *"
-
-
-
-    // Cure: "* heals <name>’s wounds *"
-
+    if (this->Purse[idx]->getType() == "ice")
+    {
+        Ice* ice = dynamic_cast<Ice*>(this->Purse[idx]);
+        if (ice) 
+        {
+            ice->use(target);
+        }
+    }
+    else if (this->Purse[idx]->getType() == "cure")
+    {
+        Cure* cure = dynamic_cast<Cure*>(this->Purse[idx]);
+        if (cure) 
+        {
+            cure->use(target);
+        }
+    }
 }
 
 

@@ -21,12 +21,12 @@ public:
 
 // copy constructor
 
-
+MateriaSource (MateriaSource const &copy);
 
 
 // operator =
 
-
+MateriaSource &operator=(MateriaSource const &source);
 
 
 // destructor
