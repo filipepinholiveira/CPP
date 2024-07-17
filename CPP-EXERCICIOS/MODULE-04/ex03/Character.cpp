@@ -41,15 +41,24 @@ Character::Character(std::string name)
     {
         if (this != &source)
         {
-            _name = source.getName();
             for (int i = 0; i < 4; i++)
             {
-                if (Purse[i])
+                if (this->Purse[i])
                     delete (Purse[i]);
-                if (Floor[i])
+                if (this->Floor[i])
                     delete (Floor[i]);
-                Purse[i] = source.Purse[i];
-                Floor[i] = source.Floor[i];
+            }
+            for (int i = 0; i < 4; i++) 
+            {
+                if (source.Purse[i])
+                    this->Purse[i] = source.Purse[i]->clone();
+                else
+                    this->Purse[i] = NULL;
+
+                if (source.Floor[i])
+                    this->Floor[i] = source.Floor[i]->clone();
+                else
+                    this->Floor[i] = NULL;
             }
         }
         return *this;
@@ -60,13 +69,13 @@ Character::Character(std::string name)
 Character::~Character()
 {
     std::cout << "Character default destructor called" << std::endl;
-    for (int i = 0; i < 4; i++)
-        {
-            if (Purse[i])
-                delete (Purse[i]);
-            if (Floor[i])
-                delete (Floor[i]);
-        }
+    // for (int i = 0; i < 4; i++)
+    //     {
+    //         if (Purse[i])
+    //             delete (Purse[i]);
+    //         if (Floor[i])
+    //             delete (Floor[i]);
+    //     }
 }
 
 
