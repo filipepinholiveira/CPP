@@ -68,6 +68,11 @@ std::string const & AMateria::getType() const
 
 // methods
 
+void AMateria::use(ICharacter& target) 
+{
+    std::cout << "* uses materia on " << target.getName() << " *" << std::endl;
+}
+
 
 
 //operator <<
