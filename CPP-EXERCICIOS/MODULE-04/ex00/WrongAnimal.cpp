@@ -6,7 +6,7 @@
 WrongAnimal::WrongAnimal()
 {
     std::cout << "Default wrong animal constructor called" << std::endl;
-    type = ("QQ cena");
+    type = ("Wroooooooooooong Animal");
 
 }
 

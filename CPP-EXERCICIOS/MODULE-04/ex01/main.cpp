@@ -6,19 +6,26 @@
 
 int main()
 {
+    std::cout << std::endl << std::endl;
+    
+    std::cout << " CAO " << std::endl << std::endl;
+    
     const Animal* j = new Dog();
-    const Animal* i = new Cat();
-
-
-
-
-
     delete j;//should not create a leak
+
+    std::cout << std::endl << " CAO " << std::endl << std::endl;
+
+    std::cout << " ------------------------ " << std::endl << std::endl;
+
+
+    std::cout << " GATO " << std::endl << std::endl;
+
+    const Animal* i = new Cat();
     delete i;
 
+    std::cout << std::endl << " GATO " << std::endl << std::endl;
+
+
     return (0);
-
-    std::cout << std::endl << std::endl;
-
 
 }
