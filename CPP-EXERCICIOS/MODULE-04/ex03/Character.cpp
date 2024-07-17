@@ -35,47 +35,71 @@ Character::Character(std::string name)
         *this = copy;
     }
 
-
+    
 // operator =
-    Character &Character::operator=(Character const &source)
-    {
-        if (this != &source)
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                if (this->Purse[i])
-                    delete (Purse[i]);
-                if (this->Floor[i])
-                    delete (Floor[i]);
-            }
-            for (int i = 0; i < 4; i++) 
-            {
-                if (source.Purse[i])
-                    this->Purse[i] = source.Purse[i]->clone();
-                else
-                    this->Purse[i] = NULL;
+    // Character &Character::operator=(Character const &source)
+    // {
+    //     if (this != &source)
+    //     {
+    //         *this = new Character(source.getName());
+    //         for (int i = 0; i < 4; i++)
+    //         {
+    //             if (Purse[i])
+    //                 delete (Purse[i]);
+    //             if (Floor[i])
+    //                 delete (Floor[i]);
+    //             Purse[i] = source.Purse[i]->clone();
+    //             Floor[i] = source.Floor[i]->clone();
+    //         }
+    //     }
+    //     return *this;
+    // }
 
-                if (source.Floor[i])
-                    this->Floor[i] = source.Floor[i]->clone();
-                else
-                    this->Floor[i] = NULL;
+    Character &Character::operator=(Character const &source) {
+    if (this != &source) 
+    {
+        // Copie o nome
+        this->_name = source.getName();
+
+        // Libere os objetos existentes
+        for (int i = 0; i < 4; i++) 
+        {
+            if (this->Purse[i]) 
+            {
+                delete this->Purse[i];
+                this->Purse[i] = NULL;
+            }
+            if (this->Floor[i]) 
+            {
+                delete this->Floor[i];
+                this->Floor[i] = NULL;
             }
         }
-        return *this;
+
+        // Copie profundamente os objetos
+        for (int i = 0; i < 4; i++) 
+        {
+            if (source.Purse[i])
+                this->Purse[i] = source.Purse[i]->clone();
+            if (source.Floor[i])
+                this->Floor[i] = source.Floor[i]->clone();
+        }
     }
+    return *this;
+}
 
 
 // destructor
 Character::~Character()
 {
     std::cout << "Character default destructor called" << std::endl;
-    // for (int i = 0; i < 4; i++)
-    //     {
-    //         if (Purse[i])
-    //             delete (Purse[i]);
-    //         if (Floor[i])
-    //             delete (Floor[i]);
-    //     }
+    for (int i = 0; i < 4; i++)
+        {
+            if (Purse[i])
+                delete (Purse[i]);
+            if (Floor[i])
+                delete (Floor[i]);
+        }
 }
 
 
