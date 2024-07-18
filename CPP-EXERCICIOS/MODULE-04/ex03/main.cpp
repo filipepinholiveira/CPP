@@ -10,7 +10,7 @@
 int main()
 {
 
-    IMateriaSource* src = new MateriaSource();
+IMateriaSource* src = new MateriaSource();
 src->learnMateria(new Ice());
 src->learnMateria(new Cure());
 ICharacter* me = new Character("me");
@@ -22,8 +22,15 @@ me->equip(tmp);
 ICharacter* bob = new Character("bob");
 me->use(0, *bob);
 me->use(1, *bob);
-delete bob;
+ICharacter* Copy = new Character("Copy");
+Copy->use(0, *bob);
+Copy->use(1, *bob);
+*Copy = *me;
 delete me;
+Copy->use(0, *bob);
+Copy->use(1, *bob);
+delete bob;
+delete Copy;
 delete src;
 
     std::cout << "\n\n";

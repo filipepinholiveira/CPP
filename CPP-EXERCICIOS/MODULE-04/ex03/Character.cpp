@@ -27,43 +27,54 @@ Character::Character(std::string name)
         Floor[i] = NULL;
     }
 }
+    
+    
+    /*Para alcançar o comportamento desejado, onde você pode atribuir Copy = me sem ter que deletar Copy primeiro, 
+    precisamos implementar uma cópia profunda adequada e garantir que o destrutor e o operador de atribuição funcionem corretamente. 
+    O operador de atribuição deve liberar a memória antiga antes de copiar os novos dados, e o destrutor deve limpar a memória alocada.*/
 
 // copy constructor
 
-    Character::Character(Character const &copy)
+    /* O construtor de cópia deve criar cópias profundas dos objetos contidos no array Purse e Floor: */
+    Character::Character(Character const &copy) 
     {
-        *this = copy;
+    this->_name = copy._name;
+    for (int i = 0; i < 4; i++) 
+    {
+        if (copy.Purse[i]) 
+        {
+            this->Purse[i] = copy.Purse[i]->clone();
+        } 
+        else 
+        {
+            this->Purse[i] = NULL;
+        }
+        if (copy.Floor[i]) 
+        {
+            this->Floor[i] = copy.Floor[i]->clone();
+        } 
+        else 
+        {
+            this->Floor[i] = NULL;
+        }
     }
+}
 
     
 // operator =
-    // Character &Character::operator=(Character const &source)
-    // {
-    //     if (this != &source)
-    //     {
-    //         *this = new Character(source.getName());
-    //         for (int i = 0; i < 4; i++)
-    //         {
-    //             if (Purse[i])
-    //                 delete (Purse[i]);
-    //             if (Floor[i])
-    //                 delete (Floor[i]);
-    //             Purse[i] = source.Purse[i]->clone();
-    //             Floor[i] = source.Floor[i]->clone();
-    //         }
-    //     }
-    //     return *this;
-    // }
 
-    Character &Character::operator=(Character const &source) {
+/*O operador de atribuição deve liberar a memória previamente alocada antes de copiar os novos dados. Aqui está a implementação correta:*/
+
+
+Character& Character::operator=(Character const &source) 
+{
     if (this != &source) 
     {
         // Copie o nome
-        this->_name = source.getName();
+        this->_name = source._name;
 
         // Libere os objetos existentes
-        for (int i = 0; i < 4; i++) 
-        {
+        for (int i = 0; i < 4; i++) {
             if (this->Purse[i]) 
             {
                 delete this->Purse[i];
@@ -75,14 +86,25 @@ Character::Character(std::string name)
                 this->Floor[i] = NULL;
             }
         }
-
         // Copie profundamente os objetos
         for (int i = 0; i < 4; i++) 
         {
-            if (source.Purse[i])
+            if (source.Purse[i]) 
+            {
                 this->Purse[i] = source.Purse[i]->clone();
-            if (source.Floor[i])
+            } 
+            else 
+            {
+                this->Purse[i] = NULL;
+            }
+            if (source.Floor[i]) 
+            {
                 this->Floor[i] = source.Floor[i]->clone();
+            } 
+            else 
+            {
+                this->Floor[i] = NULL;
+            }
         }
     }
     return *this;
@@ -90,19 +112,27 @@ Character::Character(std::string name)
 
 
 // destructor
-Character::~Character()
-{
+
+/* O destrutor deve liberar a memória de todos os objetos no array Purse e Floor: */
+
+Character::~Character() {
     std::cout << "Character default destructor called" << std::endl;
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++) 
+    {
+        if (Purse[i]) 
         {
-            if (Purse[i])
-                delete (Purse[i]);
-            if (Floor[i])
-                delete (Floor[i]);
+            delete Purse[i];
         }
+        if (Floor[i]) 
+        {
+            delete Floor[i];
+        }
+    }
 }
 
 
+/* Com essas mudanças, o código agora realiza uma cópia profunda dos objetos Character, garantindo que Copy = me 
+funcione corretamente sem necessidade de deletar Copy antes. Isso evita a destruição dupla e gerencia a memória corretamente*/
 
 // ********************************* CANONICAL FORM INIT *********************************
 
