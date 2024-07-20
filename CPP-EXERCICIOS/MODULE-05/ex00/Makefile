@@ -1,13 +1,13 @@
 
 
 
-SRC =  main.cpp
+SRC =  Bureaucrat.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 FLAGS = -std=c++98 -g -Wall -Wextra -Werror
 RM = rm -rf
 
-NAME = 
+NAME = Bureaucrat
 # controll codes
 RESET		=	\033[0m
 GREEN		=	\033[32m
