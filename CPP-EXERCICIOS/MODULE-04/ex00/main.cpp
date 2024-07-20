@@ -9,7 +9,7 @@ int main()
 {
     // Animal teste;
     // teste.makeSound();
-    // teste.getType();
+    // std::cout << teste.getType() << std::endl;
     // Dog Licia;
     // Licia.makeSound();
     // Licia.getType();
