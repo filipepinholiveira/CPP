@@ -12,9 +12,9 @@ Bureaucrat::Bureaucrat(std::string Name, int Grade) : _name(Name)
     if (Grade < 1 || Grade > 150)
     {
         if (Grade < 1)
-            std::cout << "Grade is above 1 (range is set between 1-150)" << std::endl;
+            throw "Grade is above 1 (range is set between 1-150)";
         if (Grade > 150)
-            std::cout << "Grade is under 150 (range is set between 1-150)" << std::endl;
+            throw "Grade is under 150 (range is set between 1-150)";
         return ;
     }
     else
