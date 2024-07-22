@@ -16,6 +16,16 @@ public:
     Bureaucrat (Bureaucrat const &copy);
 
     Bureaucrat &operator=(Bureaucrat const &source);
+
+    // METHODS
+
+    std::string getName() const;
+
+    int getGrade() const;
+
+    void incrementGrade();
+
+    void decrementGrade();
 };
 
 

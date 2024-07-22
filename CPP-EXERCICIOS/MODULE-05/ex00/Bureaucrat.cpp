@@ -12,13 +12,13 @@ Bureaucrat::Bureaucrat(std::string Name, int Grade) : _name(Name)
     if (Grade < 1 || Grade > 150)
     {
         if (Grade < 1)
-        {}
-            std::cout << "Too Low value" << std::endl;
+            std::cout << "Grade is above 1 (range is set between 1-150)" << std::endl;
         if (Grade > 150)
-            std::cout << "TOO High value" << std::endl;
+            std::cout << "Grade is under 150 (range is set between 1-150)" << std::endl;
         return ;
     }
-    _grade = Grade;
+    else
+        _grade = Grade;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -40,4 +40,37 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &source)
     }
     return *this;
 }
+
+// METHODS
+
+std::string Bureaucrat::getName() const
+{
+    return this->_name;
+}
+
+int Bureaucrat::getGrade() const
+{
+    return this->_grade;
+}
+
+void Bureaucrat::incrementGrade()
+{
+    std::cout << "Entered increment" << std::endl;
+    if (this->_grade - 1 < 1)
+        std::cout << "Grade increase will be above 1 (range is set between 1-150)" << std::endl;
+    else
+        _grade--;
+}
+
+void Bureaucrat::decrementGrade()
+{
+    std::cout << "Entered decrement" << std::endl;
+    if (this->_grade + 1 > 150)
+        std::cout << "Grade decrement will be under 150 (range is set between 1-150)" << std::endl;
+    else
+        _grade++;
+}
+
+
+
 
