@@ -12,9 +12,9 @@ Bureaucrat::Bureaucrat(std::string Name, int Grade) : _name(Name)
     if (Grade < 1 || Grade > 150)
     {
         if (Grade < 1)
-            throw "Grade is above 1 (range is set between 1-150)";
+            throw GradeTooHighException();
         if (Grade > 150)
-            throw "Grade is under 150 (range is set between 1-150)";
+            throw GradeTooLowException();
         return ;
     }
     else
@@ -36,7 +36,8 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &source)
 {
     if (this != &source)
     {
-        // fazer as alteraçoes
+        this->_name = source.getName();
+        this->_grade = source.getGrade();
     }
     return *this;
 }
@@ -57,7 +58,8 @@ void Bureaucrat::incrementGrade()
 {
     std::cout << "Entered increment" << std::endl;
     if (this->_grade - 1 < 1)
-        std::cout << "Grade increase will be above 1 (range is set between 1-150)" << std::endl;
+        //std::cout << "Grade increase will be above 1 (range is set between 1-150)" << std::endl;
+        throw GradeTooHighException();
     else
         _grade--;
 }
@@ -66,11 +68,26 @@ void Bureaucrat::decrementGrade()
 {
     std::cout << "Entered decrement" << std::endl;
     if (this->_grade + 1 > 150)
-        std::cout << "Grade decrement will be under 150 (range is set between 1-150)" << std::endl;
+        throw GradeTooLowException();
+        //std::cout << "Grade decrement will be under 150 (range is set between 1-150)" << std::endl;
     else
         _grade++;
 }
 
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+        return "Grade increase will be above 1 (range is set between 1-150)\n";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+        return "Grade increase will be under 150 (range is set between 1-150)\n";
+}
 
 
+std::ostream& operator<<(std::ostream& o, Bureaucrat& value)
+{
+	o << value.getName() << ", bureaucrat grade " << value.getGrade();
+	return o;
+}
 
