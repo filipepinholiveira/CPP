@@ -27,16 +27,16 @@ Bureaucrat::~Bureaucrat()
 }
 
 
-Bureaucrat::Bureaucrat (Bureaucrat const &copy)
+Bureaucrat::Bureaucrat (Bureaucrat const &copy) : _name(copy.getName()), _grade(copy.getGrade())
 {
-    *this = copy;
+    
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &source)
 {
     if (this != &source)
     {
-        this->_name = source.getName();
+        // this->_name 'e const, passei o direto no copy constructor
         this->_grade = source.getGrade();
     }
     return *this;
