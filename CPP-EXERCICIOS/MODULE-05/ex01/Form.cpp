@@ -2,7 +2,7 @@
 
 
 
-Form::Form() : _name("No name set"), _isSign(0), _signGrade(10), _executeGrade(1)
+Form::Form() : _name("Form default name"), _isSign(0), _signGrade(10), _executeGrade(1)
 {
     std::cout << "Default Form constructor called" << std::endl;
 }
@@ -62,11 +62,12 @@ const char* Form::GradeTooLowException::what() const throw()
 
 void Form::beSigned(Bureaucrat &source)
 {
-    if (source.getGrade() <= 150)
+    if (source.getGrade() <= this->getSignGrade()) 
         this->_isSign = 1;
     else
         throw Form::GradeTooLowException();
 }
+
 
 
 

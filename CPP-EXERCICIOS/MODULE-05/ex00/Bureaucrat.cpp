@@ -58,7 +58,6 @@ void Bureaucrat::incrementGrade()
 {
     std::cout << "Entered increment" << std::endl;
     if (this->_grade - 1 < 1)
-        //std::cout << "Grade increase will be above 1 (range is set between 1-150)" << std::endl;
         throw GradeTooHighException();
     else
         _grade--;
@@ -69,7 +68,6 @@ void Bureaucrat::decrementGrade()
     std::cout << "Entered decrement" << std::endl;
     if (this->_grade + 1 > 150)
         throw GradeTooLowException();
-        //std::cout << "Grade decrement will be under 150 (range is set between 1-150)" << std::endl;
     else
         _grade++;
 }

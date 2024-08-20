@@ -41,7 +41,7 @@ public:
             virtual const char* what() const throw();
     };
 
-    const char * signForm(Form &source);
+    void signForm(Form &source);
 };
 
 

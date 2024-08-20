@@ -83,13 +83,14 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
         return "Grade increase will be under 150 (range is set between 1-150)\n";
 }
-
-const char * Bureaucrat::signForm(Form &source)
+void Bureaucrat::signForm(Form &source)
 {
     if (source.getIsSigned() == true)
-        return  "<bureaucrat> signed <form>";
+        std::cout << this->getName() << " signed " << source.getName() << std::endl;
+        // return  "<bureaucrat> signed <form>";
     else
-        return "<bureaucrat> couldn’t sign <form> because <reason>";
+        std::cout << this->getName() << " couldn’t signed " << source.getName() << " because grade not valid" << std::endl;
+        // return "<bureaucrat> couldn’t sign <form> because <reason>";
 }
 
 
