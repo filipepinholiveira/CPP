@@ -85,12 +85,15 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 }
 void Bureaucrat::signForm(Form &source)
 {
-    if (source.getIsSigned() == true)
-        std::cout << this->getName() << " signed " << source.getName() << std::endl;
-        // return  "<bureaucrat> signed <form>";
-    else
-        std::cout << this->getName() << " couldn’t signed " << source.getName() << " because grade not valid" << std::endl;
-        // return "<bureaucrat> couldn’t sign <form> because <reason>";
+    try 
+    {
+        source.beSigned(*this);
+        std::cout << getName() << " signed " << source.getName() << std::endl;
+    } 
+        catch (const Form::GradeTooLowException &e) 
+    {
+    std::cerr << getName() << " couldn’t sign " << source.getName() << " because grade not valid" << std::endl;
+    }
 }
 
 

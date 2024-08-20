@@ -8,16 +8,14 @@ int main()
     
 
 
-    Bureaucrat teste("Filipe", 15);
+    Bureaucrat teste("Filipe", 11);
     Form teste2;
     std::cout << teste << std::endl;
-    std::cout << "Is Signed?: " << teste2.getIsSigned() << std::endl;
-    std::cout << "Is Signed?: ";
+    std::cout << "Signing value at beggining?: " << teste2.getIsSigned() << std::endl;
+    std::cout << "Is Signed after signform?: ";
     teste.signForm(teste2);
-    teste2.beSigned(teste);
-    std::cout << "Is Signed?: " << teste2.getIsSigned() << std::endl;
-    std::cout << "Is Signed?: ";
-    teste.signForm(teste2);
+    std::cout << "Signing value at the end?: " << teste2.getIsSigned() << std::endl;
+
 
     return 0;
 }
