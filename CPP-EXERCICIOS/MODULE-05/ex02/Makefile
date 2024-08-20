@@ -1,13 +1,11 @@
 
-
-
-SRC =  main.cpp
+SRC = AForm.cpp Bureaucrat.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 FLAGS = -std=c++98 -g -Wall -Wextra -Werror
 RM = rm -rf
 
-NAME = 
+NAME = Bureauex02
 
 # controll codes
 RESET		=	\033[0m
@@ -19,13 +17,13 @@ UP			=	\033[A
 CUT			=	\033[K
 
 all: $(NAME)
-	@echo -n "\n"
-	@echo -n "$(GREEN)    ____ $(RED)   _     _   \n$(RESET)"
-	@echo -n "$(GREEN)   |  __|$(RED) _| |_ _| |_ \n$(RESET)"
-	@echo -n "$(GREEN)   | |__ $(RED)|_   _|_   _|\n$(RESET)"
-	@echo -n "$(GREEN)   |____|  $(RED)|_|   |_|  \n$(RESET)"
-	@echo -n "$(GREEN)                      \n$(RESET)"
-	@echo -n "\n"
+	@printf "\n"
+	@printf "$(GREEN)    ____ $(RED)   _     _   \n$(RESET)"
+	@printf "$(GREEN)   |  __|$(RED) _| |_ _| |_ \n$(RESET)"
+	@printf "$(GREEN)   | |__ $(RED)|_   _|_   _|\n$(RESET)"
+	@printf "$(GREEN)   |____|  $(RED)|_|   |_|  \n$(RESET)"
+	@printf "$(GREEN)                      \n$(RESET)"
+	@printf "\n"
 	@echo "$(YELLOW)Compiling $(NAME)"
 	
 $(NAME): $(OBJ)	
@@ -36,13 +34,13 @@ $(OBJ): %.o: %.cpp
 	@$(CC) $(FLAGS) -c $<
 
 clean:
-	@echo -n "\n"
-	@echo -n "$(GREEN)    ____ $(RED)   _     _   \n$(RESET)"
-	@echo -n "$(GREEN)   |  __|$(RED) _| |_ _| |_ \n$(RESET)"
-	@echo -n "$(GREEN)   | |__ $(RED)|_   _|_   _|\n$(RESET)"
-	@echo -n "$(GREEN)   |____|  $(RED)|_|   |_|  \n$(RESET)"
-	@echo -n "$(GREEN)                      \n$(RESET)"
-	@echo -n "\n"
+	@printf "\n"
+	@printf "$(GREEN)    ____ $(RED)   _     _   \n$(RESET)"
+	@printf "$(GREEN)   |  __|$(RED) _| |_ _| |_ \n$(RESET)"
+	@printf "$(GREEN)   | |__ $(RED)|_   _|_   _|\n$(RESET)"
+	@printf "$(GREEN)   |____|  $(RED)|_|   |_|  \n$(RESET)"
+	@printf "$(GREEN)                      \n$(RESET)"
+	@printf "\n"
 	@echo "$(YELLOW) Deleting all objects"
 	@$(RM) -r $(OBJ)
 	@echo "$(GREEN) Objects deleted"
