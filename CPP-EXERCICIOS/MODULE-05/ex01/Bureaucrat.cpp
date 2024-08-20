@@ -29,7 +29,7 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat::Bureaucrat (Bureaucrat const &copy) : _name(copy.getName()), _grade(copy.getGrade())
 {
-    
+    std::cout << "Bureaucrat Copy Constructor called" << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &source)
@@ -82,6 +82,14 @@ const char* Bureaucrat::GradeTooHighException::what() const throw()
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
         return "Grade increase will be under 150 (range is set between 1-150)\n";
+}
+
+const char * Bureaucrat::signForm(Form &source)
+{
+    if (source.getIsSigned() == true)
+        return  "<bureaucrat> signed <form>";
+    else
+        return "<bureaucrat> couldn’t sign <form> because <reason>";
 }
 
 
