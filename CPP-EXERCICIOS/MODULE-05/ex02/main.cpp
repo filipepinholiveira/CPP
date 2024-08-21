@@ -96,49 +96,5 @@ int main()
     steve.executeForm(steveP);
     steve.executeForm(steveR);
     steve.executeForm(steveS);
-
-
-
-
-
-
-	
-
-        // // sign 72, exec 45 -> use 150, 60, 3
-        // robotomy.beSigned(mike);
-        // robotomy.beSigned(jon);
-        // robotomy.beSigned(steve);
-        // michel.executeForm(robotomy);
-        // mike.executeForm(robotomy);
-        // jon.executeForm(robotomy);
-        // steve.executeForm(robotomy);
-
-        // std::cout << "------------------------------------\n";
-        // std::cout << "------------------------------------\n";
-
-        // //sign 25, exec 5 - use 150, 10, 3
-        // pardon.beSigned(mike);
-        // pardon.beSigned(jon);
-        // pardon.beSigned(steve);
-        // michel.executeForm(robotomy);
-        // mike.executeForm(pardon);
-        // phil.executeForm(pardon);
-        // steve.executeForm(pardon);
-
-
-        // std::cout << "------------------------------------\n";
-        // std::cout << "------------------------------------\n";
-
-        // // sign 145, exec 137 -> use 150, 140, 3
-        // shrubbery.beSigned(mike);
-        // shrubbery.beSigned(jon);
-        // shrubbery.beSigned(steve);
-        // michel.executeForm(robotomy);
-
-        // mike.executeForm(shrubbery);
-        // bill.executeForm(shrubbery);
-        // steve.executeForm(shrubbery);
-
-    
 	return (0);
 }
