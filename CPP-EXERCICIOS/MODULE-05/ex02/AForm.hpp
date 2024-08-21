@@ -2,7 +2,6 @@
 #include <iostream>
 #include <exception>
 
-
 class Bureaucrat;
 
 class AForm
@@ -17,7 +16,7 @@ private:
 public:
     AForm();
     AForm(const std::string name, bool isSign, const int signGrade, const int executeGrade);
-    ~AForm();
+    virtual ~AForm(); // nao esquecer que tem que ser virtual ja que e uma abstrate class e vai ser chamada pelos destrutores das classes filho
     
     AForm (AForm const &copy);
     AForm &operator=(AForm const &source);
@@ -41,10 +40,29 @@ public:
             virtual const char* what() const throw();
     };
 
+    class IsNotSigned : public std::exception
+    {
+        public:
+            virtual const char* what() const throw();
+    };
+
+    class SignGrade : public std::exception
+    {
+        public:
+            virtual const char* what() const throw();
+    };
+
+    class ExecuteGrade : public std::exception
+    {
+        public:
+            virtual const char* what() const throw();
+    };
+
     void beSigned(Bureaucrat &source);
 
-    void execute(Bureaucrat const & executor) const;
+    virtual void execute(Bureaucrat const & executor) const = 0;
 
 };
 
+#include "Bureaucrat.hpp"
 

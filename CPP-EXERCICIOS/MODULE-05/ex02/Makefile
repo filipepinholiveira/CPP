@@ -1,5 +1,5 @@
 
-SRC = AForm.cpp Bureaucrat.cpp main.cpp
+SRC = AForm.cpp Bureaucrat.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 FLAGS = -std=c++98 -g -Wall -Wextra -Werror

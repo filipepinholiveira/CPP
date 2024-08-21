@@ -3,12 +3,12 @@
 
 Bureaucrat::Bureaucrat() : _name("No name set"), _grade(150)
 {
-    std::cout << "Default Bureaucrat constructor called" << std::endl;
+    // std::cout << "Default Bureaucrat constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string Name, int Grade) : _name(Name)
 {
-    std::cout << "Bureaucrat Constructor with args called" << std::endl;
+    // std::cout << "Bureaucrat Constructor with args called" << std::endl;
     if (Grade < 1 || Grade > 150)
     {
         if (Grade < 1)
@@ -23,13 +23,13 @@ Bureaucrat::Bureaucrat(std::string Name, int Grade) : _name(Name)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Default Bureaucrat destructor called" << std::endl;
+    // std::cout << "Default Bureaucrat destructor called" << std::endl;
 }
 
 
 Bureaucrat::Bureaucrat (Bureaucrat const &copy) : _name(copy.getName()), _grade(copy.getGrade())
 {
-    std::cout << "Bureaucrat Copy Constructor called" << std::endl;
+    // std::cout << "Bureaucrat Copy Constructor called" << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &source)
@@ -72,6 +72,19 @@ void Bureaucrat::decrementGrade()
         //std::cout << "Grade decrement will be under 150 (range is set between 1-150)" << std::endl;
     else
         _grade++;
+}
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+    try
+    {
+        form.execute(*this);
+        //std::cout << this->getName() << " executed " << form.getName() << std::endl;
+    }
+    catch(std::exception &e)
+    {
+        std::cout << this->_name << " cannot execute " << form.getName() << " because " << e.what() << std::endl;
+    }
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
