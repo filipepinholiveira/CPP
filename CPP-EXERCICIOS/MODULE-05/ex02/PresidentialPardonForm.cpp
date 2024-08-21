@@ -34,6 +34,14 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-    (void) executor;
     // falta codigo de execucao PresidentialPardonForm
+   
+        if(!getIsSigned())
+            throw IsNotSigned();
+        else if(getSignGrade() < executor.getGrade())
+            throw SignGrade();
+        else if(getExecuteGrade() < executor.getGrade())
+            throw ExecuteGrade();
+        std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+        std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

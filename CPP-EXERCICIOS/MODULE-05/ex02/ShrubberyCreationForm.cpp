@@ -36,6 +36,32 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-    (void) executor;
     // falta codigo de execucao ShrubberyCreationForm
+    if(!this->getIsSigned())
+        throw IsNotSigned();
+    else if(getSignGrade() < executor.getGrade())
+        throw SignGrade();
+    else if(getExecuteGrade() < executor.getGrade())
+        throw ExecuteGrade();
+    std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+    std::string filename = _target + "_shrubbery";
+    std::ofstream outfile(filename.c_str());
+    if (!outfile) 
+    {
+        std::cerr << "Erro ao criar o arquivo " << filename << std::endl;
+        return;
+    }
+    // Escreve árvores ASCII no arquivo
+    outfile << "       ###" << std::endl;
+    outfile << "      #o###" << std::endl;
+    outfile << "    #####o###" << std::endl;
+    outfile << "   #o#\\#|#/###" << std::endl;
+    outfile << "    ###\\|/#o#" << std::endl;
+    outfile << "     # }|{  #" << std::endl;
+    outfile << "       }|{" << std::endl;
+    
+    // Fecha o arquivo
+    outfile.close();
+    
+
 }

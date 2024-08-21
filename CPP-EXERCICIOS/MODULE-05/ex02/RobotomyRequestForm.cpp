@@ -37,14 +37,12 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     int valid;
 
-    try
-    {   
-        if(!getIsSigned())
-            throw IsNotSigned();
-        else if(getSignGrade() < executor.getGrade())
-            throw SignGrade();
-        else if(getExecuteGrade() < executor.getGrade())
-            throw ExecuteGrade();
+    if(!getIsSigned())
+        throw IsNotSigned();
+    else if(getSignGrade() < executor.getGrade())
+        throw SignGrade();
+    else if(getExecuteGrade() < executor.getGrade())
+        throw ExecuteGrade();
         
 
     //srand ((unsigned) time(NULL));
@@ -61,10 +59,4 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
         std::cout << this->_target << " has been robotomized successfully!!!" << std::endl;
     else
         std::cout << "Robotomy failed." << std::endl;
-        
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
 }
