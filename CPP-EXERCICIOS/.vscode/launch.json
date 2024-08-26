@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/workspaces/CPP/CPP-EXERCICIOS/MODULE-05/ex02",
-      "program": "/workspaces/CPP/CPP-EXERCICIOS/MODULE-05/ex02/Bureauex02",
+      "cwd": "/workspaces/CPP/CPP-EXERCICIOS/MODULE-05/ex03",
+      "program": "/workspaces/CPP/CPP-EXERCICIOS/MODULE-05/ex03/InternWork",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
