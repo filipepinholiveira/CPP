@@ -12,15 +12,84 @@ int main()
 
     srand ((unsigned) time(NULL));
 
-    Bureaucrat michel("michel", 1);
+    Bureaucrat Bureau("Bureau", 1);
     Intern Escravo;
     AForm *Form;
 
     try
     {
         Form = Escravo.makeForm("RobotomyRequest", "Filipe");
-        Form->beSigned(michel);
-        michel.executeForm(*Form);
+        Form->beSigned(Bureau);
+        Bureau.executeForm(*Form);
+
+        delete Form;
+    }
+    catch(std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    std::cout << "\n##############################################\n";
+    std::cout << "##############################################\n";
+    std::cout << "##############################################\n";
+
+
+     try
+    {
+        Form = Escravo.makeForm("PresidentialPardon", "Filipe");
+        Form->beSigned(Bureau);
+        Bureau.executeForm(*Form);
+
+        delete Form;
+    }
+    catch(std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    std::cout << "\n##############################################\n";
+    std::cout << "##############################################\n";
+    std::cout << "##############################################\n";
+
+     try
+    {
+        Form = Escravo.makeForm("ShrubberyCreation", "Filipe");
+        Form->beSigned(Bureau);
+        Bureau.executeForm(*Form);
+
+        delete Form;
+    }
+    catch(std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    std::cout << "\n##############################################\n";
+    std::cout << "##############################################\n";
+    std::cout << "##############################################\n";
+
+     try
+    {
+        Form = Escravo.makeForm("Erro!", "Filipe");
+        Form->beSigned(Bureau);
+        Bureau.executeForm(*Form);
+
+        delete Form;
+    }
+    catch(std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    std::cout << "\n##############################################\n";
+    std::cout << "##############################################\n";
+    std::cout << "##############################################\n";
+
+      try
+    {
+        Form = Escravo.makeForm("", "Filipe");
+        Form->beSigned(Bureau);
+        Bureau.executeForm(*Form);
 
         delete Form;
     }

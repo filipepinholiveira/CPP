@@ -2,12 +2,12 @@
 
 Intern::Intern()
 {
-    // std::cout << "Default constructor called" << std::endl;
+    std::cout << "Default Intern constructor called" << std::endl;
 }
 
 Intern::~Intern()
 {
-    // std::cout << "Default destructor called" << std::endl;
+    std::cout << "Default Intern destructor called" << std::endl;
 
 }
 
@@ -32,18 +32,10 @@ AForm * Intern::makeForm(std::string formName, std::string target)
 
     if (!formName.empty())
     {
-
-        // if(formName == "ShrubberyCreation")
-        //     choice = 0;
-        // else if(formName == "RobotomyRequest")
-        //     choice = 1;
-        // else if(formName == "PresidentialPardon")
-        //     choice = 2;
-
         for (int i = 0; i < 3; i++) {
             if (formName == formNames[i]) {
                 choice = i;
-                break; // Parar o loop após encontrar a correspondência
+                break; 
             }
         }
 

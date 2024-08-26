@@ -3,19 +3,19 @@
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm ("RobotomyRequestForm", 0, 72, 45)
 {
-    // std::cout << "Default RobotomyRequestForm constructor called" << std::endl;
+    std::cout << "Default RobotomyRequestForm constructor called" << std::endl;
     _target = "No target set";
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm ("RobotomyRequestForm", 0, 72, 45)
 {
     _target = target;
-    // std::cout << "*RobotomyRequestForm parameter constructor*" << std::endl;
+    std::cout << "RobotomyRequestForm parameter constructor*" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    // std::cout << "Default RobotomyRequestForm destructor called" << std::endl;
+    std::cout << "Default RobotomyRequestForm destructor called" << std::endl;
 
 }
 

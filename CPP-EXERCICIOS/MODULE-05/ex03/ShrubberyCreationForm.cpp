@@ -3,19 +3,19 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm ("ShrubberyCreationForm", 0, 145, 137)
 {
-    // std::cout << "Default ShrubberyCreationForm constructor called" << std::endl;
+    std::cout << "Default ShrubberyCreationForm constructor called" << std::endl;
     _target = "No target set";
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 0, 145, 137)
 {
     _target = target;
-    // std::cout << "*ShrubberyCreationForm parameter constructor*" << std::endl;
+    std::cout << "*ShrubberyCreationForm parameter constructor*" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    // std::cout << "Default ShrubberyCreationForm destructor called" << std::endl;
+    std::cout << "Default ShrubberyCreationForm destructor called" << std::endl;
 
 }
 

@@ -4,28 +4,28 @@
 
 AForm::AForm() : _name("AForm default name"), _isSign(0), _signGrade(10), _executeGrade(1)
 {
-    // std::cout << "Default AForm constructor called" << std::endl;
+    std::cout << "Default AForm constructor called" << std::endl;
 }
 
 AForm::AForm(const std::string name, bool isSign, const int signGrade, const int executeGrade) : _name(name), _isSign(isSign), _signGrade(signGrade), _executeGrade(executeGrade)
 {
-    // std::cout << "AForm constructor with args called" << std::endl;
+    std::cout << "AForm constructor with args called" << std::endl;
 }
 
 AForm::~AForm()
 {
-    // std::cout << "Default AForm destructor called" << std::endl;
+    std::cout << "Default AForm destructor called" << std::endl;
 }
 
 
 AForm::AForm (AForm const &copy) : _name(copy._name), _isSign(copy._isSign), _signGrade(copy._signGrade), _executeGrade(copy._executeGrade)
 {
-    // std::cout << "AForm copy constructor called" << std::endl;
+    std::cout << "AForm copy constructor called" << std::endl;
 }
 
 AForm &AForm::operator=(AForm const &source)
 {
-    // std::cout << "Assign operator called" << std::endl;
+    std::cout << "Assign operator called" << std::endl;
     if(this != &source)
     {
         *this = source;
@@ -86,8 +86,6 @@ void AForm::beSigned(Bureaucrat &source)
 {
     if (source.getGrade() <= this->getSignGrade()) 
         this->_isSign = 1;
-    // else
-    //     throw GradeTooLowException();
 }
 
 

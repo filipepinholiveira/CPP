@@ -3,20 +3,19 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm ("ShrubberyCreationForm", 0, 145, 137)
 {
-    // std::cout << "Default ShrubberyCreationForm constructor called" << std::endl;
+    std::cout << "Default ShrubberyCreationForm constructor called" << std::endl;
     _target = "No target set";
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 0, 145, 137)
 {
     _target = target;
-    // std::cout << "*ShrubberyCreationForm parameter constructor*" << std::endl;
+    std::cout << "ShrubberyCreationForm parameter constructor*" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    // std::cout << "Default ShrubberyCreationForm destructor called" << std::endl;
-
+    std::cout << "Default ShrubberyCreationForm destructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm (ShrubberyCreationForm const &copy) :AForm()
@@ -36,7 +35,6 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-    // falta codigo de execucao ShrubberyCreationForm
     if(!this->getIsSigned())
         throw IsNotSigned();
     else if(getSignGrade() < executor.getGrade())
@@ -62,6 +60,4 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     
     // Fecha o arquivo
     outfile.close();
-    
-
 }

@@ -3,18 +3,18 @@
 
 PresidentialPardonForm::PresidentialPardonForm() : AForm ("PresidentialPardonForm", 0, 25, 5)
 {
-    // std::cout << "Default PresidentialPardonForm constructor called" << std::endl;
+    std::cout << "Default PresidentialPardonForm constructor called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm ("PresidentialPardonForm", 0, 25, 5)
 {
     _target = target;
-    // std::cout << "*PresidentialPardonForm parameter constructor*" << std::endl;
+    std::cout << "*PresidentialPardonForm parameter constructor*" << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-    // std::cout << "Default PresidentialPardonForm destructor called" << std::endl;
+    std::cout << "Default PresidentialPardonForm destructor called" << std::endl;
 
 }
 
