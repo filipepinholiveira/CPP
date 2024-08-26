@@ -28,6 +28,10 @@ public:
     int getExecuteGrade() const;
 
 
+    bool getSigned() const;
+    int getGradeToSign() const;
+    int getGradeToExecute() const;
+
     class GradeTooHighException : public std::exception
     {
         public:
@@ -63,6 +67,8 @@ public:
     virtual void execute(Bureaucrat const & executor) const = 0;
 
 };
+
+std::ostream &operator<<(std::ostream &out, const AForm &form);
 
 #include "Bureaucrat.hpp"
 
