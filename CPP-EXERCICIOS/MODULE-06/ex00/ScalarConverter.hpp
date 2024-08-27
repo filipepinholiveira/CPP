@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <cstdlib>
+#include <string.h>
 
 class ScalarConverter
 {
@@ -12,10 +14,12 @@ class ScalarConverter
         ScalarConverter &operator=(ScalarConverter const &source);
 
         ~ScalarConverter();
-        
+
     public:
 
         static void    convert(std::string value);
+
+        static void    executeConvert(double num, char *end);
 
         class NotValidInput : public std::exception
     {

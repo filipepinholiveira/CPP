@@ -1,5 +1,4 @@
 #include "ScalarConverter.hpp"
-#include <cstdlib>
 
 ScalarConverter::ScalarConverter()
 {
@@ -24,6 +23,23 @@ ScalarConverter::~ScalarConverter()
     std::cout << "Default destructor called" << std::endl;
 }
 
+void    ScalarConverter::executeConvert(double num, char *end)
+{
+    if (strlen(end) > 1)
+    {
+        throw NotValidInput();
+    }
+    else
+    {
+        std::cout << "Char: " << static_cast<char>(num) << std::endl; // falta fazer conversao
+        std::cout << "Int: " << static_cast<int>(num) << std::endl; // falta fazer conversao
+        std::cout << "Float: " << static_cast<float>(num) << "f" << std::endl; // falta fazer conversao
+        std::cout << "Double: " << num << std::endl; // feita a conversao (acho eu)
+        std::cout << "Parte nao numerica: " << end << std::endl;
+    }
+}
+
+
 void    ScalarConverter::convert(std::string value)
 {
     // double strtod(const char *str, char **endptr);
@@ -31,17 +47,20 @@ void    ScalarConverter::convert(std::string value)
     char *end;
 
     double num_d = strtod(value.c_str(), &end);
-    std::cout << "Char: " << static_cast<char>(num_d) << std::endl; // falta fazer conversao
-    std::cout << "Int: " << static_cast<int>(num_d) << std::endl; // falta fazer conversao
-    std::cout << "Float: " << static_cast<float>(num_d) << "f" << std::endl; // falta fazer conversao
-    std::cout << "Double: " << num_d << std::endl; // feita a conversao (acho eu)
-    std::cout << "Parte nao numerica: " << end << std::endl;
 
+    try
+    {
+        executeConvert(num_d, end);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
 
 const char * ScalarConverter::NotValidInput::what() const throw()
 {
-    return "Not valid imput\n";
+    return "Not valid imput";
 }
 
 
