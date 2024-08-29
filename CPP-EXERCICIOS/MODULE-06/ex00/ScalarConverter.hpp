@@ -1,7 +1,11 @@
 #pragma once
 #include <iostream>
 #include <cstdlib>
+#include <cctype>
+#include <climits>
 #include <string.h>
+#include <iomanip>
+#include <cmath> 
 
 class ScalarConverter
 {
@@ -20,6 +24,8 @@ class ScalarConverter
         static void    convert(std::string value);
 
         static void    executeConvert(double num, char *end);
+
+        static bool    verifyArg(double num, char *arg);
 
         class NotValidInput : public std::exception
     {

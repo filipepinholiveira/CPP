@@ -23,19 +23,39 @@ ScalarConverter::~ScalarConverter()
     std::cout << "Default destructor called" << std::endl;
 }
 
+bool    ScalarConverter::verifyArg(double num, char *arg)
+{
+    if (strlen(arg) > 1)
+        return 1;
+    else if (strlen(arg) == 1 && *arg != 'f')
+        return 1;
+    else if(num > INT_MAX || num < INT_MIN)
+        return 1;
+    return 0;
+}
+
 void    ScalarConverter::executeConvert(double num, char *end)
 {
-    if (strlen(end) > 1)
+    if (verifyArg(num, end))
     {
         throw NotValidInput();
     }
     else
-    {
-        std::cout << "Char: " << static_cast<char>(num) << std::endl; // falta fazer conversao
-        std::cout << "Int: " << static_cast<int>(num) << std::endl; // falta fazer conversao
-        std::cout << "Float: " << static_cast<float>(num) << "f" << std::endl; // falta fazer conversao
-        std::cout << "Double: " << num << std::endl; // feita a conversao (acho eu)
-        std::cout << "Parte nao numerica: " << end << std::endl;
+    {   if (isprint(static_cast<char>(num)))
+            std::cout << "Char: " << static_cast<char>(num) << std::endl;
+        else if(std::isnan(num))
+            std::cout << "Char: impossible" << std::endl; 
+        else
+            std::cout << "Char: Non displayable" << std::endl; 
+
+        if (std::isnan(num))
+            std::cout << "Int: impossible" << std::endl;
+        else
+            std::cout << "Int: " << static_cast<long long int>(num) << std::endl;
+        
+        std::cout << "Float: " << std::fixed << std::setprecision(1) <<static_cast<float>(num) << "f" << std::endl;
+        
+        std::cout << "Double: " << std::fixed << std::setprecision(1) <<static_cast<double>(num) << std::endl;
     }
 }
 
