@@ -45,40 +45,42 @@ void    ScalarConverter::executeConvert(double num, char *end, int size)
     {   
         // CHAR
 
-                if(std::isnan(num) || std::isinf(num) || num < 0 || num > 127)
-            std::cout << "Char: impossible" << std::endl; 
+        // std::cout << "NUM " << num << std::endl;
+        // std::cout << "END " << end << std::endl;
+
+
+        if(std::isnan(num) || std::isinf(num) || num < 0 || num > 127)
+            std::cout << "char: impossible" << std::endl; 
         else if (isprint(num))
-            std::cout << "Char: " << static_cast<char>(num) << std::endl;
-        else if(size == 1)
-            std::cout << "Char: " << end << std::endl;
-        // else if ((num < 0 || num > 31) && num != 127)
-        //     std::cout << "Char 3: " << end << std::endl;
+            std::cout << "char: " << static_cast<char>(num) << std::endl;
+        else if(size == 1 && end[0] != '\0')
+            std::cout << "char: " << end << std::endl;
         else if ((num >= 0 && num <= 31) || num == 127)
-            std::cout << "Char: Non displayable" << std::endl; 
+            std::cout << "char: Non displayable" << std::endl; 
 
         // INT
         if (std::isnan(num) || std::isinf(num) || num > INT_MAX || num < INT_MIN)
-            std::cout << "Int: impossible" << std::endl;
+            std::cout << "int: impossible" << std::endl;
         else if(size == 1)
-            std::cout << "Int: " <<  static_cast<long long int>(*end) << std::endl;
+            std::cout << "int: " <<  static_cast<long long int>(*end) << std::endl;
         else
-            std::cout << "Int: " << static_cast<long long int>(num) << std::endl;
+            std::cout << "int: " << static_cast<long long int>(num) << std::endl;
         
         // FLOAT
         if (std::isnan(num) || std::isinf(num) || num > INT_MAX || num < INT_MIN)
-            std::cout << "Float: " << static_cast<float>(num) << "f" << std::endl;
+            std::cout << "float: " << static_cast<float>(num) << "f" << std::endl;
         else if(size == 1)
-            std::cout << "Float: " <<  std::fixed << std::setprecision(1) << static_cast<float>(*end) << "f" << std::endl;
+            std::cout << "float: " <<  std::fixed << std::setprecision(1) << static_cast<float>(*end) << "f" << std::endl;
         else
-            std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << std::endl;
+            std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << std::endl;
         
         //DOUBLE
         if (std::isnan(num) || std::isinf(num) || num > INT_MAX || num < INT_MIN)
-            std::cout << "Double: " << static_cast<double>(num) << std::endl;
+            std::cout << "double: " << static_cast<double>(num) << std::endl;
         else if(size == 1)
-            std::cout << "Double: " <<  std::fixed << std::setprecision(1) << static_cast<double>(*end) << std::endl;
+            std::cout << "double: " <<  std::fixed << std::setprecision(1) << static_cast<double>(*end) << std::endl;
         else
-            std::cout << "Double: " << std::fixed << std::setprecision(1) <<static_cast<double>(num) << std::endl;
+            std::cout << "double: " << std::fixed << std::setprecision(1) <<static_cast<double>(num) << std::endl;
     }
 }
 
@@ -104,7 +106,7 @@ void    ScalarConverter::convert(std::string value)
 
 const char * ScalarConverter::NotValidInput::what() const throw()
 {
-    return "Not valid imput";
+    return "Not valid input";
 }
 
 
