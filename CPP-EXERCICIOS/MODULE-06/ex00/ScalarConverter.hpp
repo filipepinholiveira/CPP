@@ -23,9 +23,9 @@ class ScalarConverter
 
         static void    convert(std::string value);
 
-        static void    executeConvert(double num, char *end);
+        static void    executeConvert(double num, char *end, int size);
 
-        static bool    verifyArg(double num, char *arg);
+        static bool    verifyArg(double num, char *arg, int size);
 
         class NotValidInput : public std::exception
     {
