@@ -74,7 +74,7 @@ void readRef(Base& p)
         // Captura falha de conversão para C
     }
 
-    //throw Base::BadCast();
+    throw Base::BadCast();
     // Se todas as conversões falharem, lança a exceção personalizada
 }
 

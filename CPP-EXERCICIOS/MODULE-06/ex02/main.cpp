@@ -25,7 +25,7 @@ int main()
     Desreferenciar um ponteiro nulo é um erro grave que pode levar a falhas de segmentação e comportamento 
     indefinido. Sempre certifique-se de que o ponteiro é válido e não nulo antes de realizar qualquer operação com ele.
 */
-    if (notObj != NULL)
+    //if (notObj != NULL)
         identify(*notObj);
      
     delete obj;  // Liberar a memória alocada, se obj não for nulo
