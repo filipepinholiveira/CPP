@@ -34,52 +34,13 @@ void identify(Base* p) {
     } else if (dynamic_cast<C*>(p)) {
         std::cout << "Eu sou a classe C\n";
     } else {
-        std::cout << "Tipo desconhecido\n";
+            throw Base::BadCast();
     }
 }
 
-void readRef(Base& p) {
-    identify(&p);  // Usa a função identify que aceita um ponteiro
-}
-
-const char * Base::BadCast::what() const throw()
+void readRef(Base& p) 
 {
-    return "Bad Cast exception";
-}
 
-// void identify(Base& p) 
-// {
-//     try 
-//     {
-//         dynamic_cast<A&>(p);
-//         {
-//             std::cout << "Eu sou a classe A\n";
-//             return;
-//         }
-//         dynamic_cast<B&>(p);
-//         {
-//             std::cout << "Eu sou a classe B\n";
-//             return;
-//         }
-//         dynamic_cast<C&>(p);
-//         {
-//             std::cout << "Eu sou a classe C\n";
-//             return;
-//         }
-//     } 
-//     catch(const std::exception& e)
-//     {
-//         throw Base::BadCast();
-//         //std::cerr << e.what() << '\n';
-//     }
-//     // catch (const std::bad_cast&)
-//     // {
-//     //     // Captura falha de conversão para A, B, C
-//     // }
-// }
-
-void identify(Base& p) 
-{
     try 
     {
         (void) dynamic_cast<A&>(p);
@@ -113,6 +74,25 @@ void identify(Base& p)
         // Captura falha de conversão para C
     }
 
+    //throw Base::BadCast();
     // Se todas as conversões falharem, lança a exceção personalizada
-    throw Base::BadCast();
 }
+
+const char * Base::BadCast::what() const throw()
+{
+    return "Bad Cast exception";
+}
+
+void identify(Base& p) 
+{
+    try 
+    {
+        readRef(p);
+    } 
+    catch(const std::exception& e)
+    {
+        //throw Base::BadCast();
+        std::cerr << e.what() << '\n';
+    }
+}
+
