@@ -6,11 +6,13 @@
 int main() {
     Base* obj = generate();
     identify(obj);
+    identify(*obj);
 
     // Testando com um ponteiro nulo
     Base* notObj = NULL;
-    identify(notObj); // Isso pode gerar um comportamento indefinido, pois o ponteiro é nulo
+    identify(notObj);
+    identify(*notObj);
 
-    delete obj;  // Liberar a memória alocada
+    delete obj;  // Liberar a memória alocada, se obj não for nulo
     return 0;
 }

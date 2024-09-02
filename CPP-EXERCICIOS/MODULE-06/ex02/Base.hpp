@@ -1,26 +1,20 @@
 #pragma once
 #include <iostream>
-// #include <cstdlib>  // Para rand()
-// #include <ctime>    // Para time()
-
 
 
 class Base
 {
-       public:
+public:
+    virtual ~Base();
 
-        virtual ~Base();
-
+    class BadCast : public std::exception
+    {
+        public:
+            virtual const char* what() const throw();
+    };
 };
 
-Base * generate(void);
-
+Base* generate(void);
 void identify(Base* p);
-
 void identify(Base& p);
-
-void readRef(Base& p)
-
-class A;
-class B;
-class C;
+void readRef(Base& p);
