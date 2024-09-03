@@ -1,0 +1,64 @@
+
+
+INTRODUTION TO TEMPLATES
+
+Templates in C++ are a powerful feature that allows the creation of generic and reusable code components. They enable functions and classes to operate with any data type without being rewritten for each specific type.
+
+Key Concepts
+Generic Programming: Writing code that works with any data type.
+Type Parameters: Specifying types as parameters to functions or classes.
+Code Reusability: Reducing redundancy by creating flexible code.
+
+******************************************************
+
+FUNCTION TEMPLATES
+
+Function templates allow functions to operate with generic types. This is particularly useful for algorithms that can be applied to different data types.
+
+SYNTAX
+
+template <typename T>
+T max(T a, T b) 
+{
+    return (a > b) ? a : b;
+}
+
+EXAMPLE:
+
+int main() 
+{
+    int i = max(3, 7); // Works with int
+    double d = max(3.0, 7.0); // Works with double
+    std::string s = max(std::string("apple"), std::string("banana")); // Works with string
+}
+
+******************************************************
+
+CLASS TEMPLATES
+
+Class templates enable the creation of classes that work with generic types. They are especially useful for data structures and container classes.
+
+SYNTAX
+
+template <typename T>
+class Box 
+{
+    private:
+        T value;
+    public:
+        Box(T v) : value(v) {}
+        T getValue() { return value; }
+};
+
+EXAMPLE:
+
+
+int main() 
+{
+    Box<int> intBox(123); // Box of int
+    Box<std::string> strBox("Hello"); // Box of string
+
+    std::cout << intBox.getValue() << std::endl; // Outputs 123
+    std::cout << strBox.getValue() << std::endl; // Outputs Hello
+}
+
