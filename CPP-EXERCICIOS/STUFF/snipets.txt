@@ -1,0 +1,136 @@
+
+
+.HPP E .CPP
+
+{
+"Ortodoxical Canonical Form":{
+        "prefix": "ocf",
+        "body": [
+            "#include \"${1:classe}.hpp\"",
+            "#include <iostream.hpp>",
+            "",
+            "${1:classe}::$1()",
+            "{",
+            "\tstd::cout << \"Default constructor called\" << std::endl;",
+            "}",
+            "",
+            "${1:classe}::~$1()",
+            "{",
+            "\tstd::cout << \"Default destructor called\" << std::endl;\n",
+            "}",
+            "",
+            "${1:classe}::${1:classe} (${1:classe} const &copy)",
+            "{",
+            "\t*this = copy;",
+            "}",
+            "${1:classe} &${1:classe}::operator=(${1:classe} const &source)",
+            "{",
+            "\tif (this != &source)",
+            "\t{",
+            "\t\t${2: //copy definition}",
+            "\t}",
+            "\treturn *this;",
+            "}",
+            "",
+            "std::ostream& operator<<(std::ostream& o, ${1:class}& value);",
+            "{",
+            " //definir o que quero imprimir",
+            "}",
+            ],
+            "description": "Criacao do OCF"
+    },
+    "Header Class OCF":{
+        "prefix": "header",
+        "body": [
+            "#pragma once",
+            "",
+            "",
+            "class ${1:class}",
+            "{",
+            "\tprivate:",
+            "",
+            "\tpublic:",
+            "\t\t${1:class}();",
+            "\t\t~${1:class}();",
+            "",
+            "\t\t${1:class} (${1:class} const &copy);",
+            "",
+            "\t\t${1:class} &operator=(${1:class} const &source);",
+            ""  ,
+            "};",
+            "",
+            "std::ostream& operator<<(std::ostream& o, ${1:class}& value);",
+        ]
+    }
+}
+
+
+
+
+MAKEFILE
+
+{
+	"Makefile CPP":{
+		"prefix": "make",
+		"body": [
+			"SRC = ${1:sources}",
+			"OBJ = $(SRC:.cpp=.o)",
+			"CC = c++",
+			"FLAGS = -std=c++98 -g -Wall -Wextra -Werror",
+			"RM = rm -rf",
+			"",
+			"NAME = ${2:program}",
+			"",
+			"# controll codes",
+			"RESET\t\t=\t\\033[0m",
+			"GREEN\t\t=\t\\033[32m",
+			"YELLOW\t\t=\t\\033[33m",
+			"BLUE\t\t=\t\\033[34m",
+			"RED\t\t\t=\t\\033[31m",
+			"UP\t\t\t=\t\\033[A",
+			"CUT\t\t\t=\t\\033[K",
+			"",
+			"all: $(NAME)",
+			"\t@printf \"\\n\"",
+			"\t@printf \"$(GREEN)    ____ $(RED)   _     _   \\n$(RESET)\"",
+			"\t@printf \"$(GREEN)   |  __|$(RED) _| |_ _| |_ \\n$(RESET)\"",
+			"\t@printf \"$(GREEN)   | |__ $(RED)|_   _|_   _|\\n$(RESET)\"",
+			"\t@printf \"$(GREEN)   |____|  $(RED)|_|   |_|  \\n$(RESET)\"",
+			"\t@printf \"$(GREEN)                      \\n$(RESET)\"",
+			"\t@printf \"\\n\"",
+			"\t@echo \"$(YELLOW)Compiling $(NAME)\"",
+			"\t",
+			"$(NAME): $(OBJ)\t",
+			"\t@$(CC) $(FLAGS) $(OBJ) -o $(NAME)",
+			"\t@echo \"$(GREEN)Finished\"",
+			"",
+			"$(OBJ): %.o: %.cpp",
+			"\t@$(CC) $(FLAGS) -c $<",
+			"",
+			"clean:",
+			"\t@printf \"\\n\"",
+			"\t@printf \"$(GREEN)    ____ $(RED)   _     _   \\n$(RESET)\"",
+			"\t@printf \"$(GREEN)   |  __|$(RED) _| |_ _| |_ \\n$(RESET)\"",
+			"\t@printf \"$(GREEN)   | |__ $(RED)|_   _|_   _|\\n$(RESET)\"",
+			"\t@printf \"$(GREEN)   |____|  $(RED)|_|   |_|  \\n$(RESET)\"",
+			"\t@printf \"$(GREEN)                      \\n$(RESET)\"",
+			"\t@printf \"\\n\"",
+			"\t@echo \"$(YELLOW) Deleting all objects\"",
+			"\t@$(RM) -r $(OBJ)",
+			"\t@echo \"$(GREEN) Objects deleted\"",
+			"",
+			"fclean: clean",
+			"\t@echo \"$(YELLOW) Deleting $(NAME)\"",
+			"\t@$(RM) -r $(NAME)",
+			"\t@echo \"$(GREEN) $(NAME) deleted\"",
+			"",
+			"re: fclean $(NAME)",
+			"",
+			".PHONY: all clean fclean re",
+		]
+	},
+}
+
+
+
+
