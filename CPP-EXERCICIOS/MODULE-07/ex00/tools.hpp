@@ -4,7 +4,7 @@
 
 template <typename T>
 
-void sort(T &value1, T &value2)
+void swap(T &value1, T &value2)
 {
     T temp = value1;
     value1 = value2;
