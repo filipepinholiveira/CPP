@@ -7,7 +7,7 @@ int main()
 {
     Base* obj = generate();
     identify(obj);
-    if (obj != NULL)
+    //if (obj != NULL)
         identify(*obj);
 
     // Testando com um ponteiro nulo

@@ -42,14 +42,36 @@ int main()
     uintptr_t serialized = Serializer::serialize(&myData);
 
     // Desserializa o ponteiro
-    Data* deserialized = Serializer::deserialize(serialized);
+    Data* deserialized = NULL;
 
     // Verifica se a desserialização retorna o ponteiro original
-    if (deserialized == &myData) {
+
+    std::cout << "ERRO PORQUE DESERIALIZED ACABA DE SER CRIADA: \n\n";
+
+    if (deserialized == &myData) 
+    {
         std::cout << "Serialização e desserialização bem-sucedidas!" << std::endl;
         std::cout << "ID: " << deserialized->_idade << std::endl;
         std::cout << "Nome: " << deserialized->_nome << std::endl;
-    } else {
+    } 
+    else 
+    {
+        std::cout << "Falha na serialização e desserialização\n." << std::endl;
+    }
+
+    deserialized = Serializer::deserialize(serialized);
+
+    std::cout << "SUCESSO PORQUE DESERIALIZED FOI EXECUTADA: \n\n";
+
+
+       if (deserialized == &myData) 
+       {
+        std::cout << "Serialização e desserialização bem-sucedidas!" << std::endl;
+        std::cout << "ID: " << deserialized->_idade << std::endl;
+        std::cout << "Nome: " << deserialized->_nome << std::endl;
+    } 
+    else 
+    {
         std::cout << "Falha na serialização e desserialização." << std::endl;
     }
 

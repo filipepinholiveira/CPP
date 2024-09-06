@@ -48,6 +48,19 @@ void    ScalarConverter::executeConvert(double num, char *end, int size)
         // std::cout << "NUM " << num << std::endl;
         // std::cout << "END " << end << std::endl;
 
+        /* 
+        
+        O static_cast em C++ é uma forma de conversão de tipo que realiza conversões entre tipos de dados, 
+        como conversões entre tipos primitivos, entre tipos de ponteiros e entre tipos de classe. 
+        A conversão é feita em tempo de compilação e é uma das formas mais seguras de conversão de tipos, 
+        com a condição de que o tipo de conversão seja válido e bem definido.
+
+        static_cast<long long int> é uma forma segura e eficiente de converter tipos numéricos e outros tipos 
+        de dados para long long int, desde que a conversão seja válida e não cause perda de dados. 
+        Para conversões que envolvem ponteiros e tipos não relacionados, é importante ser cauteloso e
+        considerar outras formas de conversão, como reinterpret_cast, e garantir que a conversão não leve a comportamentos indefinidos.
+
+        */
 
         if(std::isnan(num) || std::isinf(num) || num < 0 || num > 127)
             std::cout << "char: impossible" << std::endl; 
