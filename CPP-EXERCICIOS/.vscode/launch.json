@@ -8,9 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/workspaces/CPP/CPP-EXERCICIOS/MODULE-07/ex02",
-      "program": "/workspaces/CPP/CPP-EXERCICIOS/MODULE-07/ex02/Array
-",
+      "cwd": "/home/fpinho-d/42-PORTO/PROJETOS/CPP/CPP-EXERCICIOS/MODULE-07/ex02",
+      "program": "/home/fpinho-d/42-PORTO/PROJETOS/CPP/CPP-EXERCICIOS/MODULE-07/ex02/Array",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

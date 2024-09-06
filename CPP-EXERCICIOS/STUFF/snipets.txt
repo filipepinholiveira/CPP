@@ -75,8 +75,8 @@ MAKEFILE
 		"body": [
 			"SRC = ${1:sources}",
 			"OBJ = $(SRC:.cpp=.o)",
-			"CC = c++",
-			"FLAGS = -std=c++98 -g -Wall -Wextra -Werror",
+			"CXX = c++",
+			"CXXFLAGS = -std=c++98 -g -Wall -Wextra -Werror",
 			"RM = rm -rf",
 			"",
 			"NAME = ${2:program}",
@@ -101,11 +101,11 @@ MAKEFILE
 			"\t@echo \"$(YELLOW)Compiling $(NAME)\"",
 			"\t",
 			"$(NAME): $(OBJ)\t",
-			"\t@$(CC) $(FLAGS) $(OBJ) -o $(NAME)",
+			"\t@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)",
 			"\t@echo \"$(GREEN)Finished\"",
 			"",
 			"$(OBJ): %.o: %.cpp",
-			"\t@$(CC) $(FLAGS) -c $<",
+			"\t@$(CXX) $(CXXFLAGS) -c $<",
 			"",
 			"clean:",
 			"\t@printf \"\\n\"",
@@ -130,7 +130,3 @@ MAKEFILE
 		]
 	},
 }
-
-
-
-

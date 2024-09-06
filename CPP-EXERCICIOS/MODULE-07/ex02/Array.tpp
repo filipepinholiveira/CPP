@@ -33,7 +33,7 @@ Array<T> &Array<T>::operator=(Array const &source)
 {
     if (this != &source)
     {
-        delete [] _array;
+        //delete [] _array;
         _array = new T[_size];
         for (unsigned int i = 0; i < _size; i++)
             _array[i] = source._array[i];
