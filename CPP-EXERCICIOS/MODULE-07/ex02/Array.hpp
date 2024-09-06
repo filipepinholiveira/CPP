@@ -2,6 +2,7 @@
 #include <string>
 #include <string.h>
 #include <iostream>
+#include <stdexcept>
 
 
 template <typename T>

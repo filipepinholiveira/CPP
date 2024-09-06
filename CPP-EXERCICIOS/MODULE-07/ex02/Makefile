@@ -1,7 +1,7 @@
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
-CC = c++
-FLAGS = -std=c++98 -g -Wall -Wextra -Werror
+CXX = c++
+CXXFLAGS = -std=c++98 -g -Wall -Wextra -Werror
 RM = rm -rf
 
 NAME = Array
@@ -26,11 +26,11 @@ all: $(NAME)
 	@echo "$(YELLOW)Compiling $(NAME)"
 	
 $(NAME): $(OBJ)	
-	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(GREEN)Finished"
 
 $(OBJ): %.o: %.cpp
-	@$(CC) $(FLAGS) -c $<
+	@$(CXX) $(CXXFLAGS) -c $<
 
 clean:
 	@printf "\n"
@@ -40,14 +40,14 @@ clean:
 	@printf "$(GREEN)   |____|  $(RED)|_|   |_|  \n$(RESET)"
 	@printf "$(GREEN)                      \n$(RESET)"
 	@printf "\n"
-	@echo "$(YELLOW) Deleting all objects"
+	@printf "$(YELLOW) Deleting all objects"
 	@$(RM) -r $(OBJ)
-	@echo "$(GREEN) Objects deleted"
+	@printf "$(GREEN) Objects deleted"
 
 fclean: clean
-	@echo "$(YELLOW) Deleting $(NAME)"
-	@$(RM) -r $(NAME)
-	@echo "$(GREEN) $(NAME) deleted"
+	@printf "\n" "$(YELLOW) Deleting $(NAME)"
+	@$(RM) "\n" -r $(NAME)
+	@printf "\n" "$(GREEN) $(NAME) deleted"
 
 re: fclean $(NAME)
 
