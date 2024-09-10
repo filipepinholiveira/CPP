@@ -1,0 +1,23 @@
+
+
+
+No terminal, para ver em qual branch (ou "head") você está em um repositório Git, você pode usar o seguinte comando:
+
+bash
+Copy code
+git branch --show-current
+Esse comando mostrará o nome da branch ativa.
+
+Se você quiser mais informações sobre o commit exato, pode usar:
+
+bash
+Copy code
+git log --oneline -1
+Isso mostrará o último commit em um formato de linha única.
+
+
+
+
+
+
+

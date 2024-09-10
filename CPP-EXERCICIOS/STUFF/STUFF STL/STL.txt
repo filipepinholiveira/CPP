@@ -1,0 +1,4 @@
+
+STL -> Standard Template Library
+
+ALGORITHM -> Colection of functions of algorithms that are pre implemented and operate on colletions without more precision
