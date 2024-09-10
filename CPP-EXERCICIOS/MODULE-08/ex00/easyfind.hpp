@@ -19,7 +19,6 @@ typename T::const_iterator easyfind(T value1, int value2)
     std::list<int>::const_iterator              it = value1.begin();
     std::list<int>::const_iterator              ite = value1.end();
 
-    std::cout << "ITE: " << *ite << std::endl;
     if (std::find(it, ite, value2) == ite)
         throw NotValidInput();
     std::cout << "Encontrado o valor no Array!" << std::endl;
