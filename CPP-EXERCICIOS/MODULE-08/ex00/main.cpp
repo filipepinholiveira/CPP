@@ -13,7 +13,7 @@ int main()
     try
     {
         /* code */
-        easyfind(lst1, 1000);
+        easyfind(lst1, 17);
     }
     catch(const std::exception& e)
     {
