@@ -8,14 +8,14 @@ int main()
 
     lst1.push_back(1);
     lst1.push_back(17); 
-    //lst1.push_back(42);
+    lst1.push_back(42);
     lst1.push_back(4) ;
 
 
     try
     {
         /* code */
-        easyfind(lst1, 90000);
+        easyfind(lst1, 42);
     }
     catch(const std::exception& e)
     {

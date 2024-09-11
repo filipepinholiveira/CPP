@@ -21,6 +21,8 @@ typename T::const_iterator easyfind(T value1, int value2)
 
     if (std::find(it, ite, value2) == ite)
         throw NotValidInput();
-    std::cout << "Encontrado o valor no Array!" << std::endl;
+    //std::cout << "Encontrado o valor no Array!" << std::endl;
+    std::cout << "Encontrado o valor " << *it << " no Array na posicao: " << std::distance(it, ite) << std::endl;
+    //return std::distance(it, ite);
     return it;
 }
