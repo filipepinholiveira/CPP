@@ -1,8 +1,8 @@
 #include "Span.hpp"
 
-Span::Span(unsigned int nbr) : _myvector(nbr)
+Span::Span(unsigned int nbr) : _myvector(nbr), _currentIndex(0)
 {
-    std::fill(_myvector.begin(), _myvector.end(), 0);
+    //std::fill(_myvector.begin(), _myvector.end(), 0);
 }
 
 Span::~Span()
@@ -38,6 +38,62 @@ void    Span::PrintElements() const
         std::cout << *it << " ";
     }
     std::cout << std::endl;
+}
+
+void    Span::addNumber (int nbr)
+{
+    if (_currentIndex < _myvector.size())
+    {
+        _myvector[_currentIndex] = nbr;
+        _currentIndex++;
+    }
+    else
+        throw NotValidInput();
+    
+}
+
+int Span::shortestSpan()
+{
+    int shortValue = INT_MAX;
+
+    for (size_t i = 1; i < _myvector.size(); i++) 
+    {
+        // std:: cout << "Value 1: " << _myvector[i - 1] << std::endl;
+        // std:: cout << "Value 2: " << _myvector[i] << std::endl;
+        // std:: cout << "Diferenca: " << std::abs(_myvector[i - 1] - _myvector[i]) << std::endl;
+        // std::cout << "\n";
+
+        if (shortValue > std::abs(_myvector[i - 1] - _myvector[i]))
+           shortValue = std::abs(_myvector[i - 1] - _myvector[i]);
+
+    }
+
+    return shortValue;
+}
+
+int Span::longestSpan()
+{
+    int longValue = INT_MIN;
+
+    for (size_t i = 1; i < _myvector.size(); i++) 
+    {
+        // std:: cout << "Value 1: " << _myvector[i - 1] << std::endl;
+        // std:: cout << "Value 2: " << _myvector[i] << std::endl;
+        // std:: cout << "Diferenca: " << std::abs(_myvector[i - 1] - _myvector[i]) << std::endl;
+        // std::cout << "\n";
+
+        if (longValue < std::abs(_myvector[i] - _myvector[i - 1]))
+           longValue = std::abs(_myvector[i] - _myvector[i - 1]);
+
+    }
+
+    return longValue;
+}
+
+
+const char* Span::NotValidInput::what() const throw()
+{
+        return "Array is already full\n";
 }
 
 // std::ostream& operator<<(std::ostream& o, Span& value)
