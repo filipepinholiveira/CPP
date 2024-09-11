@@ -2,3 +2,88 @@
 STL -> Standard Template Library
 
 ALGORITHM -> Colection of functions of algorithms that are pre implemented and operate on colletions without more precision
+
+
+
+As bibliotecas <list>, <map>, e <vector> da STL (Standard Template Library) do C++ fornecem três tipos diferentes de contêineres 
+que servem a propósitos distintos e têm diferentes características em termos de estrutura de dados, acesso aos elementos e performance. 
+Aqui estão as principais diferenças entre eles:
+
+
+
+1. <list> (Lista Duplamente Encadeada)
+
+Estrutura de Dados: Implementada como uma lista duplamente encadeada, onde cada elemento é um nó 
+que armazena um valor e ponteiros para o nó anterior e o próximo.
+Acesso aos Elementos: Acesso sequencial; não há acesso direto por índice (como um array).
+Inserção e Remoção: Inserções e remoções são eficientes (O(1)) desde que feitas no início, fim, ou em uma posição conhecida. 
+Isso a torna ideal para situações onde a inserção/remoção frequente é necessária no meio da lista.
+Uso Típico: Usada quando você precisa inserir ou remover elementos com frequência e não precisa de acesso rápido a elementos por índice.
+
+Exemplo de Uso:
+
+std::list<int> mylist = {1, 2, 3, 4, 5};
+
+
+
+
+
+2. <map> (Árvore Binária de Busca / Mapa Associativo)
+
+Estrutura de Dados: Implementado como uma árvore binária balanceada (geralmente uma árvore Red-Black), 
+o que significa que os elementos são armazenados em ordem.
+Chave e Valor: Cada elemento em um map é um par chave-valor (std::pair), onde a chave é única e usada para acessar o valor associado.
+Acesso aos Elementos: Acesso eficiente (O(log n)) a elementos através da chave, mas não há acesso por índice numérico.
+Inserção e Remoção: Inserção, remoção e busca são realizadas em tempo O(log n) devido à estrutura de árvore balanceada.
+Uso Típico: Usada quando é necessário associar valores a chaves únicas, como um dicionário.
+
+Exemplo de Uso:
+
+std::map<int, std::string> mymap;
+mymap[1] = "one";
+mymap[2] = "two";
+
+
+
+
+
+
+3. <vector> (Vetor Dinâmico)
+
+Estrutura de Dados: Implementado como um array dinâmico, permitindo o armazenamento contíguo de elementos na memória.
+Acesso aos Elementos: Acesso direto (O(1)) aos elementos através de índices. Suporta operações como operator[] e at().
+Inserção e Remoção: Inserções e remoções no final do vetor são rápidas (O(1) amortizado), mas inserções/remoções 
+no início ou no meio do vetor podem ser custosas (O(n)), pois todos os elementos subsequentes precisam ser movidos.
+Uso Típico: Usado quando é necessário acesso rápido por índice e o tamanho dos dados pode crescer dinamicamente.
+
+Exemplo de Uso:
+
+std::vector<int> myvector = {1, 2, 3, 4, 5};
+
+
+
+
+Comparação Resumida:
+
+
+Característica	                   std::list	                        std::map	                            std::vector
+
+Estrutura	           Lista duplamente encadeada	         Árvore binária balanceada	               Array dinâmico contíguo
+Acesso	               Sequencial (O(n))	                 Chave (O(log n))               	       Índice (O(1))
+Inserção/Remoção	   Rápido no início/fim (O(1))	         Rápido (O(log n))	                       Rápido no fim (O(1))
+Ordenação	           Não ordenado	                         Mantém ordem pela chave	               Não ordenado
+Uso Típico         	   Inserção/remoção frequente	         Associação de chave-valor	               Acesso rápido por índice
+
+
+
+Cada um desses contêineres é mais adequado para diferentes tipos de problemas, 
+dependendo das necessidades de acesso, inserção/remoção e ordenação.
+
+
+
+
+
+
+
+
+
