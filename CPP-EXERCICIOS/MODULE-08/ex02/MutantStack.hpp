@@ -1,19 +1,24 @@
 #pragma once
 #include <iostream>
+#include <stack>
 
-
-class MutantStack
+template <typename T, typename C = std::deque<T> >
+class MutantStack : public std::stack<T, C> 
 {
     private:
 
     public:
-        MutantStack();
-        ~MutantStack();
 
-        MuMutantStacktantStack ( const &copy);
+        MutantStack(){};
+        ~MutantStack(){};
 
-        MutantStack &operMutantMutantStackStackator=( const &source);
+
+
+
+        // MutantStack (MutantStack const &copy);
+
+        // MutantStack &operator=(MutantStack const &source);
 
 };
 
-std::ostream& operator<<(std::ostream& o, MutantStack& value);
+// std::ostream& operator<<(std::ostream& o, MutantStack& value);

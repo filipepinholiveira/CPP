@@ -51,7 +51,8 @@
     "iomanip": "cpp",
     "sstream": "cpp",
     "cinttypes": "cpp",
-    "map": "cpp"
+    "map": "cpp",
+    "*.tpp": "c"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
