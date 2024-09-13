@@ -39,6 +39,3 @@ class Span
         
 };
 };
-
-
-// std::ostream& operator<<(std::ostream& o, Span& value);

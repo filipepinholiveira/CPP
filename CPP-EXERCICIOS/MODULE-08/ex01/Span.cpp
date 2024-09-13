@@ -56,18 +56,19 @@ int Span::shortestSpan()
 {
     int shortValue = INT_MAX;
 
-    for (size_t i = 1; i < _myvector.size(); i++) 
+    for (size_t i = 0; i < _myvector.size(); i++) 
     {
-        // std:: cout << "Value 1: " << _myvector[i - 1] << std::endl;
-        // std:: cout << "Value 2: " << _myvector[i] << std::endl;
-        // std:: cout << "Diferenca: " << std::abs(_myvector[i - 1] - _myvector[i]) << std::endl;
+        for (size_t j = i + 1; j < _myvector.size(); j++)
+        {
+        // std:: cout << "Value 1: " << _myvector[i] << std::endl;
+        // std:: cout << "Value 2: " << _myvector[j] << std::endl;
+        // std:: cout << "Diferenca: " << std::abs(_myvector[i] - _myvector[j]) << std::endl;
         // std::cout << "\n";
 
-        if (shortValue > std::abs(_myvector[i - 1] - _myvector[i]))
-           shortValue = std::abs(_myvector[i - 1] - _myvector[i]);
-
+        if (shortValue > std::abs(_myvector[i] - _myvector[j]))
+           shortValue = std::abs(_myvector[i] - _myvector[j]);
+        }
     }
-
     return shortValue;
 }
 
@@ -75,15 +76,19 @@ int Span::longestSpan()
 {
     int longValue = INT_MIN;
 
-    for (size_t i = 1; i < _myvector.size(); i++) 
+    for (size_t i = 0; i < _myvector.size(); i++) 
     {
+        for (size_t j = i + 1; j < _myvector.size(); j++)
+        {
         // std:: cout << "Value 1: " << _myvector[i - 1] << std::endl;
         // std:: cout << "Value 2: " << _myvector[i] << std::endl;
         // std:: cout << "Diferenca: " << std::abs(_myvector[i - 1] - _myvector[i]) << std::endl;
         // std::cout << "\n";
 
-        if (longValue < std::abs(_myvector[i] - _myvector[i - 1]))
-           longValue = std::abs(_myvector[i] - _myvector[i - 1]);
+        if (longValue < std::abs(_myvector[i] - _myvector[j]))
+           longValue = std::abs(_myvector[i] - _myvector[j]);
+
+        }
 
     }
 
@@ -96,8 +101,3 @@ const char* Span::NotValidInput::what() const throw()
         return "Array is already full\n";
 }
 
-// std::ostream& operator<<(std::ostream& o, Span& value)
-// {
-//     (void) value;
-//     return o;
-// }
