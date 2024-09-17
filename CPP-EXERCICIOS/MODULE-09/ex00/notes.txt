@@ -1,0 +1,103 @@
+
+
+--> o que e um functor?
+
+Um functor (ou função-objeto) é um objeto de uma classe que sobrecarrega o operador de função () em C++. 
+Isso permite que o objeto da classe seja chamado como se fosse uma função. A sobrecarga desse operador transforma a instância de uma classe em algo que se comporta como uma função, mas que pode armazenar estado, diferentemente de uma função comum.
+
+Por que usar functors?
+Armazenar estado: Um functor pode manter dados internos, o que não é possível com funções normais.
+Reutilizável: Functors podem ser usados em algoritmos da STL (como std::sort, std::find_if, etc.), substituindo lambdas (em versões antigas de C++) ou funções.
+Mais flexível que ponteiros para funções: Como os functors são objetos, eles podem ter membros e estados persistentes entre as chamadas.
+Exemplo de Functor Simples:
+Aqui está um exemplo simples de um functor que soma um valor constante a um número:
+
+
+#include <iostream>
+
+// Definição do functor
+class Adicionar 
+{
+    public:
+        // Construtor que define o valor a ser somado
+        Adicionar(int valor) : valor_(valor) {}
+
+        // Sobrecarga do operador de função ()
+        int operator()(int x) const {
+            return x + valor_;
+        }
+
+    private:
+        int valor_; // Armazena o valor a ser somado
+};
+
+int main() 
+{
+    // Cria um functor que adiciona 10
+    Adicionar adicionar10(10);
+
+    // Usa o functor como se fosse uma função
+    std::cout << "5 + 10 = " << adicionar10(5) << std::endl; // Saída: 15
+    std::cout << "3 + 10 = " << adicionar10(3) << std::endl; // Saída: 13
+
+    return 0;
+}
+
+Explicação:
+Classe Adicionar:
+
+A classe tem um membro privado valor_, que armazena o valor que será somado.
+O método operator() é sobrecarregado para aceitar um argumento e retornar a soma de x com o valor armazenado.
+Uso do functor:
+
+No main, criamos uma instância do functor adicionar10, que armazena 10.
+Podemos então chamar adicionar10(5), como se fosse uma função, e o functor adiciona 10 ao número fornecido.
+Comparação com funções tradicionais:
+Uma função tradicional não pode armazenar estado entre chamadas, mas um functor pode. Por exemplo, em uma função normal como esta:
+
+
+int adicionar(int x, int valor) 
+{
+    return x + valor;
+}
+Cada vez que você chama a função, precisa passar o valor adicional (valor), enquanto no functor o valor pode ser armazenado internamente.
+
+Exemplo de Functor usado em STL:
+Você pode usar functors com algoritmos da STL, como std::for_each, std::sort, etc. Por exemplo:
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+class ImprimirComIncremento 
+{
+public:
+    ImprimirComIncremento(int incremento) : incremento_(incremento) {}
+
+    void operator()(int x) const {
+        std::cout << x + incremento_ << " ";
+    }
+
+private:
+    int incremento_;
+};
+
+int main() {
+    std::vector<int> valores = {1, 2, 3, 4, 5};
+
+    // Aplica o functor a cada elemento do vetor
+    std::for_each(valores.begin(), valores.end(), ImprimirComIncremento(10));
+
+    return 0;
+}
+Explicação:
+ImprimirComIncremento: É um functor que armazena um incremento e imprime o valor de cada elemento do vetor somado a esse incremento.
+std::for_each: A função std::for_each aplica o functor a cada elemento do vetor.
+Vantagens dos Functors:
+Mais flexível que ponteiros de funções: Functors podem armazenar dados adicionais e manter estado.
+Compatível com a STL: Antes do C++11 (que introduziu lambdas), functors eram amplamente usados com algoritmos da STL.
+Reutilização e extensibilidade: Podem ser facilmente reutilizados em diferentes partes do código e estendidos com mais funcionalidades.
+Resumo:
+Um functor é um objeto que pode ser usado como função, porque sobrecarrega o operador (). 
+Isso permite armazenar estado ou lógica mais complexa do que seria possível em funções simples.
