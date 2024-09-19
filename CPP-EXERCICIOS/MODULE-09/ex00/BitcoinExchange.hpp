@@ -7,13 +7,14 @@
 #include <functional>
 #include <algorithm>
 #include <string.h>
+#include <sstream>  // Para usar stringstream
 
 class BitcoinExchange
 {
     private:
 
-        std::map<std::string, std::string> dadosTXT;
-        std::map<std::string, std::string> dadosCSV;
+        std::multimap<std::string, std::string> dadosTXT;
+        std::multimap<std::string, std::string> dadosCSV;
 
     public:
         BitcoinExchange();
@@ -30,7 +31,8 @@ class BitcoinExchange
         {
             ComparePair(const std::string& dataTXT) : _dataTXT(dataTXT) {}
 
-            bool operator()(const std::pair<std::string, std::string>& entryCSV) const {
+            bool operator()(const std::pair<std::string, std::string>& entryCSV) const 
+            {
                 return entryCSV.first == _dataTXT;
             }
 

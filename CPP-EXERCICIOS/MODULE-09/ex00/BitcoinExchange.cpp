@@ -18,7 +18,7 @@ BitcoinExchange::BitcoinExchange()
                 {
                     data.erase(data.find_last_not_of(" \n\r\t") + 1);
                     valor.erase(valor.find_last_not_of(" \n\r\t") + 1);
-                    dadosTXT[data] = valor; // Preenche o map com data e valor
+                    dadosTXT.insert(std::make_pair(data, valor));  // Preenche o map com data e valor
                     // std::cout << "A criar array com data: " << data << " e com value: " << valor << std::endl;
                 }
             }
@@ -41,7 +41,7 @@ BitcoinExchange::BitcoinExchange()
                 // Supondo que o CSV tem formato "date,value"
                 if (getline(ss, data, ',') && getline(ss, valor, ',')) 
                 {
-                    dadosCSV[data] = valor; // Preenche o map com data e valor
+                    dadosCSV.insert(std::make_pair(data, valor)); // Preenche o map com data e valor
                     // std::cout << "A criar array com data: " << data << " e com value: " << valor << std::endl;
                 }
             }
@@ -53,26 +53,53 @@ BitcoinExchange::BitcoinExchange()
         }
 }
 
+double stringToDouble(const std::string& str)
+{
+    std::stringstream ss(str);
+    double result;
+    ss >> result;
+    return result;
+}
+
+
 void BitcoinExchange::searchAndExchange()
 {
     for (std::map<std::string, std::string>::const_iterator itTXT = dadosTXT.begin(); itTXT != dadosTXT.end(); ++itTXT) 
     {
-        bool found = false;
-        ComparePair compare(itTXT->first); // Cria uma instância de ComparePair
-        for (std::map<std::string, std::string>::const_iterator itCSV = dadosCSV.begin(); itCSV != dadosCSV.end(); ++itCSV) 
+        std::map<std::string, std::string>::const_iterator itCSV = dadosCSV.lower_bound(itTXT->first);
+
+        if (itCSV != dadosCSV.end() && itCSV->first == itTXT->first)
         {
-            if (compare(*itCSV)) { // Usa o functor ComparePair para comparação
-                std::cout << "A data " << itTXT->first << " foi encontrada em dadosCSV com o valor " << itCSV->second 
-                          << ". Valor original em dadosTXT: " << itTXT->second << std::endl;
-                found = true;
-                break;
+            double valueTXT = stringToDouble(itTXT->second);
+            double valueCSV = stringToDouble(itCSV->second);
+            double result = valueTXT * valueCSV;
+            if (result < 0)
+            {
+                std::cerr << "Error:  not a positive number." << std::endl;
             }
+            else
+                std::cout << itTXT->first << " => " << itTXT->second << " * " << itCSV->second << " = " << result << std::endl;
         }
-        if (!found) {
-            std::cout << "A data " << itTXT->first << " não foi encontrada em dadosCSV." << std::endl;
+        else 
+        {
+            if (itCSV != dadosCSV.begin()) 
+            {
+                --itCSV;
+                double valueTXT = stringToDouble(itTXT->second);
+                double valueCSV = stringToDouble(itCSV->second);
+                double result = valueTXT * valueCSV;
+
+                std::cout << itTXT->first << " => " << itTXT->second << " * " << itCSV->second << " = " << result << std::endl;
+            }
+            else 
+            {
+                std::cout << "A data " << itTXT->first << " não foi encontrada nem há uma data anterior no CSV." << std::endl;
+            }
         }
     }
 }
+
+
 
 
 BitcoinExchange::~BitcoinExchange()
