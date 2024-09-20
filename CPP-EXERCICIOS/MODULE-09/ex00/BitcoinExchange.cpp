@@ -39,88 +39,52 @@ bool isDateValid(const std::string& date)
 
 BitcoinExchange::BitcoinExchange()
 {
-
-
-// Lê e preenche os dados do ficheiro .txt
-    std::ifstream ficheiroTXT("imput.txt");
-    if (ficheiroTXT.is_open()) 
-    {
+std::ifstream ficheiroTXT("imput.txt");
+    if (ficheiroTXT.is_open()) {
         std::string linhaTXT;
-        while (getline(ficheiroTXT, linhaTXT)) 
-        {
+        while (getline(ficheiroTXT, linhaTXT)) {
             std::stringstream ss(linhaTXT);
             std::string data, valor;
 
-            if (getline(ss, data, '|')) 
-            {
-                // Remove espaços em branco ao redor da data
+            if (getline(ss, data, '|')) {
                 data.erase(data.find_last_not_of(" \n\r\t") + 1);
-
-                // Tenta ler o valor, se falhar, define um valor padrão
-                if (getline(ss, valor)) 
-                {
+                if (getline(ss, valor)) {
                     valor.erase(valor.find_last_not_of(" \n\r\t") + 1);
+                    if (!isDateValid(data)) {
+                        dadosTXT.push_back(std::make_pair(data, "invalid_value"));
+                    } else {
+                        dadosTXT.push_back(std::make_pair(data, valor));
+                    }
+                } else {
+                    dadosTXT.push_back(std::make_pair(data, "0"));
                 }
-                else
-                {
-                    valor = "0";
-                }
-
-                // Verifica a validade da data antes de inserir
-                if (!isDateValid(data))
-                {
-                    std::cout << "Invalid date: " << data << std::endl;
-                    dadosTXT.insert(std::make_pair(data, data));  // Preenche o map com data e valor
-
-                    continue; // Ignora datas inválidas
-                }
-                else
-                // Insere os dados no map
-                    dadosTXT.insert(std::make_pair(data, valor));  // Preenche o map com data e valor
             }
         }
         ficheiroTXT.close();
-    } 
-    else 
-    {
+    } else {
         std::cerr << "Não foi possível abrir o ficheiro .txt." << std::endl;
     }
 
-    // Lê e preenche os dados do ficheiro .csv
     std::ifstream ficheiroCSV("data.csv");
-    if (ficheiroCSV.is_open()) 
-    {
+    if (ficheiroCSV.is_open()) {
         std::string linhaCSV;
-        while (getline(ficheiroCSV, linhaCSV)) 
-        {
+        while (getline(ficheiroCSV, linhaCSV)) {
             std::stringstream ss(linhaCSV);
             std::string data, valor;
 
-            // Supondo que o CSV tem formato "date,value"
-            if (getline(ss, data, ',') && getline(ss, valor)) 
-            {
-                // Remove espaços em branco ao redor dos dados e valores
+            if (getline(ss, data, ',') && getline(ss, valor)) {
                 data.erase(data.find_last_not_of(" \n\r\t") + 1);
                 valor.erase(valor.find_last_not_of(" \n\r\t") + 1);
-
-                // Verifica a validade da data antes de inserir
-                if (!isDateValid(data))
-                {
-                    std::cout << "Invalid date in CSV: " << data << std::endl;
-                    continue; // Ignora datas inválidas
+                if (!isDateValid(data)) {
+                    continue; 
                 }
-
-                // Insere os dados no map
-                dadosCSV.insert(std::make_pair(data, valor)); // Preenche o map com data e valor
+                dadosCSV.push_back(std::make_pair(data, valor));
             }
         }
         ficheiroCSV.close();
-    } 
-    else 
-    {
+    } else {
         std::cerr << "Não foi possível abrir o ficheiro .csv." << std::endl;
     }
-
 }
 
 double stringToDouble(const std::string& str)
@@ -134,65 +98,62 @@ double stringToDouble(const std::string& str)
 
 void BitcoinExchange::searchAndExchange()
 {
+        // Para ignorar a primeira linha
+        bool firstLine = true;
 
-    {
-    for (std::map<std::string, std::string>::const_iterator itTXT = dadosTXT.begin(); itTXT != dadosTXT.end(); ++itTXT) 
-    {
-        std::map<std::string, std::string>::const_iterator itCSV = dadosCSV.lower_bound(itTXT->first);
+for (std::list<std::pair<std::string, std::string> >::const_iterator itTXT = dadosTXT.begin(); itTXT != dadosTXT.end(); itTXT++) 
+{
 
-        // Exibe a data atual de itTXT
-        std::cout << "itFirst: " << itTXT->first << std::endl;
 
-        // Verifica se a data é válida
-        if (!isDateValid(itTXT->first))
+        
+    // Ignorar a primeira linha
+        if (firstLine) 
         {
-            std::cout << "Error: bad input => " << itTXT->first << std::endl;
-            continue; // Ignora esta iteração e passa para a próxima data
+            firstLine = false;
+            continue;
+        }
+        
+        
+        const std::string& dataTXT = itTXT->first;
+        const std::string& valorTXT = itTXT->second;
+
+        if (valorTXT == "invalid_value" || !isDateValid(dataTXT)) 
+        {
+            std::cout << "Error: bad input => " << dataTXT << std::endl;
+            continue;
         }
 
-        if (itCSV != dadosCSV.end() && itCSV->first == itTXT->first)
-        {
-            // Data exata encontrada
-            double valueTXT = stringToDouble(itTXT->second);
-            double valueCSV = stringToDouble(itCSV->second);
+        int value = atoi(valorTXT.c_str());
+        if ((value >= INT_MAX) || (value <= INT_MIN)) {
+            std::cout << "Error: too large a number" << std::endl;
+            continue;
+        }
+
+        // Encontra a data mais próxima no CSV
+        std::string lastValidValue;
+        bool found = false;
+
+        for (std::list<std::pair<std::string, std::string> >::const_iterator itCSV = dadosCSV.begin(); itCSV != dadosCSV.end(); ++itCSV) {
+            if (itCSV->first <= dataTXT) {
+                lastValidValue = itCSV->second;
+                found = true;
+            }
+        }
+
+        if (found) {
+            double valueTXT = stringToDouble(valorTXT);
+            double valueCSV = stringToDouble(lastValidValue);
             double result = valueTXT * valueCSV;
 
-            if (result < 0)
-            {
+            if (result < 0) {
                 std::cerr << "Error: not a positive number." << std::endl;
+            } else {
+                std::cout << dataTXT << " => " << valorTXT << " = " << result << std::endl;
             }
-            else
-            {
-                std::cout << itTXT->first << " => " << itTXT->second << " * " << itCSV->second << " = " << result << std::endl;
-            }
-        }
-        else 
-        {
-            // Data exata não encontrada, tentar encontrar a data anterior
-            if (itCSV != dadosCSV.begin()) 
-            {
-                --itCSV; // Retrocede para a data anterior mais próxima
-                double valueTXT = stringToDouble(itTXT->second);
-                double valueCSV = stringToDouble(itCSV->second);
-                double result = valueTXT * valueCSV;
-
-                if (result < 0)
-                {
-                    std::cerr << "Error: not a positive number." << std::endl;
-                }
-                else
-                {
-                    std::cout << itTXT->first << " => " << itTXT->second << " * " << itCSV->second << " = " << result << std::endl;
-                }
-            }
-            else 
-            {
-                std::cout << "A data " << itTXT->first << " não foi encontrada nem há uma data anterior no CSV." << std::endl;
-            }
+        } else {
+            std::cout << "A data " << dataTXT << " não foi encontrada nem há uma data anterior no CSV." << std::endl;
         }
     }
-}
-    
 }
 
 

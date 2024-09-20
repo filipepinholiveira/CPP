@@ -2,7 +2,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <map>
+#include <list>
+#include <limits>
+#include <limits.h>
 #include <sstream>
 #include <functional>
 #include <algorithm>
@@ -13,8 +15,8 @@ class BitcoinExchange
 {
     private:
 
-        std::multimap<std::string, std::string> dadosTXT;
-        std::multimap<std::string, std::string> dadosCSV;
+        std::list<std::pair<std::string, std::string> > dadosTXT;
+        std::list<std::pair<std::string, std::string> > dadosCSV;
 
     public:
         BitcoinExchange();
