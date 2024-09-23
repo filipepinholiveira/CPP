@@ -1,12 +1,8 @@
 #pragma once
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <list>
-#include <limits>
 #include <limits.h>
-#include <sstream>
-#include <functional>
 #include <algorithm>
 #include <string.h>
 #include <sstream>  // Para usar stringstream
