@@ -45,17 +45,29 @@ bool isDateValid(const std::string& date)
     return true;
 }
 
-bool isNumeric(const std::string& str) 
+bool containsOnlyDigits(const char *str) 
 {
-    for (size_t i = 0; i < str.length(); ++i) 
+    // std::cout << "Entrada em contains only digist: " << str << std::endl;
+    int pointflag = 0;
+    int i = 1;
+    while (str[i]) 
     {
-        // Usar static_cast<int> em vez de unsigned char
-        if (!isdigit(static_cast<int>(str[i]))) 
+        if (str[i] == '.')
+            pointflag++;
+        if (pointflag > 1)
+            return false;
+        if (str[i] == ' ' || str[i] == '\t' || str[i] == '-' || str[i] == '.')
+            i++;
+        //std::cout << "Char: " << str[i] << std::endl;
+        if (!isdigit(str[i]))
         {
-            return false; // Retorna falso se encontrar um caractere não numérico
+            // std::cout << "Retornou falso" << std::endl;
+            return false;
         }
+        i++;
     }
-    return true; // Retorna verdadeiro se todos os caracteres forem dígitos
+    // std::cout << "Retornou verdadeiro" << std::endl;
+    return true;
 }
 
 
@@ -71,29 +83,33 @@ std::ifstream ficheiroTXT("input.txt");
         {
             std::stringstream ss(linhaTXT);
             std::string data, valor;
-            const char * verifyvalue;
+            // const char * verifyvalue;
 
             if (getline(ss, data, '|'))
             {
                 data.erase(data.find_last_not_of(" \n\r\t") + 1);
                 if (getline(ss, valor)) 
                 {
-                    verifyvalue = valor.c_str();
-                    //valor.erase(valor.find_last_not_of(" \n\r\t") + 1);
-                    std::cout << "Valor" << valor << std::endl;
-                    std::cout << "Is numereic: " << isNumeric(valor) << std::endl;
-                    // std::cout << "Valor 1: " << valor[1] << std::endl;
-                    // std::cout << "Valor 2: " << valor[2] << std::endl;
-                    //std::cout << "Valor erro 0: " << atoi(verifyvalue) << std::endl;
-                    // std::cout << "Valor erro 1: " << isdigit(valor[1]) << std::endl;
-                    // std::cout << "Valor erro: 2" << isdigit(valor[2]) << std::endl;
-                    if ((atoi(verifyvalue) == 0 && isDateValid(data)) /*||!isNumeric(valor)*/)
+                    // std::cout << "Valor: " << valor << std::endl;
+                    //verifyvalue = valor.c_str();
+                    if (data == "date")
                     {
-                        //std::cout << "Tem que dar erro" << std::endl;
-                        std::cout << "Error: bad input => " << data << std::endl;
                         continue;
-
                     }
+                    
+                    // if (((atoi(verifyvalue) == 0 && isDateValid(data))))/*|| !containsOnlyDigits(verifyvalue))*/
+                    // {
+                    //     //std::cout << "Tem que dar erro" << std::endl;
+                    //     std::cout << "Error: bad input => " << data << std::endl;
+                    //     continue;
+
+                    // }
+                    
+                    // if (!containsOnlyDigits(verifyvalue))
+                    // {
+                    //     std::cout << "Error: bad input => " << data << std::endl;
+                    //     continue;
+                    // }
 
                     else if (!isDateValid(data)) 
                     {
@@ -158,9 +174,9 @@ double stringToDouble(const std::string& str)
 void BitcoinExchange::searchAndExchange()
 {
         // To skip the first line
-        //bool firstLine = true;
+        // bool firstLine = true;
 
-    for (std::list<std::pair<std::string, std::string> >::const_iterator itTXT = dadosTXT.begin(); itTXT != dadosTXT.end(); itTXT++) 
+    for (std::list<std::pair<std::string, std::string> >::const_iterator itTXT = dadosTXT.begin(); itTXT != dadosTXT.end(); ++itTXT) 
     {
 
 
@@ -175,6 +191,8 @@ void BitcoinExchange::searchAndExchange()
         
         const std::string& dataTXT = itTXT->first;
         const std::string& valorTXT = itTXT->second;
+        const char * verifyvalue;
+        verifyvalue = valorTXT.c_str();
         //std::cout << "DataTXT: " << dataTXT << std::endl;
 
         if (dataTXT == "date") 
@@ -183,7 +201,21 @@ void BitcoinExchange::searchAndExchange()
             continue; // Ignora a linha com "date"
         }
 
-        else if (valorTXT == "invalid_value" || !isDateValid(dataTXT)) 
+        if (((atoi(verifyvalue) == 0 && isDateValid(dataTXT))))/*|| !containsOnlyDigits(verifyvalue))*/
+        {
+            //std::cout << "Tem que dar erro" << std::endl;
+            std::cout << "Error: bad input => " << dataTXT << std::endl;
+            continue;
+
+        }
+
+        if (!containsOnlyDigits(verifyvalue))
+        {
+            std::cout << "Error: bad input => " << dataTXT << std::endl;
+            continue;
+        }
+
+        if (valorTXT == "invalid_value" || !isDateValid(dataTXT)) 
         {
             std::cout << "Error: bad input => " << dataTXT << std::endl;
             continue;
@@ -201,19 +233,23 @@ void BitcoinExchange::searchAndExchange()
         std::string lastValidValue;
         bool found = false;
 
-        for (std::list<std::pair<std::string, std::string> >::const_iterator itCSV = dadosCSV.begin(); itCSV != dadosCSV.end(); ++itCSV) {
-            if (itCSV->first <= dataTXT) {
+        for (std::list<std::pair<std::string, std::string> >::const_iterator itCSV = dadosCSV.begin(); itCSV != dadosCSV.end(); ++itCSV) 
+        {
+            if (itCSV->first <= dataTXT) 
+            {
                 lastValidValue = itCSV->second;
                 found = true;
             }
         }
 
-        if (found) {
+        if (found) 
+        {
             double valueTXT = stringToDouble(valorTXT);
             double valueCSV = stringToDouble(lastValidValue);
             double result = valueTXT * valueCSV;
 
-            if (result < 0) {
+            if (result < 0) 
+            {
                 std::cerr << "Error: not a positive number." << std::endl;
             } 
             else 
