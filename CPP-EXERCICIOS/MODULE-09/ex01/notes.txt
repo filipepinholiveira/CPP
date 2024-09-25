@@ -1,0 +1,45 @@
+
+std::stack é um contêiner adaptador da STL (Standard Template Library) 
+do C++ que segue o princípio LIFO (Last In, First Out), ou seja, o último elemento a ser inserido é o primeiro a ser removido. 
+Ele fornece uma interface simples para manipulação de uma pilha de dados, utilizando outro contêiner subjacente, 
+como std::deque (o padrão), std::vector ou std::list, para armazenar os elementos.
+
+Aqui estão alguns dos métodos mais comuns da std::stack:
+
+Métodos principais:
+push(const T& val): Insere um novo elemento no topo da pilha.
+pop(): Remove o elemento no topo da pilha.
+top(): Acessa o elemento no topo da pilha.
+empty(): Retorna true se a pilha estiver vazia, caso contrário, retorna false.
+size(): Retorna o número de elementos na pilha.
+Exemplo de uso:
+cpp
+Copy code
+#include <iostream>
+#include <stack>
+
+int main() {
+    std::stack<int> s;
+
+    s.push(10);  // Insere o valor 10 no topo da pilha
+    s.push(20);  // Insere o valor 20 no topo da pilha
+
+    std::cout << "Topo da pilha: " << s.top() << std::endl;  // Mostra 20
+
+    s.pop();  // Remove o valor 20
+
+    std::cout << "Novo topo da pilha: " << s.top() << std::endl;  // Mostra 10
+
+    std::cout << "Tamanho da pilha: " << s.size() << std::endl;  // Mostra 1
+
+    return 0;
+}
+Características:
+LIFO: O último elemento inserido é o primeiro a ser removido.
+Não permite acesso a elementos internos diretamente, exceto o topo da pilha (top).
+Operações push, pop e top são geralmente muito rápidas (O(1)).
+Você pode customizar a pilha com outro contêiner subjacente, como std::deque ou std::list, passando como template:
+
+cpp
+Copy code
+std::stack<int, std::vector<int>> s;  // Pilha baseada em vector
