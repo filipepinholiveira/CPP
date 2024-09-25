@@ -169,7 +169,7 @@ void BitcoinExchange::searchAndExchange()
         }
 
         int value = atoi(valorTXT.c_str());
-        if ((value >= INT_MAX) || (value <= INT_MIN)) 
+        if ((value >= 1001) || (value <= INT_MIN)) 
         {
             std::cout << "Error: too large a number" << std::endl;
             continue;
