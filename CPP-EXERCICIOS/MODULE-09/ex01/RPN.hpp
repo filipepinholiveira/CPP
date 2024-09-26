@@ -5,6 +5,7 @@
 #include <sstream>
 #include <stdlib.h>
 #include <algorithm>
+#include <exception>
 
 class RPN
 {
@@ -21,6 +22,12 @@ class RPN
         RPN &operator=(RPN const &source);
 
         void    executeOperation(std::string info);
+
+        class NotValidInput : public std::exception
+        {
+                public:
+                virtual const char* what() const throw();
+        };
 
 };
 

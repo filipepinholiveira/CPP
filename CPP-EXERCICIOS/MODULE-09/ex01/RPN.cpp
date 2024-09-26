@@ -97,6 +97,12 @@ void RPN::executeOperation(std::string info)
     }
 }
 
+const char* RPN::NotValidInput::what() const throw()
+{
+        return "Error\n";
+}
+
+
 std::ostream& operator<<(std::ostream& o, RPN& value)
 {
     (void) value;

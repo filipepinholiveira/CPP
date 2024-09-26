@@ -4,6 +4,7 @@ bool validInput(const char *str)
 {
     int operandFlag = 0;
     int operatorFlag = 0;
+    bool orderFlag = true;
     int i = 0;
     const char *value;
 
@@ -19,9 +20,16 @@ bool validInput(const char *str)
         if (atoi(value) > 10)
             return false;
         if (isdigit(str[i]))
+        {
+            if(orderFlag == false)
+                return false;
             operandFlag++;
-        else 
+        }
+        else
+        {
+            orderFlag = false;
             operatorFlag++;
+        }
         i++;
     }
     if (operandFlag <= operatorFlag)
@@ -49,9 +57,17 @@ int main(int argc, char **argv)
         std::cerr << "Error" << std::endl;
         return 1;
     }
-
-    RPN createdStack;
-    createdStack.executeOperation(argv[1]);
+    try
+    {
+        /* code */
+        RPN createdStack;
+        createdStack.executeOperation(argv[1]);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
 
     return 0;
 }
