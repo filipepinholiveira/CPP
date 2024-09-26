@@ -38,10 +38,11 @@ void RPN::executeOperation(std::string info)
         // Lógica para processar 'infoRead'
         for (size_t i = 0; i < infoRead.size(); i++)
         {   
-            if (infoRead[i] != 'x' && infoRead[i] != '+')
+            if (infoRead[i] != 'x' && infoRead[i] != '+' && infoRead[i] != ' ')
             {
                 std::cout << "Caracter: " << infoRead[i] << std::endl;
-                _stack.pop();
+                _stack.push(infoRead[i] - 48);
+                std::cout << "Value in top of stack: " << _stack.top() << std::endl;
                 operandFlag++;
             }
         }
