@@ -11,28 +11,36 @@ bool validInput(const char *str)
     while (str[i]) 
     {
         value = &str[i];
-        if (str[i] == ' ' || str[i] == '\t' || str[i] == '-' /*|| str[i] == '.'*/)
+        if (str[i] == ' ' || str[i] == '\t' || str[i] == '-')
             i++;
         if (!isdigit(str[i]) && str[i] != '*' && str[i] != '+' && str[i] != '/' && str[i] != '-')
         {
             return false;
         }
-        if (atoi(value) > 10)
-            return false;
         if (isdigit(str[i]))
         {
             if(orderFlag == false)
                 return false;
             operandFlag++;
+            if (atoi(value) > 10)
+                return false;
         }
         else
         {
-            orderFlag = false;
             operatorFlag++;
+            if (operandFlag <= operatorFlag)
+                orderFlag = false;
         }
         i++;
     }
     if (operandFlag <= operatorFlag)
+        return false;
+    if (operandFlag)
+    {
+        if (operandFlag - 1 != operatorFlag)
+            return false;
+    }
+    if (operatorFlag == 0)
         return false;
     return true;
 }

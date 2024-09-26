@@ -68,6 +68,8 @@ void RPN::executeOperation(std::string info)
                     _stack.pop();
                     newValueTop = _stack.top();
                     _stack.pop();
+                    if (valueTop == 0)
+                        throw NotValidInput();
                     result = newValueTop / valueTop;
                     _stack.push(result);
                 }
@@ -99,7 +101,7 @@ void RPN::executeOperation(std::string info)
 
 const char* RPN::NotValidInput::what() const throw()
 {
-        return "Error\n";
+        return "Error";
 }
 
 
