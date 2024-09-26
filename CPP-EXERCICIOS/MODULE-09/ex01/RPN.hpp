@@ -3,6 +3,8 @@
 #include <stack>
 #include <string>
 #include <sstream>
+#include <stdlib.h>
+#include <algorithm>
 
 class RPN
 {

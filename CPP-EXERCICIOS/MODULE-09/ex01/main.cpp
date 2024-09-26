@@ -5,27 +5,25 @@ bool validInput(const char *str)
     int operandFlag = 0;
     int operatorFlag = 0;
     int i = 0;
+    const char *value;
 
     while (str[i]) 
     {
-        // if (str[i] == '.')
-        //     pointflag++;
-        // if (pointflag > 1)
-        //     return false;
+        value = &str[i];
         if (str[i] == ' ' || str[i] == '\t' || str[i] == '-' /*|| str[i] == '.'*/)
             i++;
-        if (!isdigit(str[i]) && str[i] != 'x' && str[i] != '+' && str[i] != ':' && str[i] != '-')
+        if (!isdigit(str[i]) && str[i] != '*' && str[i] != '+' && str[i] != '/' && str[i] != '-')
         {
             return false;
         }
+        if (atoi(value) > 10)
+            return false;
         if (isdigit(str[i]))
             operandFlag++;
         else 
             operatorFlag++;
         i++;
     }
-    std::cout << "Operand nbr: " << operandFlag << std::endl;
-    std::cout << "Operator nbr: " << operatorFlag << std::endl;
     if (operandFlag <= operatorFlag)
         return false;
     return true;
@@ -42,17 +40,15 @@ int main(int argc, char **argv)
 
     if (argv[1] == NULL)
     {
-        std::cerr << "Need valid input" << std::endl;
+        std::cerr << "Error" << std::endl;
         return 1;
     }
 
     if (!validInput(argv[1]))
     {
-        std::cerr << "Need valid input" << std::endl;
+        std::cerr << "Error" << std::endl;
         return 1;
     }
-
-
 
     RPN createdStack;
     createdStack.executeOperation(argv[1]);

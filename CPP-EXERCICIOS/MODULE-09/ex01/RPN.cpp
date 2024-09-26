@@ -18,41 +18,82 @@ RPN &RPN::operator=(RPN const &source)
 {
     if (this != &source)
     {
-         //copy definition
+        // Clears the current stack
+        std::stack<int> empty;  // ou o tipo apropriado do stack
+        std::swap(this->_stack, empty);
+
+        
+        // Now copy the content from 'source' to the stack
+        this->_stack = source._stack;
     }
     return *this;
 }
 
 void RPN::executeOperation(std::string info)
 {
-    
+
+    int valueTop;
+    int newValueTop;
+    int result;
+
     std::string infoRead;
 
-    // Cria um fluxo a partir da string 'info'
+    // Creates a stream from the string 'info'
     std::istringstream iss(info);
 
-    // Use std::getline para ler do fluxo baseado na string 'info'
-    while (std::getline(iss, infoRead, '\0')) // Aqui você pode alterar o delimitador se necessário
+    // Use std::getline to read from the stream based on the string 'info'
+    while (std::getline(iss, infoRead, '\0'))
     {
-        // Lógica para processar 'infoRead'
+        // Lógic to process 'infoRead'
         for (size_t i = 0; i < infoRead.size(); i++)
         {   
-            if (infoRead[i] != 'x' && infoRead[i] != '+' && infoRead[i] != ' ' && infoRead[i] != ':' && infoRead[i] != '-')
+            if (infoRead[i] != '*' && infoRead[i] != '+' && infoRead[i] != ' ' && infoRead[i] != '/' && infoRead[i] != '-')
             {
-                std::cout << "Caracter: " << infoRead[i] << std::endl;
                 _stack.push(infoRead[i] - 48);
-                std::cout << "Value in top of stack: " << _stack.top() << std::endl;
-                //operandFlag++;
             }
             else
             {
-                if (infoRead[i] != ' ')
-                std::cout << "Operator: " << infoRead[i] << std::endl;
-                //operatorFlag++
+                if (infoRead[i] == '*')
+                {
+                        valueTop = _stack.top();
+                        _stack.pop();
+                        newValueTop = _stack.top();
+                        _stack.pop();
+                        result = newValueTop *  valueTop;
+                        _stack.push(result);
+                }
+                else if (infoRead[i] == '/')
+                {
+                    valueTop = _stack.top();
+                    _stack.pop();
+                    newValueTop = _stack.top();
+                    _stack.pop();
+                    result = newValueTop / valueTop;
+                    _stack.push(result);
+                }
+                else if (infoRead[i] == '+')
+                {
+                    valueTop = _stack.top();
+                    _stack.pop();
+                    newValueTop = _stack.top();
+                    _stack.pop();
+                    result = valueTop + newValueTop;
+                    _stack.push(result);
+                }
+                else if (infoRead[i] == '-')
+                {
+                    valueTop = _stack.top();
+                    _stack.pop();
+                    newValueTop = _stack.top();
+                    _stack.pop();
+                    result = newValueTop - valueTop;
+                    _stack.push(result);
+                }
+                
             }
         }
         
-        std::cout << "Lido: " << infoRead << std::endl;
+        std::cout << _stack.top() << std::endl;
     }
 }
 
