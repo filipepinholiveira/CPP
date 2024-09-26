@@ -25,8 +25,7 @@ RPN &RPN::operator=(RPN const &source)
 
 void RPN::executeOperation(std::string info)
 {
-    int operandFlag = 0;
-    // int operatorFlag = 0;
+    
     std::string infoRead;
 
     // Cria um fluxo a partir da string 'info'
@@ -38,12 +37,18 @@ void RPN::executeOperation(std::string info)
         // Lógica para processar 'infoRead'
         for (size_t i = 0; i < infoRead.size(); i++)
         {   
-            if (infoRead[i] != 'x' && infoRead[i] != '+' && infoRead[i] != ' ')
+            if (infoRead[i] != 'x' && infoRead[i] != '+' && infoRead[i] != ' ' && infoRead[i] != ':' && infoRead[i] != '-')
             {
                 std::cout << "Caracter: " << infoRead[i] << std::endl;
                 _stack.push(infoRead[i] - 48);
                 std::cout << "Value in top of stack: " << _stack.top() << std::endl;
-                operandFlag++;
+                //operandFlag++;
+            }
+            else
+            {
+                if (infoRead[i] != ' ')
+                std::cout << "Operator: " << infoRead[i] << std::endl;
+                //operatorFlag++
             }
         }
         

@@ -1,23 +1,33 @@
 #include "RPN.hpp"
 
-bool containsOnlyDigits(const char *str) 
+bool validInput(const char *str) 
 {
-    //int pointflag = 0;
-    int i = 1;
+    int operandFlag = 0;
+    int operatorFlag = 0;
+    int i = 0;
+
     while (str[i]) 
     {
         // if (str[i] == '.')
         //     pointflag++;
         // if (pointflag > 1)
         //     return false;
-        if (str[i] == ' ' || str[i] == '\t' || str[i] == '-' || str[i] == '.')
+        if (str[i] == ' ' || str[i] == '\t' || str[i] == '-' /*|| str[i] == '.'*/)
             i++;
-        if (!isdigit(str[i]) && str[i] != 'x' && str[i] != '+')
+        if (!isdigit(str[i]) && str[i] != 'x' && str[i] != '+' && str[i] != ':' && str[i] != '-')
         {
             return false;
         }
+        if (isdigit(str[i]))
+            operandFlag++;
+        else 
+            operatorFlag++;
         i++;
     }
+    std::cout << "Operand nbr: " << operandFlag << std::endl;
+    std::cout << "Operator nbr: " << operatorFlag << std::endl;
+    if (operandFlag <= operatorFlag)
+        return false;
     return true;
 }
 
@@ -36,7 +46,7 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    if (!containsOnlyDigits(argv[1]))
+    if (!validInput(argv[1]))
     {
         std::cerr << "Need valid input" << std::endl;
         return 1;
